@@ -1,0 +1,15 @@
+## Directory-based project format
+.idea/
+*.ipr
+*.iml
+*.iws
+
+## Additional for IntelliJ
+out/
+log/
+
+## Compiler output
+target/
+
+## All classes are generated
+src/main/java/com
