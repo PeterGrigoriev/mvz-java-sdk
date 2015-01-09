@@ -1,0 +1,12 @@
+<config>
+    <movilizer>
+        <movelet>
+            <namespace>TEST_NAMESPACE</namespace>
+            <root-category>
+                <name>TEST_CATEGORY</name>
+                <icon>12</icon>
+            </root-category>
+            <masterdata-system-id>54321</masterdata-system-id>
+        </movelet>
+    </movilizer>
+</config>

@@ -1,0 +1,4 @@
+[
+    {"eventId":1, "eventType":"Create", "id":"1", "fieldOne":12, "fieldTwo":"ABC", "group": "groupOne", "description":"firstRecord"},
+    {"eventId":2, "eventType":"Create", "id":"2", "fieldOne":21, "fieldTwo":"CBA", "group": "groupOne", "description":"secondRecord"}
+]

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<MovilizerResponse xmlns:ns2="http://movilitas.com/movilizer/v11" currentServerTime="2014-11-23T13:51:15.204Z"
+                   systemId="502810010">
+    <ns2:masterdataAck isReference="false" masterdataAckKey="ackOne" timestamp="2014-11-23T13:51:15.167Z"
+                       group="groupTwo" key="1" pool="poolOne"/>
+    <ns2:masterdataAck isReference="false" masterdataAckKey="ackTwo" timestamp="2014-11-23T13:51:15.194Z"
+                       group="groupThree" key="2" pool="poolOne"/>
+</MovilizerResponse>

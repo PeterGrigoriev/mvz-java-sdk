@@ -1,0 +1,98 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style lang="text/css">
+        html, body { margin:0; padding:0; width:100%; height:100%; }
+
+        #Wrapper { width:500px; margin:30px auto 0; border:1px solid black; background-color:#d1d1d1; }
+
+        #Graphheader { text-align:center; }
+
+        #BarArea { height:400px; width:100%; }
+
+        #Timeline { height:30px; width:100%; border-top:1px solid black; }
+
+        .barwrapper { float:left; position:relative; height:100%; width:16.5%; text-align:center; }
+
+        .bar { position:absolute; bottom:0; left:33%; width:33%; border-radius:8px 8px 0 0; }
+
+        .bar1 { height:300px; background-color:Red; }
+
+        .bar2 { height:240px; background-color:Yellow; }
+
+        .bar3 { height:380px; background-color:Green; }
+
+        .bar4 { height:120px; background-color:Blue; }
+
+        .bar5 { height:170px; background-color:Purple; }
+
+        .bar6 { height:230px; background-color:Orange; }
+
+        .bar span { display:block; font-size:24px; position:absolute; top:-25px; left:50%; margin-left:-12px; font-weight:bold; }
+
+        .timewrapper { float:left; position:relative; width:16.5%; text-align:center; height:auto; }
+
+        .timewrapper span { font-size:24px; font-weight:bold; padding-top:5px; }
+    </style>
+</head>
+<body>
+<div id="Wrapper">
+    <div id="Graphheader">
+        <h1>Bar charts</h1>
+    </div>
+    <div id="BarArea">
+        <div class="barwrapper">
+            <div class="bar bar1">
+                <span>30</span>
+            </div>
+        </div>
+        <div class="barwrapper">
+            <div class="bar bar2">
+                <span>24</span>
+            </div>
+        </div>
+        <div class="barwrapper">
+            <div class="bar bar3">
+                <span>38</span>
+            </div>
+        </div>
+        <div class="barwrapper">
+            <div class="bar bar4">
+                <span>12</span>
+            </div>
+        </div>
+        <div class="barwrapper">
+            <div class="bar bar5">
+                <span>17</span>
+            </div>
+        </div>
+        <div class="barwrapper">
+            <div class="bar bar6">
+                <span>23</span>
+            </div>
+        </div>
+    </div>
+    <div id="Timeline">
+        <div class="timewrapper">
+            <span>Jan</span>
+        </div>
+        <div class="timewrapper">
+            <span>Feb</span>
+        </div>
+        <div class="timewrapper">
+            <span>Mar</span>
+        </div>
+        <div class="timewrapper">
+            <span>Apr</span>
+        </div>
+        <div class="timewrapper">
+            <span>May</span>
+        </div>
+        <div class="timewrapper">
+            <span>Jun</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

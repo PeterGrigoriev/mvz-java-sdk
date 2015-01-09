@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+#* @vtlvariable name="context" type="com.movilizer.util.examples.charts.IChartData" *#
+#* @vtlvariable name="utils" type="com.movilizer.util.MovilizerTemplateUtils" *#
+#* @vtlvariable name="local" type="java.lang.String" *#
+#* @vtlvariable name="global" type="java.lang.String" *#
+#* @vtlvariable name="answer" type="java.lang.String" *#
+#* @vtlvariable name="base64" type="java.lang.String" *#
+#* @vtlvariable name="customizing" type="java.lang.String" *#
+<movelet xmlns="http://movilitas.com/movilizer/v11"
+                  moveletKey="ChartsOnWM"
+                  moveletKeyExtension="$context.MoveletKeyExtension"
+                  namespace="$context.Namespace"
+                  name="Charts on Windows Mobile"
+                  moveletType="MULTI"
+                  visible="true"
+                  initialQuestionKey="Q0"
+                  icon="61">
+
+    <question type="0" title="Welcome to the past.." key="Q0">
+        <answer position="1" nextQuestionKey="Q1" key="Q0A1">
+            <text>This Windows Mobile movelet demonstrates
+- colored table
+- bar charts
+</text>
+        </answer>
+        <onEnterAssignment><![CDATA[$context.saveFilesOnDevice("bar-chart-css.html", "table.html")]]>
+        </onEnterAssignment>
+    </question>
+
+    <!-- HTML View  for Line Chart -->
+    <question type="12" title="Table with Colors" key="Q1" backNavigationAllowed="false">
+        <answer nextQuestionKey="Q2" key="A_WEB_VIEW_TABLE" dummyAnswer="false">
+            <text>%URL%</text>
+        </answer>
+        <onEnterAssignment>
+            setPlaceholder("%URL%", $context.getLocalFilePath("table.html"));
+        </onEnterAssignment>
+    </question>
+
+    <question type="12" title="Bar Chart" key="Q2" backNavigationAllowed="false">
+        <answer nextQuestionKey="END" key="A_WEB_VIEW_BAR" dummyAnswer="false">
+            <text>%URL%</text>
+        </answer>
+        <onEnterAssignment>
+            setPlaceholder("%URL%", $context.getLocalFilePath("bar-chart-css.html"));
+        </onEnterAssignment>
+    </question>
+
+</movelet>

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+#* @vtlvariable name="context" type="com.movilizer.util.examples.charts.IChartData" *#
+#* @vtlvariable name="utils" type="com.movilizer.util.MovilizerTemplateUtils" *#
+#* @vtlvariable name="local" type="java.lang.String" *#
+#* @vtlvariable name="global" type="java.lang.String" *#
+#* @vtlvariable name="answer" type="java.lang.String" *#
+#* @vtlvariable name="base64" type="java.lang.String" *#
+#* @vtlvariable name="customizing" type="java.lang.String" *#
+<MovilizerMovelet xmlns="http://movilitas.com/movilizer/v10"
+                  moveletKey="JavaConnectorDemo"
+                  moveletKeyExtension="$context.MoveletKeyExtension"
+                  namespace="$context.Namespace"
+                  name="HTML5 Demo"
+                  moveletType="MULTI"
+                  visible="true"
+                  initialQuestionKey="Q0"
+                  icon="81">
+
+    <MovilizerQuestion type="0" title="Welcome to Java Connector HTML5 Demo" key="Q0">
+        <MovilizerAnswer position="1" nextQuestionKey="Q1" key="Q0A1">
+            <text>This movelet demonstrates
+- charts
+- tables with multiple cell colors
+- order taking (HTML5):
+    - dynamic calculations
+    - hidable areas (accordeon)
+    - typeahead (autocomplete)
+
+            </text>
+        </MovilizerAnswer>
+        <onEnterAssignment><![CDATA[$context.saveFilesOnDevice("chart.js",
+                                                               "line-chart.html",
+                                                               "table.html")]]>
+        </onEnterAssignment>
+    </MovilizerQuestion>
+
+    <!-- HTML View  for Line Chart -->
+    <MovilizerQuestion type="12" title="Line Chart" key="Q1" backNavigationAllowed="false">
+        <MovilizerAnswer nextQuestionKey="Q3" key="A_WEB_VIEW_LINE" dummyAnswer="false">
+            <text>%URL%</text>
+        </MovilizerAnswer>
+        <onEnterAssignment>
+            setPlaceholder("%URL%", $context.getLocalFilePath("line-chart.html"));
+        </onEnterAssignment>
+    </MovilizerQuestion>
+
+
+    <!-- HTML View  for Table-->
+    <MovilizerQuestion type="12" title="Table with multiple colors" key="Q3" backNavigationAllowed="false">
+        <MovilizerAnswer nextQuestionKey="END" key="A_WEB_VIEW_TABLE" dummyAnswer="false">
+            <text>%URL%</text>
+        </MovilizerAnswer>
+        <onEnterAssignment>
+            setPlaceholder("%URL%", $context.getLocalFilePath("table.html"));
+        </onEnterAssignment>
+    </MovilizerQuestion>
+
+    <syncDownloadAssignment>
+        jIcon=$base64:&lt;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>;
+        setCustomizingProperty( $customizing:"icon.movelet81", jIcon);
+    </syncDownloadAssignment>
+</MovilizerMovelet>

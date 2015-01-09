@@ -1,0 +1,20 @@
+<config>
+    <movilizer>
+        <masterdata>
+            <xml>
+                <subscriber>testSubscriber</subscriber>
+                <pool>testPool</pool>
+                <limit>100</limit>
+                <loops>1</loops>
+                <fields>
+                    <object-id>OBJECT_KEY</object-id>
+                    <event-type>OBJECT_FUNCTION</event-type>
+                    <group>TEST_GROUP</group>
+                    <filter1>TEST_FILTER1</filter1>
+                    <filter2>TEST_FILTER2</filter2>
+                    <description>LABEL</description>
+                </fields>
+            </xml>
+        </masterdata>
+    </movilizer>
+</config>

@@ -1,0 +1,55 @@
+package com.movilizer.util.json;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.movilizer.util.json.JsonUtils;
+import junit.framework.Assert;
+import org.testng.annotations.Test;
+
+import java.util.Map;
+
+import static org.testng.Assert.assertEquals;
+
+public class JsonUtilsTest {
+
+    public static class StringAndNumber {
+        private final String string;
+        private final int number;
+
+        public StringAndNumber(String string, int number) {
+            this.string = string;
+            this.number = number;
+        }
+
+        public String getString() {
+            return string;
+        }
+
+        public int getNumber() {
+            return number;
+        }
+    }
+
+    @Test
+    public void testToJson() throws Exception {
+        StringAndNumber stringAndNumber = new StringAndNumber("A", 22);
+
+        String json = JsonUtils.toJson(stringAndNumber);
+
+        JsonObject parsed = (JsonObject)new JsonParser().parse(json);
+
+        assertEquals(parsed.get("string").getAsString(), "A");
+        assertEquals(parsed.get("number").getAsInt(), 22);
+    }
+
+    @Test
+    public void testToStringMap() throws Exception {
+        JsonObject object = new JsonObject();
+        object.addProperty("a", 123);
+        object.addProperty("b", "VALUE B");
+
+        Map<String, String> map = JsonUtils.collectPrimitiveProperties(object);
+        Assert.assertEquals(map.get("a"), "123");
+        Assert.assertEquals(map.get("b"), "VALUE B");
+    }
+}
