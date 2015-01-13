@@ -1,6 +1,7 @@
 package com.movilizer.module;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Provider;
 import com.google.inject.binder.LinkedBindingBuilder;
 import com.google.inject.multibindings.Multibinder;
 import com.google.inject.util.Providers;
@@ -12,13 +13,13 @@ import com.movilizer.masterdata.IMasterdataSource;
 import com.movilizer.masterdata.IMasterdataXmlSetting;
 import com.movilizer.pull.IMovilizerResponseObserver;
 import com.movilizer.pull.IReplyMoveletProcessor;
-import com.movilizer.util.template.ITemplateRepository;
 import com.movilizer.util.config.IJdbcSettings;
 import com.movilizer.util.config.IMovilizerConfig;
 import com.movilizer.util.config.IMovilizerPushSettings;
 import com.movilizer.util.config.MovilizerConfig;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
+import com.movilizer.util.template.ITemplateRepository;
 import com.movilizer.util.template.ResourceXmlTemplateRepository;
 
 import java.util.Collection;
@@ -71,7 +72,10 @@ public abstract class MovilizerModule extends AbstractModule {
         addMasterdataXmlSettingsFromConfig(config);
 
         setUp();
+
     }
+
+
 
     private void addMasterdataXmlSettingsFromConfig(IMovilizerConfig config) {
         Collection<IMasterdataXmlSetting> settings = config.getMasterdataXmlSettings();
