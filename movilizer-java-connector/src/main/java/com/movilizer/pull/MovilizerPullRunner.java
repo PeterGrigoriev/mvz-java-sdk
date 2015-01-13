@@ -176,7 +176,7 @@ public class MovilizerPullRunner implements IMovilizerPullRunner {
                     if (!processed) {
                         logger.error(">>> cannot process movelet: " + replyMovelet.getMoveletKey());
                     } else {
-                        logger.info("Successfully processed movelet: " + replyMovelet.getMoveletKey());
+                        logger.info("Successfully processed reply movelet: " + replyMovelet.getMoveletKey());
                     }
                     success &= processed;
 
@@ -210,7 +210,7 @@ public class MovilizerPullRunner implements IMovilizerPullRunner {
 
     @Override
     public boolean run() {
-        logger.info("Calling movilizer cloud to collect replies. Call for replies is " + pullCall.getClass().getSimpleName());
+        logger.debug("Calling movilizer cloud to collect replies using [" + pullCall.getClass().getSimpleName() + "]");
 
         MovilizerCallResult callResult = pullCall.collectReplies();
         if (!callResult.isSuccess()) {
@@ -246,27 +246,26 @@ public class MovilizerPullRunner implements IMovilizerPullRunner {
     private void logResponse(MovilizerResponse movilizerResponse) {
         List<MovilizerReplyMovelet> movelets = movilizerResponse.getReplyMovelet();
 
-        logger.info("-----------------------------------------------------------------------------");
         if (movelets.isEmpty()) {
-            logger.info("Received Response");
+            logger.debug("Received response without reply movelet");
         } else {
-            logger.info("Received Response with Movelet replies");
+            logger.debug("Received Response with reply movelets");
         }
 
-        logger.info("Acknowledgement key:" + movilizerResponse.getRequestAcknowledgeKey());
-        logger.info("MovilizerStatusMessage:" + movilizerResponse.getStatusMessage().size());
-        logger.info("Reply movelets:" + movilizerResponse.getReplyMovelet().size());
-        logger.info("Masterdata Acknowledgments:" + movilizerResponse.getMasterdataAck().size());
-        logger.info("Movilizer Masterdata Deleted:" + movilizerResponse.getMasterdataDeleted().size());
-        logger.info("Movilizer Masterdata Error:" + movilizerResponse.getMasterdataError().size());
-        logger.info("Movelet Acknowledgments:" + movilizerResponse.getMoveletAck().size());
-        logger.info("Movelets Synced:" + movilizerResponse.getMoveletSynced().size());
-        logger.info("Movelets assignments deleted:" + movilizerResponse.getMoveletAssignmentDeleted().size());
-        logger.info("Participant Acknowledgments:" + movilizerResponse.getParticipantAck().size());
+        logger.debug("Acknowledgement key:" + movilizerResponse.getRequestAcknowledgeKey());
+        logger.debug("MovilizerStatusMessage:" + movilizerResponse.getStatusMessage().size());
+        logger.debug("Reply movelets:" + movilizerResponse.getReplyMovelet().size());
+        logger.debug("Masterdata Acknowledgments:" + movilizerResponse.getMasterdataAck().size());
+        logger.debug("Movilizer Masterdata Deleted:" + movilizerResponse.getMasterdataDeleted().size());
+        logger.debug("Movilizer Masterdata Error:" + movilizerResponse.getMasterdataError().size());
+        logger.debug("Movelet Acknowledgments:" + movilizerResponse.getMoveletAck().size());
+        logger.debug("Movelets Synced:" + movilizerResponse.getMoveletSynced().size());
+        logger.debug("Movelets assignments deleted:" + movilizerResponse.getMoveletAssignmentDeleted().size());
+        logger.debug("Participant Acknowledgments:" + movilizerResponse.getParticipantAck().size());
     }
 
     protected void onSuccessfulProcessing(MovilizerResponse movilizerResponse) {
-        logger.info("All replies processed, acknowledging response with key: " + movilizerResponse.getRequestAcknowledgeKey());
+        logger.debug("All replies processed, acknowledging response with key: " + movilizerResponse.getRequestAcknowledgeKey());
         acknowledgementCall.acknowledgeResponse(movilizerResponse);
         logger.debug("Sending acknowledgment completed: " + movilizerResponse.getRequestAcknowledgeKey());
     }

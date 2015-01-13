@@ -129,7 +129,7 @@ public class MasterdataAcknowledgementProcessor implements IMasterdataAcknowledg
         String pool = masterdataDeletion.getPool();
         String masterdataAckKey = masterdataDeletion.getMasterdataAckKey();
         if(pool != null && masterdataAckKey == null) {
-            logger.info("The pool " + pool + " has been deleted.");
+            logger.info("The pool [" + pool + "] has been deleted.");
             return;
         }
         validateMasterdataDeletion(masterdataDeletion);

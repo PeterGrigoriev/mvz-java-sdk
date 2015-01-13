@@ -19,6 +19,7 @@ import com.movilizer.util.config.IMovilizerPushSettings;
 import com.movilizer.util.config.MovilizerConfig;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
+import com.movilizer.util.template.ResourceXmlTemplateRepository;
 
 import java.util.Collection;
 
@@ -45,7 +46,7 @@ public abstract class MovilizerModule extends AbstractModule {
         bind(IJdbcSettings.class).toInstance(config.getJdbcSettings());
         IMovilizerCloudSystem movilizerSystem = config.getMovilizerSystem();
         if(null == movilizerSystem) {
-            logger.info("Movilizer cloud system is not configured in provided MovilizerConfig. This may however be configured in your backend.");
+            logger.debug("Movilizer cloud system is not configured in provided MovilizerConfig. This may however be configured in your backend.");
         } else {
             bind(IMovilizerCloudSystem.class).toInstance(movilizerSystem);
         }
@@ -53,7 +54,7 @@ public abstract class MovilizerModule extends AbstractModule {
 
         IProxyInfo proxyInfo = config.getProxyInfo();
         if(proxyInfo == null) {
-            logger.info("Proxy is not configured. The cloud will be called directly.");
+            logger.debug("Proxy is not configured. The cloud will be called directly.");
 
             bind(IProxyInfo.class).toProvider(Providers.<IProxyInfo>of(null));
         } else  {
@@ -118,6 +119,10 @@ public abstract class MovilizerModule extends AbstractModule {
 
     protected void bindRequestTemplateRepository(Class<? extends ITemplateRepository> repository) {
         bind(ITemplateRepository.class).annotatedWith(named("Requests")).to(repository);
+    }
+
+    protected void useResourceTemplateRepository() {
+        bind(ITemplateRepository.class).toInstance(new ResourceXmlTemplateRepository("Templates", getClass()));
     }
 
     private LinkedBindingBuilder<IMasterdataAcknowledgementProcessor> addMasterdataAcknowledgementProcessor() {

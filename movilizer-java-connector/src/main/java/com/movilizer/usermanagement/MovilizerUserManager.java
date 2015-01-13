@@ -54,7 +54,7 @@ public class MovilizerUserManager extends XmlFileConfiguration implements IMovil
         List<HierarchicalConfiguration> xmlConfigurations = configuration.configurationsAt("users.user");
         users = new ArrayList<IMovilizerUser>();
 
-        logger.info(format("Loading users"));
+        logger.debug(format("Loading users"));
         for (Configuration userConfiguration : xmlConfigurations) {
             addUser(userConfiguration);
         }
@@ -66,7 +66,7 @@ public class MovilizerUserManager extends XmlFileConfiguration implements IMovil
                 logger.error(e);
             }
         }
-        logger.info(format("Loaded {0} users", users.size()));
+        logger.debug(format("Loaded {0} users", users.size()));
     }
 
     @Override
@@ -148,7 +148,7 @@ public class MovilizerUserManager extends XmlFileConfiguration implements IMovil
                     toInvitationMethod(strInvitationMethod), toUserStatus(strUserStatus), additionalFields);
 
             addUser(user);
-            logger.info(format("User: {0}", userToLongString(user)));
+            logger.debug(format("User: {0}", userToLongString(user)));
         } catch (IllegalMovilizerUserException e) {
             logger.error(e);
         }

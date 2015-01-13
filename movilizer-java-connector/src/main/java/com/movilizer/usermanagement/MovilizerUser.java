@@ -6,9 +6,7 @@ import com.movilizer.util.string.StringUtils;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static com.movilizer.usermanagement.MovilizerUserStatus.EXISTING;
 import static com.movilizer.usermanagement.MovilizerUserStatus.NEW;
@@ -176,6 +174,25 @@ public class MovilizerUser implements IMovilizerUser {
             logger.error(e);
             return null;
         }
+    }
+
+    public static List<IMovilizerUser> toMovilizerUsers(String... deviceAddresses) {
+        List<IMovilizerUser> users = new ArrayList<IMovilizerUser>();
+
+        int userNumber = 1;
+        for (String deviceAddress : deviceAddresses) {
+            try {
+                IMovilizerUser user = createUser(deviceAddressToEmail(deviceAddress),
+                        deviceAddressToPhoneNumber(deviceAddress),
+                        deviceAddress, userNumber,
+                        deviceAddressToInvitationMethod(deviceAddress), EXISTING, new HashMap<String, String>());
+                users.add(user);
+                userNumber++;
+            } catch (IllegalMovilizerUserException e) {
+                logger.error(e);
+            }
+        }
+        return users;
     }
 
     public static MovilizerUserStatus convertToUserStatus(String userStatus) throws CannotConvertToUserStatusException {

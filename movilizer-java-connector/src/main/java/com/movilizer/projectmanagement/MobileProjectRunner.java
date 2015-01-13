@@ -82,7 +82,7 @@ public class MobileProjectRunner implements IMobileProjectRunner {
                 logger.error(format(CANNOT_LOAD_PROJECT_MESSAGE, settings.getName(), settings.getVersion()));
                 continue;
             }
-            logger.info(format(LOADED_PROJECT_MESSAGE, settings.getName(), settings.getVersion()));
+            logger.debug(format(LOADED_PROJECT_MESSAGE, settings.getName(), settings.getVersion()));
             projects.add(project);
         }
         return projects;
