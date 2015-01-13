@@ -11,6 +11,7 @@ import com.movilizer.connector.IMoveletKeyWithExtension;
 import com.movilizer.connector.IMovilizerCloudSystem;
 import com.movilizer.connector.IMovilizerRequestSender;
 import com.movilizer.connector.IProxyInfo;
+import com.movilizer.document.MovilizerDocumentUploader;
 import com.movilizer.masterdata.IMasterdataAcknowledgementProcessor;
 import com.movilizer.masterdata.IMasterdataXmlSetting;
 import com.movilizer.masterdata.MasterdataAcknowledgementProcessor;
@@ -107,7 +108,11 @@ public class MobileProjectRunner implements IMobileProjectRunner {
     }
 
     private void runPush(IMovilizerProject mobileProject) throws Exception {
-        IMovilizerPushCall pushCall = new MovilizerPushCall(getCloudSystem(mobileProject), getProxyInfo(mobileProject), requestSender, null, mobileProject.getTemplateRepository());
+        IMovilizerPushCall pushCall = new MovilizerPushCall(getCloudSystem(mobileProject),
+                getProxyInfo(mobileProject),
+                requestSender,
+                new MovilizerDocumentUploader(),
+                mobileProject.getTemplateRepository());
         List<IMobileProjectEvent> projectEvents = projectManager.getMobileProjectEvents(mobileProject.getName(), mobileProject.getVersion());
 
         if (!projectEvents.isEmpty()) {

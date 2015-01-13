@@ -28,7 +28,7 @@ public abstract class CordovaProject extends MovilizerProjectBase {
 
     @Override
     public void onInitProject(IMovilizerPushCall call) throws Exception {
-        call.addDocument(getDocumentPool(), getDocumentKey(), new File(getBaseDirectory(), getFileName()));
+        call.addDocument(dataProvider.getDocumentPool(), dataProvider.getDocumentKey(), new File(getBaseDirectory(), getFileName()));
         call.addMovelets(new CordovaMoveletDataProvider(this), "CordovaMovelet.vm");
     }
 
