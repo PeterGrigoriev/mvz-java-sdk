@@ -19,8 +19,11 @@ import static java.util.Arrays.asList;
  */
 public abstract class CordovaProject extends MovilizerProjectBase {
 
+    private final CordovaMoveletDataProvider dataProvider;
+
     public CordovaProject(String name, int version) {
         super(name, version);
+        dataProvider = new CordovaMoveletDataProvider(this);
     }
 
     @Override
@@ -47,17 +50,17 @@ public abstract class CordovaProject extends MovilizerProjectBase {
     }
 
     protected String getDocumentPool() {
-        return "HTML5_DOCUMENTS";
+        return dataProvider.getDocumentPool();
     }
 
     @Override
     public void onShutdownProject(IMovilizerPushCall pushCall) {
-    }
 
+    }
 
     @Override
     public IMoveletKeyWithExtension getConfigurationMoveletKey() {
-        return keyWithExtension(getName(), "");
+        return keyWithExtension(dataProvider.getMoveletKey(), dataProvider.getMoveletKeyExtension());
     }
 
     @Override

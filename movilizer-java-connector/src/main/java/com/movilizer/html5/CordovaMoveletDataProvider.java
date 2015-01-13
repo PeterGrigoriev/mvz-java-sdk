@@ -20,4 +20,16 @@ public class CordovaMoveletDataProvider extends SimpleMoveletDataProvider {
     public String getTitle() {
         return project.getName();
     }
+
+    public String getMoveletKey() {
+        return project.getName();
+    }
+
+    public int getVersion() {
+        return project.getVersion();
+    }
+
+    public String getDocumentPool() {
+        return "HTML5_APPS";
+    }
 }
