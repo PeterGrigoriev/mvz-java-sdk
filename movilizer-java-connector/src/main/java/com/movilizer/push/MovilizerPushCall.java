@@ -148,9 +148,6 @@ public class MovilizerPushCall extends MovilizerCall implements IMovilizerPushCa
     }
 
 
-
-
-
     @Override
     public void addMovelets(IMoveletDataProvider moveletDataProvider, List<IMovilizerUser> users, String... templates) throws Exception {
         TemplateMoveletBuilder templateMoveletBuilder = new TemplateMoveletBuilder(moveletDataProvider, templateRepository, templates);

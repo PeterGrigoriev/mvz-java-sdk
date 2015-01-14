@@ -7,9 +7,9 @@ import com.movilizer.util.movelet.SimpleMoveletDataProvider;
  * @author Peter.Grigoriev@movilizer.com
  */
 public class CordovaMoveletDataProvider extends SimpleMoveletDataProvider {
-    private final IMovilizerProject project;
+    private final CordovaProject project;
 
-    public CordovaMoveletDataProvider(IMovilizerProject project) {
+    public CordovaMoveletDataProvider(CordovaProject project) {
         this.project = project;
     }
 
@@ -18,11 +18,11 @@ public class CordovaMoveletDataProvider extends SimpleMoveletDataProvider {
     }
 
     public String getTitle() {
-        return project.getName();
+        return project.getTitle();
     }
 
     public String getMoveletKey() {
-        return project.getName();
+        return project.getMoveletKey();
     }
 
     public int getVersion() {
@@ -30,7 +30,7 @@ public class CordovaMoveletDataProvider extends SimpleMoveletDataProvider {
     }
 
     public String getDocumentPool() {
-        return "HTML5_APPS";
+        return project.getDocumentPool();
     }
 
     public String getDocumentKey() {

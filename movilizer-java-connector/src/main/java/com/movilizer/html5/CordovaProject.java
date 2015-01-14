@@ -28,15 +28,23 @@ public abstract class CordovaProject extends MovilizerProjectBase {
 
     @Override
     public void onInitProject(IMovilizerPushCall call) throws Exception {
-        call.addDocument(dataProvider.getDocumentPool(), dataProvider.getDocumentKey(), new File(getBaseDirectory(), getFileName()));
-        call.addMovelets(new CordovaMoveletDataProvider(this), "CordovaMovelet.vm");
+        call.addDocument(getDocumentPool(), getDocumentKey(), getZipFilePath());
+        call.addMovelets(dataProvider, getMoveletTemplateName());
     }
 
-    protected String getFileName() {
-        return getName() + ".zip";
+    protected File getZipFilePath() {
+        return new File(getBaseDirectory(), getZipFileName());
     }
 
-    protected File getBaseDirectory() {
+    public String getMoveletTemplateName() {
+        return "CordovaMovelet.vm";
+    }
+
+    public String getZipFileName() {
+        return "www.zip";
+    }
+
+    public File getBaseDirectory() {
         URL codeSourceLocation = getClass().getProtectionDomain().getCodeSource().getLocation();
         try {
             return new File(codeSourceLocation.toURI()).getParentFile();
@@ -50,7 +58,7 @@ public abstract class CordovaProject extends MovilizerProjectBase {
     }
 
     protected String getDocumentPool() {
-        return dataProvider.getDocumentPool();
+        return "HTML5_APPS";
     }
 
     @Override
@@ -76,5 +84,13 @@ public abstract class CordovaProject extends MovilizerProjectBase {
     @Override
     public IMovilizerPushCallListener onPushCallAvailable(IMovilizerPushCall call) throws Exception {
         return null;
+    }
+
+    public String getTitle() {
+        return getName();
+    }
+
+    public String getMoveletKey() {
+        return getName();
     }
 }
