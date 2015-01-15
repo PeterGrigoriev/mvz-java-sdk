@@ -1,6 +1,5 @@
 package com.movilizer.masterdata;
 
-import com.movilizer.usermanagement.XmlConfigurationNode;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.HierarchicalConfiguration;
 import org.apache.commons.configuration.XMLConfiguration;
@@ -35,10 +34,10 @@ public class MasterdataXmlSettings implements IMasterdataXmlSetting {
     public static IMasterdataXmlSetting fromXml(String xml) throws ConfigurationException {
         XMLConfiguration xmlConfiguration = new XMLConfiguration();
         xmlConfiguration.load(new StringReader(xml));
-        return readMasterdataXmlSetting(xmlConfiguration);
+        return read(xmlConfiguration);
     }
 
-    public static IMasterdataXmlSetting readMasterdataXmlSetting(HierarchicalConfiguration configuration) {
+    public static IMasterdataXmlSetting read(HierarchicalConfiguration configuration) {
         String pool = configuration.getString("pool");
         String subscriber = configuration.getString("subscriber");
         int limit = configuration.getInt("limit");

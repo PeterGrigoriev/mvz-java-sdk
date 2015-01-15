@@ -6,6 +6,7 @@ import com.movilizer.masterdata.IMasterdataXmlSetting;
 import org.testng.annotations.Test;
 
 import java.util.Collection;
+import java.util.Set;
 
 import static com.movilizer.util.TestHelper.assertNotEmpty;
 import static org.testng.Assert.*;
@@ -30,6 +31,8 @@ public class MovilizerConfigTest {
         assertNotEmpty(movilizerSystem.getEndpoint(), "please specify endpoint");
         assertEquals(movilizerSystem.getTimeout(), 1800000);
     }
+
+
 
     @Test
     public void testGetMasterDataSystem() throws Exception {
@@ -66,7 +69,30 @@ public class MovilizerConfigTest {
         assertNotEmpty(moveletSettings.getRootCategory().getName(), "root-category.name");
         assertTrue(moveletSettings.getRootCategory().getIcon() > 0);
         assertNotEmpty(moveletSettings.getNamespace(), "Movelet.Namespace");
-        assertTrue(moveletSettings.getMasterdataSystemId() > 0);
+        assertTrue(moveletSettings.getMasterDataSystemId() > 0);
+
+
+        checkMoveletSettingsMasterData(moveletSettings);
+    }
+
+    @Test
+    public void testReadMovilizerMaterDataSystems() {
+        Set<IMovilizerMasterDataSystem> movilizerMaterDataSystems = ((MovilizerConfig) config).readMovilizerMaterDataSystems();
+        assertEquals(2, movilizerMaterDataSystems.size());
+
+    }
+
+    private void checkMoveletSettingsMasterData(IMoveletSettings moveletSettings) {
+        Set<IMovilizerMasterDataSystem> masterDataSystems = moveletSettings.getMasterDataSystems();
+        assertEquals(masterDataSystems.size(), 2);
+        assertEquals(moveletSettings.getMasterDataSystemId("poolOne").intValue(), 23456);
+        assertEquals(moveletSettings.getMasterDataSystemId("poolTwo").intValue(), 23456);
+        assertEquals(moveletSettings.getMasterDataSystemId("poolThree").intValue(), 267890);
+        assertEquals(moveletSettings.getMasterDataSystemId("poolFour").intValue(), 267890);
+        assertEquals(moveletSettings.getMasterDataSystemId("poolFive").intValue(), 267890);
+
+        // defaults to master-data-system-id specified on the top level of movelet configuration
+        assertEquals(moveletSettings.getMasterDataSystemId("someUnknownPool").intValue(), 54321);
     }
 
     @Test

@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 
+import static com.google.common.collect.Sets.newHashSet;
 import static com.movilizer.util.collection.CollectionUtils.newLinkedSet;
 import static com.movilizer.util.collection.CollectionUtils.newProperties;
 import static com.movilizer.util.collection.CollectionUtils.take;
@@ -51,6 +52,17 @@ public class CollectionUtilsTest {
         Set<String> set = newLinkedSet("1", "2", "3", "4");
         List<String> copy = new ArrayList<String>(set);
         Assert.assertEquals(copy, asList("1", "2", "3", "4"));
+    }
 
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testToStringSet() {
+        List list = new ArrayList();
+        list.add("a");
+        list.add("b");
+
+        Set<String> set = newHashSet("a", "b");
+
+        assertEquals(CollectionUtils.toStringSet(list), set);
     }
 }

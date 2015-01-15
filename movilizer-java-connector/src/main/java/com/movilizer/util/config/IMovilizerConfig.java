@@ -28,4 +28,5 @@ public interface IMovilizerConfig extends IConfiguration {
     IMovilizerPushSettings getPushSettings();
 
     Collection<IMasterdataXmlSetting> getMasterdataXmlSettings();
+
 }

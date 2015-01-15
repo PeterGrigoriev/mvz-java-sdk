@@ -8,6 +8,7 @@ import com.movilizer.util.dbc.Ensure;
 import java.math.BigDecimal;
 import java.util.*;
 
+import static com.google.common.collect.Sets.newHashSet;
 import static com.google.common.collect.Sets.newLinkedHashSet;
 import static java.lang.Math.min;
 
@@ -174,6 +175,14 @@ public class CollectionUtils {
     public static <T> Set<T> newLinkedSet(T... elements) {
         Set<T> set = newLinkedHashSet();
         Collections.addAll(set, elements);
+        return set;
+    }
+
+    public static Set<String> toStringSet(List list) {
+        Set<String> set = newHashSet();
+        for (Object o : list) {
+            set.add(String.valueOf(o));
+        }
         return set;
     }
 }

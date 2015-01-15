@@ -21,6 +21,8 @@ import static org.testng.Assert.*;
  * @author Peter.Grigoriev@movilizer.com
  */
 public class MovilizerUserManagerTest {
+
+    @SuppressWarnings("deprecation")
     private final IMovilizerUserManager userManager;
     private Map<String, String> fields = new HashMap<String, String>();
 

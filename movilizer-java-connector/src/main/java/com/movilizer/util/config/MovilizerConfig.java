@@ -14,6 +14,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 
+import static com.google.common.collect.Sets.newHashSet;
 import static com.movilizer.util.collection.CollectionUtils.newLinkedSet;
 
 
@@ -66,7 +67,8 @@ public class MovilizerConfig extends XmlFileReadOnlyConfiguration implements IMo
                 getBoolean("movilizer.movelet.debug", false),
                 getInt("movilizer.movelet.masterdata-system-id", -1),
                 getInt("movilizer.movelet.version", 0),
-                getString("movilizer.movelet.key", ""));
+                getString("movilizer.movelet.key", ""),
+                readMovilizerMaterDataSystems());
         pullSettings = new MovilizerPullSettings(getInt("movilizer.pull.number-of-replies", 1));
         pushSettings = new MovilizerPushSettings(isNeedToSendConfigurationMovelets(),
                 getBoolean("movilizer.push.resend-all-movelets", false),
@@ -98,13 +100,26 @@ public class MovilizerConfig extends XmlFileReadOnlyConfiguration implements IMo
                                         getInt("movilizer.master-data-system.timeout", 3600) * 1000);
     }
 
+    public Set<IMovilizerMasterDataSystem> readMovilizerMaterDataSystems() {
+        Set<IMovilizerMasterDataSystem> systems = newHashSet();
+        List list = configuration.configurationsAt("movilizer.movelet.master-data-systems.master-data-system");
+
+        for (Object subConfiguration : list) {
+            HierarchicalConfiguration hierarchicalConfiguration = (HierarchicalConfiguration) subConfiguration;
+            IMovilizerMasterDataSystem system = MovilizerMasterDataSystem.read(hierarchicalConfiguration);
+            systems.add(system);
+        }
+
+        return systems;
+    }
+
     private List<IMasterdataXmlSetting> readMasterdataXmlSettings() {
         List<IMasterdataXmlSetting> settings = new ArrayList<IMasterdataXmlSetting>();
 
         List list = configuration.configurationsAt("movilizer.masterdata.xml");
 
         for (Object subConfiguration : list) {
-            IMasterdataXmlSetting setting = MasterdataXmlSettings.readMasterdataXmlSetting((HierarchicalConfiguration) subConfiguration);
+            IMasterdataXmlSetting setting = MasterdataXmlSettings.read((HierarchicalConfiguration) subConfiguration);
             settings.add(setting);
         }
 
