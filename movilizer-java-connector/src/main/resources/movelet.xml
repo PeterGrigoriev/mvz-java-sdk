@@ -1,0 +1,31 @@
+<config>
+    <movilizer>
+        <movelet>
+            <namespace>TEST_NAMESPACE</namespace>
+            <root-category>
+                <name>TEST_CATEGORY</name>
+                <icon>12</icon>
+            </root-category>
+            <masterdata-system-id>54321</masterdata-system-id>
+            <master-data-systems>
+                <master-data-system>
+                    <id>23456</id>
+                    <name>First Master Data System</name>
+                    <pools>
+                        <pool>poolOne</pool>
+                        <pool>poolTwo</pool>
+                    </pools>
+                </master-data-system>
+                <master-data-system>
+                    <id>267890</id>
+                    <name>Second Master Data System</name>
+                    <pools>
+                        <pool>poolThree</pool>
+                        <pool>poolFour</pool>
+                        <pool>poolFive</pool>
+                    </pools>
+                </master-data-system>
+            </master-data-systems>
+        </movelet>
+    </movilizer>
+</config>

@@ -1,0 +1,9 @@
+<config>
+    <db-connections>
+        <jdbc>
+            <url>jdbc:AAA:BBB:@//</url>
+            <user>USER_NEW</user>
+            <password>PASSWORD_NEW</password>
+        </jdbc>
+    </db-connections>
+</config>

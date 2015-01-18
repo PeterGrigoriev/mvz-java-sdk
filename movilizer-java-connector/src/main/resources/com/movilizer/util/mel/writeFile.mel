@@ -1,0 +1,38 @@
+clientType = getClientType();
+
+$local:tempDirectory = "file://sdcard/TestCase";
+
+if (clientType == 20 || clientType == 21) {
+    $local:tempDirectory = "file://\Temp";
+}
+
+if (clientType == 10 || clientType == 11) {
+    $local:tempDirectory = "file://TestCase";
+}
+
+
+$local:webViewDirectory = $local:tempDirectory;
+
+if (clientType == 20 || clientType == 21) {
+    $local:webViewDirectory = "file:///Temp";
+}
+
+if (clientType == 10 || clientType == 11) {
+    $local:webViewDirectory = "file://sdcard/TestCase";
+}
+
+
+wipeAllConnections();
+
+folder = connect($local:tempDirectory, "dir");
+close(folder);
+
+wipeAllConnections();
+
+filePath = concat($local:tempDirectory, "/", "%FILE_NAME%");
+
+connectionId = connect(filePath, "file");
+
+%WRITE_TEXT_LINES%
+
+close(connectionId);

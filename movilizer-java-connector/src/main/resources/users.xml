@@ -1,0 +1,45 @@
+<user-management>
+    <users>
+        <user>
+            <name>Peter Grigoriev</name>
+            <employee-number>61138</employee-number>
+            <email>peter.reisen@gmail.com</email>
+            <phone></phone>
+            <invitation-method>EMAIL</invitation-method>
+            <status>NEW</status>
+            <service>XOM</service>
+        </user>
+        <!--<user>-->
+            <!--<name>Florian</name>-->
+            <!--<employee-number>7777</employee-number>-->
+            <!--<email>florian.cofely@hotmail.fr</email>-->
+            <!--<phone></phone>-->
+            <!--<invitation-method>EMAIL</invitation-method>-->
+            <!--<status>NEW</status>-->
+        <!--</user>-->
+        <!--<user>-->
+            <!--<name>Laurent</name>-->
+            <!--<employee-number>8912</employee-number>-->
+            <!--<email>laurent.marsaud@gdfsuez.com</email>-->
+            <!--<phone></phone>-->
+            <!--<invitation-method>EMAIL</invitation-method>-->
+            <!--<status>NEW</status>-->
+        <!--</user>-->
+        <!--<user>-->
+            <!--<name>Philippe Guillamet</name>-->
+            <!--<employee-number>169265</employee-number>-->
+            <!--<email>@philippe.guillamet@yahoo.fr</email>-->
+            <!--<phone/>-->
+            <!--<invitation-method>EMAIL</invitation-method>-->
+            <!--<status>NEW</status>-->
+        <!--</user>-->
+        <!--<user>-->
+            <!--<name>MATUR Jeremy</name>-->
+            <!--<employee-number>9874</employee-number>-->
+            <!--<email>jeremy.matur@gmail.com</email>-->
+            <!--<phone></phone>-->
+            <!--<invitation-method>EMAIL</invitation-method>-->
+            <!--<status>NEW</status>-->
+        <!--</user>-->
+    </users>
+</user-management>

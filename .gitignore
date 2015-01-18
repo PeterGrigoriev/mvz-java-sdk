@@ -1,0 +1,14 @@
+## ImtelliJ IDEA project formats
+.idea/
+*.ipr
+*.iml
+*.iws
+
+## Additional for IntelliJ
+out/
+
+## Compiler output
+target/
+
+## Test execution
+log/

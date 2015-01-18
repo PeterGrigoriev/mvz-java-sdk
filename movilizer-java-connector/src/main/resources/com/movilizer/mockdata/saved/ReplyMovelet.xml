@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MovilizerReplyMovelet moveletKey="TEST_MOVELET_KEY" count="0" creationTimestamp=""
+                       xmlns="http://movilitas.com/movilizer/v11">
+    <replyQuestion questionKey="Q_Hidden"
+                   previousQuestionKey="NONE"
+                   nextQuestionKey="Q_InterventionDetails"
+                   questionCountNormalized="1"
+                   questionCountAbsolute="1">
+        <replyAnswer answerKey="A_REQUIRED_STRING" attributeType="0" position="1">
+            <value>a required value</value>
+        </replyAnswer>
+        <replyAnswer answerKey="A_REQUIRED_INT" attributeType="0" position="1">
+            <value>1234</value>
+        </replyAnswer>
+    </replyQuestion>
+</MovilizerReplyMovelet>

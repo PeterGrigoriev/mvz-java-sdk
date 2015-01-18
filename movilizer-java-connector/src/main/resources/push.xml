@@ -1,0 +1,7 @@
+<config>
+    <movilizer>
+        <push>
+            <new-users-per-run>33</new-users-per-run>
+        </push>
+    </movilizer>
+</config>

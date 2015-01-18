@@ -1,0 +1,54 @@
+<user-management>
+    <users>
+        <user>
+            <name>Peter Grigoriev</name>
+            <employee-number>21322</employee-number>
+            <email>@peter.grigoriev@cofely-gdfsuez.com</email>
+            <phone></phone>
+            <invitation-method>EMAIL</invitation-method>
+        </user>
+        <user>
+            <name>Philippe Guillamet</name>
+            <employee-number>2002</employee-number>
+            <email>vlsstt004.cofely@gmail.com</email>
+            <phone></phone>
+            <invitation-method>EMAIL</invitation-method>
+        </user>
+        <user>
+            <name>Mathieu Hahn</name>
+            <employee-number>182436</employee-number>
+            <email>vlsstt005.cofely@gmail.com</email>
+            <phone></phone>
+            <invitation-method>EMAIL</invitation-method>
+        </user>
+        <user>
+            <name>Nicolas Pilven</name>
+            <employee-number>5306</employee-number>
+            <email>es4syp001@gmail.com</email>
+            <phone></phone>
+            <invitation-method>EMAIL</invitation-method>
+        </user>
+        <user>
+            <name>Laurent Marsaud</name>
+            <employee-number>656</employee-number>
+            <email>laurent.marsaud@gdfsuez.com</email>
+            <phone></phone>
+            <invitation-method>EMAIL</invitation-method>
+        </user>
+        <user>
+            <name>Frederic Hanse</name>
+            <employee-number>1746</employee-number>
+            <email>vlsswl029.cofely@gmail.com</email>
+            <phone></phone>
+            <invitation-method>EMAIL</invitation-method>
+        </user>
+        <user>
+            <name>Herve Kerleguer</name>
+            <employee-number>15230</employee-number>
+            <email></email>
+            <phone>+9980840006</phone>
+            <invitation-method>SMS</invitation-method>
+        </user>
+
+    </users>
+</user-management>

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<NotAValidElement pool="$context.myPool">
+    <lala masterdataAckKey="$context.acknowledgementKey" key="$context.objectKey">
+        <bobo>$context.myField</bobo>
+    </lala>
+</NotAValidElement>
