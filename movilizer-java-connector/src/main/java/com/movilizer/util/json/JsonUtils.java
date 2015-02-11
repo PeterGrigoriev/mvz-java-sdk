@@ -14,10 +14,16 @@ import static com.google.common.collect.Maps.newHashMap;
  */
 public class JsonUtils {
 
+    private static final Gson gson = new Gson();
+
     public static <T> String toJson(T object) {
-        Gson gson = new Gson();
         return gson.toJson(object);
     }
+
+    public static JsonObject toJsonObject(String string) {
+        return gson.fromJson(string, JsonObject.class);
+    }
+
 
     /**
      * @param jsonObject - object to collect top-level properties of
