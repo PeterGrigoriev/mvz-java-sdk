@@ -18,7 +18,7 @@ public class CliProjectRunner {
     private final IMovilizerConfig config;
 
 
-    public CliProjectRunner(MovilizerProjectBase project, String... arguments) {
+    public CliProjectRunner(MovilizerProjectBase project) {
         this.project = project;
         config = MovilizerConfig.getInstance(project.getClass());
     }
