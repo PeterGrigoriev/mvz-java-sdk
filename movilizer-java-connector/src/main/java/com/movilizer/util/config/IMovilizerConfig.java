@@ -29,4 +29,7 @@ public interface IMovilizerConfig extends IConfiguration {
 
     Collection<IMasterdataXmlSetting> getMasterdataXmlSettings();
 
+    boolean hasKey(String setting);
+
+    boolean getBoolean(String setting, boolean defaultValue);
 }

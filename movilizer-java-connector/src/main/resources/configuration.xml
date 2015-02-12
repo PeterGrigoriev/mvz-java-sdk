@@ -32,6 +32,9 @@
         <push>
             <new-users-per-run>50</new-users-per-run>
         </push>
+        <cordova>
+            <fullscreen>true</fullscreen>
+        </cordova>
     </movilizer>
     <db-connections>
         <jdbc>

@@ -5,6 +5,8 @@ import com.movilizer.projectmanagement.MovilizerProjectBase;
 import com.movilizer.push.IMovilizerPushCall;
 import com.movilizer.push.IMovilizerPushCallListener;
 import com.movilizer.usermanagement.IMovilizerUser;
+import com.movilizer.util.config.IMovilizerConfig;
+import com.movilizer.util.config.MovilizerConfig;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -17,7 +19,7 @@ import static java.util.Arrays.asList;
 /**
  * @author Peter.Grigoriev@movilizer.com
  */
-public abstract class CordovaProject extends MovilizerProjectBase {
+public abstract class CordovaProject extends MovilizerProjectBase implements ICordovaProject {
 
     private final CordovaMoveletDataProvider dataProvider;
 
@@ -32,7 +34,8 @@ public abstract class CordovaProject extends MovilizerProjectBase {
         call.addMovelets(dataProvider, getMoveletTemplateName());
     }
 
-    protected File getZipFilePath() {
+    @Override
+    public File getZipFilePath() {
         return new File(getBaseDirectory(), getZipFileName());
     }
 
@@ -53,11 +56,13 @@ public abstract class CordovaProject extends MovilizerProjectBase {
         }
     }
 
-    protected String getDocumentKey() {
+    @Override
+    public String getDocumentKey() {
         return getName();
     }
 
-    protected String getDocumentPool() {
+    @Override
+    public String getDocumentPool() {
         return "HTML5_APPS";
     }
 
@@ -86,11 +91,18 @@ public abstract class CordovaProject extends MovilizerProjectBase {
         return null;
     }
 
+    @Override
     public String getTitle() {
         return getName();
     }
 
     public String getMoveletKey() {
         return getName();
+    }
+
+    @Override
+    public boolean isFullScreen() {
+        IMovilizerConfig config = MovilizerConfig.getInstance(getClass());
+        return config.getBoolean("movilizer.cordova.full-screen", false);
     }
 }
