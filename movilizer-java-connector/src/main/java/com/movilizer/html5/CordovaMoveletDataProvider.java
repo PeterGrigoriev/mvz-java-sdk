@@ -1,5 +1,6 @@
 package com.movilizer.html5;
 
+import com.movilizer.constants.ScreenType;
 import com.movilizer.projectmanagement.IMovilizerProject;
 import com.movilizer.util.movelet.SimpleMoveletDataProvider;
 
@@ -7,6 +8,7 @@ import com.movilizer.util.movelet.SimpleMoveletDataProvider;
  * @author Peter.Grigoriev@movilizer.com
  */
 public class CordovaMoveletDataProvider extends SimpleMoveletDataProvider {
+
     private final CordovaProject project;
 
     public CordovaMoveletDataProvider(CordovaProject project) {
@@ -35,5 +37,9 @@ public class CordovaMoveletDataProvider extends SimpleMoveletDataProvider {
 
     public String getDocumentKey() {
         return project.getName();
+    }
+
+    public ScreenType getScreenType() {
+        return project.isFullScreen() ? ScreenType.HTML5_FULL_SCREEN : ScreenType.HTML5;
     }
 }
