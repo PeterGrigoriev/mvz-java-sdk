@@ -46,10 +46,17 @@ public enum ScreenType {
     }
 
     public static ScreenType fromIntValue(int value) {
-        return intValueToScreenTypeMap.get(value);
+        return getIntValueToScreenTypeMap().get(value);
     }
 
-    private static final Map<Integer, ScreenType> intValueToScreenTypeMap = newHashMap();
+    private static Map<Integer, ScreenType> intValueToScreenTypeMap;
+
+    private static Map<Integer, ScreenType> getIntValueToScreenTypeMap() {
+        if(intValueToScreenTypeMap == null) {
+            intValueToScreenTypeMap = newHashMap();
+        }
+        return intValueToScreenTypeMap;
+    }
 
     private ScreenType(int intValue) {
         registerType(intValue, this);
@@ -57,7 +64,7 @@ public enum ScreenType {
     }
 
     private static void registerType(int intValue, ScreenType screenType) {
-        ScreenType existingType = intValueToScreenTypeMap.get(intValue);
+        ScreenType existingType = fromIntValue(intValue);
         if (existingType != null) {
             throw new IllegalStateException("Screen type [" + intValue + "] is declared twice as [" + existingType.name() + "] and [" + screenType.name() + "]");
         }
