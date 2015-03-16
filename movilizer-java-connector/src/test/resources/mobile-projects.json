@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "name": "someMobileApp",
+    "version": 22,
+    "moveletCloudSystem": {
+      "systemId": 111,
+      "password": "abc",
+      "endpoint": "demo.movilizer.com",
+      "timeout": 150000
+    },
+    "masterDataCloudSystem": {
+      "systemId": 222,
+      "password": "bcd",
+      "endpoint": "demo.movilizer.com",
+      "timeout": 160000
+    }
+  }
+]

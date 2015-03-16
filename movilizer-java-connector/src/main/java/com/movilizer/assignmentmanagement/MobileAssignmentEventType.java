@@ -16,4 +16,12 @@ public enum MobileAssignmentEventType {
             return eventType == EventType.DELETE;
         }
     }
+
+    public static MobileAssignmentEventType fromString(String string) {
+        String lowerCase = string.toLowerCase();
+        if(lowerCase.startsWith("u") || lowerCase.startsWith("d")) {
+            return UNASSIGNED;
+        }
+        return ASSIGNED;
+    }
 }
