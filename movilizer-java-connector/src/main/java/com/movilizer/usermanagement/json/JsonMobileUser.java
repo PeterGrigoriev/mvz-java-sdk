@@ -69,7 +69,8 @@ public class JsonMobileUser implements IMovilizerUser {
 
     @Override
     public String get(String fieldName) {
-        return jsonObject.getAsString();
+        JsonElement jsonElement = jsonObject.get(fieldName);
+        return jsonElement.getAsString();
     }
 
     @Override
