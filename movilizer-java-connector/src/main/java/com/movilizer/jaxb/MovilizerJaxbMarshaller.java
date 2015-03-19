@@ -1,6 +1,5 @@
 package com.movilizer.jaxb;
 
-import com.movilitas.movilizer.v11.MovilizerReplyMovelet;
 import com.movilizer.pull.ReplyMovelet;
 
 import javax.xml.bind.JAXBElement;
