@@ -44,8 +44,8 @@ public class CliProjectRunner {
         Options options = new Options();
         options.addOption(CliOptions.INIT, false, "Initialize the app");
         options.addOption(CliOptions.ASSIGN, true, "Send the app to a user");
-        options.addOption(CliOptions.PULL, true, "Pull data from the cloud");
-        options.addOption(CliOptions.PUSH, true, "Push data to the cloud");
+        options.addOption(CliOptions.PULL, false, "Pull data from the cloud");
+        options.addOption(CliOptions.PUSH, false, "Push data to the cloud");
         return options;
     }
 }
