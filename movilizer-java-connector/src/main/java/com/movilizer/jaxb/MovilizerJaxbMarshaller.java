@@ -1,5 +1,8 @@
 package com.movilizer.jaxb;
 
+import com.movilitas.movilizer.v11.MovilizerReplyMovelet;
+import com.movilizer.pull.ReplyMovelet;
+
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -43,7 +46,14 @@ public class MovilizerJaxbMarshaller extends MovilizerJaxb {
 
     public <T> String marshall(T object) {
         ensureNotNull(object, "object to marshall");
+
+        if(object instanceof ReplyMovelet) {
+            return marshall(((ReplyMovelet)object).getMovilizerReplyMovelet());
+        }
+
         StringWriter stringWriter = new StringWriter();
+
+
 
         @SuppressWarnings("unchecked")
         Class<T> klass = (Class<T>) object.getClass();
