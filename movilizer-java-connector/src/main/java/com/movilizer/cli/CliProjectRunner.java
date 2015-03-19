@@ -18,7 +18,7 @@ public class CliProjectRunner {
     private final IMovilizerConfig config;
 
 
-    public CliProjectRunner(MovilizerProjectBase project, String... arguments) {
+    public CliProjectRunner(MovilizerProjectBase project) {
         this.project = project;
         config = MovilizerConfig.getInstance(project.getClass());
     }
@@ -44,6 +44,8 @@ public class CliProjectRunner {
         Options options = new Options();
         options.addOption(CliOptions.INIT, false, "Initialize the app");
         options.addOption(CliOptions.ASSIGN, true, "Send the app to a user");
+        options.addOption(CliOptions.PULL, true, "Pull data from the cloud");
+        options.addOption(CliOptions.PUSH, true, "Push data to the cloud");
         return options;
     }
 }
