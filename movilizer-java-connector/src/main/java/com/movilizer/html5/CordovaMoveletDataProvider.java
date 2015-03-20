@@ -1,6 +1,8 @@
 package com.movilizer.html5;
 
+import com.movilizer.projectmanagement.IMobileProjectSettings;
 import com.movilizer.projectmanagement.IMovilizerProject;
+import com.movilizer.projectmanagement.ProjectSettingsNotAvailableException;
 import com.movilizer.util.movelet.SimpleMoveletDataProvider;
 
 /**
@@ -35,5 +37,9 @@ public class CordovaMoveletDataProvider extends SimpleMoveletDataProvider {
 
     public String getDocumentKey() {
         return project.getName();
+    }
+
+    public IMobileProjectSettings getSettings() throws ProjectSettingsNotAvailableException {
+        return project.getSettings();
     }
 }
