@@ -10,7 +10,7 @@ import javax.xml.bind.JAXBException;
  * @author Peter.Grigoriev@movilizer.com
  */
 public class MovilizerJaxb {
-    public static final String MOVILIZER_WSDL_V11 = "com.movilitas.movilizer.v11";
+    public static final String MOVILIZER_WSDL_V11 = "com.movilitas.movilizer.v12";
     protected static ILogger logger = ComponentLogger.getInstance("JaxbMarshalling");
     protected final JAXBContext jaxbContext;
 

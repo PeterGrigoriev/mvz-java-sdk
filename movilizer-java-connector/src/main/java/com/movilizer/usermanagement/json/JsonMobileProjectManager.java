@@ -4,11 +4,6 @@ import com.google.gson.JsonElement;
 import com.google.inject.Provider;
 import com.movilizer.projectmanagement.*;
 import com.movilizer.push.EventAcknowledgementStatus;
-import com.movilizer.usermanagement.IMobileUserEvent;
-import com.movilizer.usermanagement.IMobileUserManager;
-import com.movilizer.usermanagement.IMovilizerUser;
-import com.movilizer.usermanagement.MobileUserException;
-import com.movilizer.util.json.JsonUtils;
 
 import java.io.Reader;
 import java.util.Collection;
@@ -21,10 +16,16 @@ import static com.movilizer.util.json.JsonUtils.parseJsonArray;
  * @author Peter.Grigoriev@gmail.com.
  */
 public class JsonMobileProjectManager implements IMobileProjectManager {
-    private final Provider<Reader> readerProvider;
+    private final Provider<Reader> projectDataReaderProvider;
+    private final Provider<Reader> projectEventsReaderProvider;
 
-    public JsonMobileProjectManager(Provider<Reader> readerProvider) {
-        this.readerProvider = readerProvider;
+    public JsonMobileProjectManager(Provider<Reader> projectDataReaderProvider) {
+        this(projectDataReaderProvider, null);
+    }
+
+    public JsonMobileProjectManager(Provider<Reader> projectDataReaderProvider, Provider<Reader> projectEventsReaderProvider) {
+        this.projectDataReaderProvider = projectDataReaderProvider;
+        this.projectEventsReaderProvider = projectEventsReaderProvider;
     }
 
     @Override
@@ -38,7 +39,7 @@ public class JsonMobileProjectManager implements IMobileProjectManager {
     }
 
     @Override
-    public IMobileProjectSettings getMobileProjectSettings(String name, int version) {
+    public IMobileProjectSettings getMobileProjectSettings(final String name, final int version) {
         List<IMobileProjectSettings> settings = getProjectSettings();
 
         for (IMobileProjectSettings setting : settings) {
@@ -51,7 +52,7 @@ public class JsonMobileProjectManager implements IMobileProjectManager {
     }
 
     public List<IMobileProjectSettings> getProjectSettings() {
-        List<JsonElement> jsonElements = parseJsonArray(readerProvider.get());
+        List<JsonElement> jsonElements = parseJsonArray(projectDataReaderProvider.get());
         List<IMobileProjectSettings> settingsList = newArrayList();
         for (JsonElement jsonElement : jsonElements) {
             settingsList.add(JsonMobileProjectSettings.fromJsonObject(jsonElement));
@@ -67,6 +68,5 @@ public class JsonMobileProjectManager implements IMobileProjectManager {
 
     @Override
     public void acknowledge(Collection<Integer> eventIds, EventAcknowledgementStatus acknowledgementStatus) throws Exception {
-
     }
 }

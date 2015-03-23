@@ -1,6 +1,6 @@
 package com.movilizer.pull;
 
-import com.movilitas.movilizer.v11.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v12.MovilizerReplyMovelet;
 import com.movilizer.acknowledgement.mock.MockMovilizerAcknowledgmentCall;
 import com.movilizer.masterdata.EmptyMasterDataSource;
 import com.movilizer.masterdata.IMasterdataXmlSetting;

@@ -14,7 +14,7 @@ public class JsonMobileProjectManagerTest extends TestCase {
 
     @Override
     public void setUp() throws Exception {
-        projectManager = new JsonMobileProjectManager(newTestResourceReaderProvider("/mobile-projects.json"));
+        projectManager = new JsonMobileProjectManager(newTestResourceReaderProvider("/mobile-projects.json"), null);
     }
 
     public void testGetMobileProjectSettings() throws Exception {

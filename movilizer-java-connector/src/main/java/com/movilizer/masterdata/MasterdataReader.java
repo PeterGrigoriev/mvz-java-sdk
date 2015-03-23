@@ -1,6 +1,6 @@
 package com.movilizer.masterdata;
 
-import com.movilitas.movilizer.v11.*;
+import com.movilitas.movilizer.v12.*;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
 

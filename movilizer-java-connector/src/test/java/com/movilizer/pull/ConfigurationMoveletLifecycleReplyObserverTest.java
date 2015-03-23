@@ -1,8 +1,8 @@
 package com.movilizer.pull;
 
-import com.movilitas.movilizer.v11.MovilizerMoveletSynced;
-import com.movilitas.movilizer.v11.MovilizerParticipantAck;
-import com.movilitas.movilizer.v11.MovilizerResponse;
+import com.movilitas.movilizer.v12.MovilizerMoveletSynced;
+import com.movilitas.movilizer.v12.MovilizerParticipantAck;
+import com.movilitas.movilizer.v12.MovilizerResponse;
 import com.movilizer.assignmentmanagement.MobileAssignmentEvent;
 import com.movilizer.assignmentmanagement.MobileAssignmentEventType;
 import com.movilizer.assignmentmanagement.mock.MockMobileAssignmentManager;

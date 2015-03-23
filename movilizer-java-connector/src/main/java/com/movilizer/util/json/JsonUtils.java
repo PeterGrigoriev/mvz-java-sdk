@@ -1,6 +1,7 @@
 package com.movilizer.util.json;
 
 import com.google.gson.*;
+import com.google.inject.Provider;
 
 import java.io.Reader;
 import java.util.List;
@@ -38,10 +39,24 @@ public class JsonUtils {
     }
 
     public static List<JsonElement> parseJsonArray(Reader reader) {
+        if(reader == null) {
+            return newArrayList();
+        }
+
         JsonParser parser = new JsonParser();
         JsonElement parsed = parser.parse(reader);
+        if(parsed.equals(JsonNull.INSTANCE)) {
+            return newArrayList();
+        }
         JsonArray jsonArray = parsed.getAsJsonArray();
         return toList(jsonArray);
+    }
+
+    public static List<JsonElement> parseJsonArray(Provider<Reader> readerProvider) {
+        if(readerProvider == null) {
+            return newArrayList();
+        }
+        return parseJsonArray(readerProvider.get());
     }
 
     public static List<JsonElement> toList(JsonArray jsonArray) {

@@ -1,6 +1,6 @@
 package com.movilizer.util.template;
 
-import com.movilitas.movilizer.v11.MovilizerMovelet;
+import com.movilitas.movilizer.v12.MovilizerMovelet;
 import com.movilizer.moveletbuilder.*;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;

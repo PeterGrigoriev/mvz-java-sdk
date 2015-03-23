@@ -1,6 +1,6 @@
 package com.movilizer.connector;
 
-import com.movilitas.movilizer.v11.MovilizerRequest;
+import com.movilitas.movilizer.v12.MovilizerRequest;
 import com.movilizer.TestConstants;
 import com.movilizer.connector.mock.MockMovilizerWebServiceProvider;
 import org.testng.annotations.BeforeMethod;

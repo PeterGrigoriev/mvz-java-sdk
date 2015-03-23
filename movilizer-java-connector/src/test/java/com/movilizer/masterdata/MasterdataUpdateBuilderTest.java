@@ -1,6 +1,6 @@
 package com.movilizer.masterdata;
 
-import com.movilitas.movilizer.v11.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v12.MovilizerMasterdataPoolUpdate;
 import com.movilizer.util.template.ResourceXmlTemplateRepository;
 import junit.framework.Assert;
 import org.testng.annotations.BeforeMethod;

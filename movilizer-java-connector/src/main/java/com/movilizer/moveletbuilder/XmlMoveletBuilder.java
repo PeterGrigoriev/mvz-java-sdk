@@ -1,6 +1,6 @@
 package com.movilizer.moveletbuilder;
 
-import com.movilitas.movilizer.v11.MovilizerMovelet;
+import com.movilitas.movilizer.v12.MovilizerMovelet;
 import com.movilizer.jaxb.MovilizerJaxbUnmarshaller;
 import com.movilizer.util.dbc.Ensure;
 import com.movilizer.util.logger.ComponentLogger;

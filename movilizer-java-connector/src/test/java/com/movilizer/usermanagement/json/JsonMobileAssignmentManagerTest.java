@@ -18,12 +18,10 @@ import static com.movilizer.util.resource.ResourceReaderProvider.newTestResource
 public class JsonMobileAssignmentManagerTest extends TestCase {
 
     private JsonMobileAssignmentManager assignmentManager;
-    private JsonMobileProjectManager projectManager;
 
     @Override
     public void setUp() throws Exception {
         assignmentManager = new JsonMobileAssignmentManager(newTestResourceReaderProvider("/mobile-assignment-events.json"));
-        projectManager = new JsonMobileProjectManager(newTestResourceReaderProvider("/mobile-projects.json"));
     }
 
 
