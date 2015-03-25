@@ -13,7 +13,7 @@
     </parent>
 
     <artifactId>movilizer-java-connector</artifactId>
-    <version>3.0.3</version>
+    <version>3.0.4</version>
     <name>Movilizer Java Connector</name>
 
     <dependencies>

@@ -51,6 +51,10 @@ public class RestfulWebService {
         return new JsonParser().parse(reader);
     }
 
+    public Reader getReader() throws IOException {
+        return getReader("");
+    }
+
     public Reader getReader(String urlSuffix) throws IOException {
         HttpClient httpClient = httpClientProvider.get();
         String uri = endpoint + urlSuffix;
@@ -68,7 +72,6 @@ public class RestfulWebService {
     }
 
 
-
     public JsonArray getArray(int offset, int limit) throws IOException {
         return get(offset, limit).getAsJsonArray();
     }
@@ -81,6 +84,21 @@ public class RestfulWebService {
         httpPut.setEntity(stringEntity);
         HttpResponse response = httpClient.execute(httpPut);
 
+
         // TODO: proceed on this
+    }
+
+    public Provider<Reader> asReaderProvider() {
+        return new Provider<Reader>() {
+            @Override
+            public Reader get() {
+                try {
+                    return getReader("");
+                } catch (IOException e) {
+                    logger.error("Web service cannot get reader. Endpoint: [" + endpoint + "]", e);
+                    return null;
+                }
+            }
+        };
     }
 }
