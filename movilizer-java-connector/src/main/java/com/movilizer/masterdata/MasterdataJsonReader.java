@@ -45,6 +45,14 @@ public class MasterdataJsonReader extends MasterdataReader implements IMasterdat
     }
 
     private IParsedMasterdataEvent toMasterdataEvent(JsonObject jsonObject, IMasterdataXmlSetting settings) {
-        return new ParsedMasterdataEvent(JsonUtils.collectPrimitiveProperties(jsonObject), settings.getFieldNames());
+        return new ParsedMasterdataEvent(getFieldMap(jsonObject), settings.getFieldNames());
+    }
+
+    private Map<String, String> getFieldMap(JsonObject jsonObject) {
+        Map<String, String> primitiveProperties = JsonUtils.collectPrimitiveProperties(jsonObject);
+        if(jsonObject.has("fields")) {
+            primitiveProperties.putAll(getFieldMap(jsonObject.getAsJsonObject("fields")));
+        }
+        return primitiveProperties;
     }
 }
