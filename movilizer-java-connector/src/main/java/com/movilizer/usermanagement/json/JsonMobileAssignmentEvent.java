@@ -26,17 +26,22 @@ public class JsonMobileAssignmentEvent implements IMobileAssignmentEvent {
 
     @Override
     public MobileAssignmentEventType getType() {
-        return MobileAssignmentEventType.fromString(jsonObject.get("type").getAsString());
+        return MobileAssignmentEventType.fromString(jsonObject.get("eventType").getAsString());
     }
 
     @Override
     public IMovilizerUser getUser() {
-        return JsonMobileUser.fromJsonObject(jsonObject.get("user"));
+        return JsonMobileUser.fromJsonObject(getAssignment().getAsJsonObject("user"));
+    }
+
+    private JsonObject getAssignment() {
+        JsonObject assignment = jsonObject.getAsJsonObject("assignment");
+        return assignment;
     }
 
     @Override
     public IMobileProjectDescription getProjectDescription() {
-        return JsonUtils.toJavaObject(jsonObject.getAsJsonObject("project"), MobileProjectDescription.class);
+        return JsonUtils.toJavaObject(getAssignment().getAsJsonObject("project"), MobileProjectDescription.class);
     }
 
     @Override

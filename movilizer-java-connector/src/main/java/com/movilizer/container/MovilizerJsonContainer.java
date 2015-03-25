@@ -1,9 +1,9 @@
 package com.movilizer.container;
 
 import com.google.gson.JsonObject;
-import com.movilitas.movilizer.v11.MovilizerGenericDataContainer;
-import com.movilitas.movilizer.v11.MovilizerGenericDataContainerEntry;
-import com.movilitas.movilizer.v11.MovilizerGenericUploadDataContainer;
+import com.movilitas.movilizer.v12.MovilizerGenericDataContainer;
+import com.movilitas.movilizer.v12.MovilizerGenericDataContainerEntry;
+import com.movilitas.movilizer.v12.MovilizerGenericUploadDataContainer;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.Date;
