@@ -1,6 +1,6 @@
 package com.movilizer.acknowledgement.mock;
 
-import com.movilitas.movilizer.v11.MovilizerResponse;
+import com.movilitas.movilizer.v12.MovilizerResponse;
 import com.movilizer.acknowledgement.IMovilizerAcknowledgementCall;
 
 /**

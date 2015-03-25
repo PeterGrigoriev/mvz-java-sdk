@@ -1,7 +1,7 @@
 package com.movilizer.connector;
 
-import com.movilitas.movilizer.v11.MovilizerMoveletDelete;
-import com.movilitas.movilizer.v11.MovilizerRequest;
+import com.movilitas.movilizer.v12.MovilizerMoveletDelete;
+import com.movilitas.movilizer.v12.MovilizerRequest;
 import org.testng.annotations.Test;
 
 import static com.movilizer.connector.MoveletDelete.getMoveletDelete;

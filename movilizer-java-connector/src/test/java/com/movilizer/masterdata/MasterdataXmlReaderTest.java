@@ -1,8 +1,8 @@
 package com.movilizer.masterdata;
 
-import com.movilitas.movilizer.v11.MovilizerMasterdataDelete;
-import com.movilitas.movilizer.v11.MovilizerMasterdataPoolUpdate;
-import com.movilitas.movilizer.v11.MovilizerMasterdataReference;
+import com.movilitas.movilizer.v12.MovilizerMasterdataDelete;
+import com.movilitas.movilizer.v12.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v12.MovilizerMasterdataReference;
 import org.apache.commons.configuration.ConfigurationException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

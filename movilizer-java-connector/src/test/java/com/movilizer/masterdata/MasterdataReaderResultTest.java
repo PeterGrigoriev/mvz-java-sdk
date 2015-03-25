@@ -1,7 +1,7 @@
 package com.movilizer.masterdata;
 
-import com.movilitas.movilizer.v11.MovilizerMasterdataPoolUpdate;
-import com.movilitas.movilizer.v11.MovilizerMasterdataReference;
+import com.movilitas.movilizer.v12.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v12.MovilizerMasterdataReference;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

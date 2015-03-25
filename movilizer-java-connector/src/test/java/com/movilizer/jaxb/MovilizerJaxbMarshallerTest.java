@@ -1,8 +1,8 @@
 package com.movilizer.jaxb;
 
-import com.movilitas.movilizer.v11.MovilizerReplyAnswer;
-import com.movilitas.movilizer.v11.MovilizerReplyMovelet;
-import com.movilitas.movilizer.v11.MovilizerReplyQuestion;
+import com.movilitas.movilizer.v12.MovilizerReplyAnswer;
+import com.movilitas.movilizer.v12.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v12.MovilizerReplyQuestion;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;

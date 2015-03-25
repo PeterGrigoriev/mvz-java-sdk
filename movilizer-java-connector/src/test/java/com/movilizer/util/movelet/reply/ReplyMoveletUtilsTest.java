@@ -1,6 +1,6 @@
 package com.movilizer.util.movelet.reply;
 
-import com.movilitas.movilizer.v11.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v12.MovilizerReplyMovelet;
 import com.movilizer.mockdata.saved.SavedMovilizerObjectLoader;
 import org.testng.annotations.Test;
 

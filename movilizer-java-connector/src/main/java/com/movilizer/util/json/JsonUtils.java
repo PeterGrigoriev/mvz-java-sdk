@@ -1,12 +1,14 @@
 package com.movilizer.util.json;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.google.gson.*;
+import com.google.inject.Provider;
 
+import java.io.Reader;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 
 /**
@@ -40,5 +42,55 @@ public class JsonUtils {
             }
         }
         return stringMap;
+    }
+
+    public static List<JsonElement> parseJsonArray(Reader reader) {
+        if(reader == null) {
+            return newArrayList();
+        }
+
+        JsonParser parser = new JsonParser();
+        JsonElement parsed = parser.parse(reader);
+        if(parsed.equals(JsonNull.INSTANCE)) {
+            return newArrayList();
+        }
+        JsonArray jsonArray = parsed.getAsJsonArray();
+        return toList(jsonArray);
+    }
+
+    public static List<JsonElement> parseJsonArray(Provider<Reader> readerProvider) {
+        if(readerProvider == null) {
+            return newArrayList();
+        }
+        return parseJsonArray(readerProvider.get());
+    }
+
+    public static List<JsonElement> toList(JsonArray jsonArray) {
+        List<JsonElement> elements = newArrayList();
+        for (JsonElement jsonElement : jsonArray) {
+            elements.add(jsonElement);
+        }
+        return elements;
+    }
+
+    public static <T> T toJavaObject(JsonObject jsonObject, Class<T> tClass) {
+        return new Gson().fromJson(jsonObject, tClass);
+    }
+
+    public static <T> List<T> parseJsonArray(Reader reader, Class<T> tClass) {
+        return parseJsonArray(reader, tClass, tClass);
+    }
+
+    public static <TInterface, TClass extends TInterface> List<TInterface> parseJsonArray(Reader reader, Class<TClass> tClass, Class<TInterface> tInterface) {
+        List<JsonElement> jsonElements = parseJsonArray(reader);
+        return toJavaObjectList(jsonElements, tClass, tInterface);
+    }
+
+    public static <TInterface, TClass extends TInterface> List<TInterface> toJavaObjectList(List<JsonElement> jsonElements, Class<TClass> tClass, Class<TInterface> tInterface) {
+        List<TInterface> javaObjects = newArrayList();
+        for (JsonElement jsonElement : jsonElements) {
+            javaObjects.add(toJavaObject(jsonElement.getAsJsonObject(), tClass));
+        }
+        return javaObjects;
     }
 }

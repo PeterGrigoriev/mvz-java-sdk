@@ -1,14 +1,20 @@
 package com.movilizer.util.json;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.movilizer.util.json.JsonUtils;
 import junit.framework.Assert;
 import org.testng.annotations.Test;
 
+import java.io.Reader;
+import java.io.StringReader;
+import java.util.List;
 import java.util.Map;
 
+import static com.movilizer.util.json.JsonUtils.parseJsonArray;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class JsonUtilsTest {
 
@@ -51,5 +57,17 @@ public class JsonUtilsTest {
         Map<String, String> map = JsonUtils.collectPrimitiveProperties(object);
         Assert.assertEquals(map.get("a"), "123");
         Assert.assertEquals(map.get("b"), "VALUE B");
+    }
+
+    @Test
+    public void testParseJsonArrayForReader() {
+        assertTrue(parseJsonArray((Reader) null).isEmpty());
+        assertTrue(parseJsonArray(newStringReader("")).isEmpty());
+        assertTrue(parseJsonArray(newStringReader("[]")).isEmpty());
+
+    }
+
+    private static Reader newStringReader(String string) {
+        return new StringReader(string);
     }
 }

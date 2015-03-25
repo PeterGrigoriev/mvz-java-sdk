@@ -2,7 +2,7 @@ package com.movilizer.push;
 
 import com.google.common.base.Function;
 import com.google.inject.Inject;
-import com.movilitas.movilizer.v11.*;
+import com.movilitas.movilizer.v12.*;
 import com.movilizer.connector.*;
 import com.movilizer.document.IMovilizerDocumentUploader;
 import com.movilizer.moveletbuilder.IMoveletDataProvider;

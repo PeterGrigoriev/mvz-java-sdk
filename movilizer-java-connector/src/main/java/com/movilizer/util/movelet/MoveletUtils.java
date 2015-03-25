@@ -1,6 +1,6 @@
 package com.movilizer.util.movelet;
 
-import com.movilitas.movilizer.v11.MovilizerMovelet;
+import com.movilitas.movilizer.v12.MovilizerMovelet;
 
 import java.util.Date;
 

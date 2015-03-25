@@ -1,7 +1,7 @@
 package com.movilizer.push;
 
 import com.google.common.base.Function;
-import com.movilitas.movilizer.v11.MovilizerRequest;
+import com.movilitas.movilizer.v12.MovilizerRequest;
 import com.movilizer.connector.IMovilizerCloudSystem;
 import com.movilizer.connector.IMovilizerRequestSender;
 import com.movilizer.connector.IProxyInfo;

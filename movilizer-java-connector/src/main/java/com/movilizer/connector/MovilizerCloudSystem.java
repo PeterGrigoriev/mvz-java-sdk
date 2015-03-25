@@ -4,10 +4,10 @@ package com.movilizer.connector;
  * @author Peter.Grigoriev@movilizer.com
  */
 public class MovilizerCloudSystem implements IMovilizerCloudSystem {
-    private final int systemId;
-    private final String password;
-    private final String endpoint;
-    private final int timeout;
+    private int systemId;
+    private String password;
+    private String endpoint;
+    private int timeout;
 
     public MovilizerCloudSystem(int systemId, String password, String endpoint, int timeout) {
         this.systemId = systemId;
@@ -15,6 +15,8 @@ public class MovilizerCloudSystem implements IMovilizerCloudSystem {
         this.endpoint = endpoint;
         this.timeout = timeout;
     }
+
+    public MovilizerCloudSystem() {}
 
     @Override
     public int getSystemId() {
@@ -57,5 +59,21 @@ public class MovilizerCloudSystem implements IMovilizerCloudSystem {
         result = 31 * result + password.hashCode();
         result = 31 * result + endpoint.hashCode();
         return result;
+    }
+
+    public void setSystemId(int systemId) {
+        this.systemId = systemId;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
+    }
+
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
     }
 }

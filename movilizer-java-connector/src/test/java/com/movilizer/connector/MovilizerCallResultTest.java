@@ -1,6 +1,6 @@
 package com.movilizer.connector;
 
-import com.movilitas.movilizer.v11.MovilizerResponse;
+import com.movilitas.movilizer.v12.MovilizerResponse;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;

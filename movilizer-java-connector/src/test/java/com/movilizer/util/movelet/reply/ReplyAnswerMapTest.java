@@ -1,6 +1,6 @@
 package com.movilizer.util.movelet.reply;
 
-import com.movilitas.movilizer.v11.MovilizerReplyAnswer;
+import com.movilitas.movilizer.v12.MovilizerReplyAnswer;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
