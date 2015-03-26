@@ -1,7 +1,6 @@
 package com.movilizer.usermanagement.json;
 
 import com.google.gson.JsonObject;
-import com.movilizer.connector.IMoveletKeyWithExtension;
 
 import java.util.Date;
 
@@ -9,10 +8,10 @@ import java.util.Date;
  * @author Peter.Grigoriev@movilizer.com
  */
 public class JsonReply implements IJsonReply {
+    private final String key;
     private final String deviceAddress;
     private final Date replyDate;
     private final JsonObject replyData;
-    private final String key;
 
     @Override
     public String getKey() {
@@ -42,4 +41,13 @@ public class JsonReply implements IJsonReply {
     }
 
 
+    @Override
+    public String toString() {
+        return "{" +
+                "key='" + key + '\'' +
+                ", deviceAddress='" + deviceAddress + '\'' +
+                ", replyDate=" + replyDate +
+                ", replyData=" + replyData +
+                '}';
+    }
 }
