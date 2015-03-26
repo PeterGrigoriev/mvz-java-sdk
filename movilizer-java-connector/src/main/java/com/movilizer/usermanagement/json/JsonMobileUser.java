@@ -6,11 +6,13 @@ import com.movilizer.usermanagement.IMovilizerUser;
 import com.movilizer.usermanagement.MovilizerUserInvitationMethod;
 import com.movilizer.usermanagement.MovilizerUserStatus;
 
+import java.text.MessageFormat;
 import java.util.Map;
 import java.util.Set;
 
 import static com.google.common.collect.Sets.newHashSet;
 import static com.movilizer.util.string.StringUtils.emailToDeviceAddress;
+import static java.text.MessageFormat.format;
 
 /**
  * @author Peter.Grigoriev@gmail.com.
@@ -37,14 +39,23 @@ public class JsonMobileUser implements IMovilizerUser {
         return null;
     }
 
+    // TODO: get back to jsonObject.get("employeeNumber")
     @Override
     public int getEmployeeNumber() {
-        return jsonObject.get("employeeNumber").getAsInt();
+        return jsonObject.get("id").getAsInt();
     }
 
     @Override
     public String getName() {
-        return jsonObject.get("name").getAsString();
+        JsonElement name = jsonObject.get("name");
+        if(name != null) {
+            return name.getAsString();
+        }
+
+        String firstName = jsonObject.get("firstName").getAsString();
+        String lastName = jsonObject.get("lastName").getAsString();
+
+        return format("{0} {1}", firstName, lastName);
     }
 
     @Override

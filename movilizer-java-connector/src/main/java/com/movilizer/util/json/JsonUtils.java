@@ -93,4 +93,8 @@ public class JsonUtils {
         }
         return javaObjects;
     }
+
+    public static JsonElement parseJsonElement(String value) {
+        return new JsonParser().parse(value);
+    }
 }

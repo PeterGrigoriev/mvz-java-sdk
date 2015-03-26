@@ -43,4 +43,6 @@ public class JsonAdaptorMoveletProject extends MovilizerProjectBase {
     public IMovilizerPushCallListener onPushCallAvailable(IMovilizerPushCall call) throws Exception {
         return null;
     }
+
+
 }

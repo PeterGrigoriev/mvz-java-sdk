@@ -163,11 +163,16 @@ public class MobileProjectRunner implements IMobileProjectRunner {
 
         for (IMobileAssignmentEvent assignmentEvent : assignmentEvents) {
             acknowledger.addId(assignmentEvent.getId());
-            IMovilizerUser user = assignmentEvent.getUser();
-            if (assignmentEvent.getType() == MobileAssignmentEventType.ASSIGNED) {
-                joinedUsers.add(user);
-            } else {
-                unassignedUsers.add(user);
+            try {
+                IMovilizerUser user = assignmentEvent.getUser();
+
+                if (assignmentEvent.getType() == MobileAssignmentEventType.ASSIGNED) {
+                    joinedUsers.add(user);
+                } else {
+                    unassignedUsers.add(user);
+                }
+            } catch (Exception e) {
+                logger.error("Cannot retrieve user for an assignment event. id: [" +assignmentEvent.getId() + "]", e);
             }
         }
 
