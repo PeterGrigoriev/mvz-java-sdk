@@ -42,4 +42,9 @@ public class CordovaMoveletDataProvider extends SimpleMoveletDataProvider {
     public IMobileProjectSettings getSettings() throws ProjectSettingsNotAvailableException {
         return project.getSettings();
     }
+
+    @Override
+    public String getNamespace() {
+        return project.getTitle();
+    }
 }
