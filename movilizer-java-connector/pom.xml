@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.movilizer</groupId>
         <artifactId>movilizer-java-connector-parent</artifactId>
-        <version>3.0.1</version>
+        <version>3.0.2</version>
     </parent>
 
     <artifactId>movilizer-java-connector</artifactId>
