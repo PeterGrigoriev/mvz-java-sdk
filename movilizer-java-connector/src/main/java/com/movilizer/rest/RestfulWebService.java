@@ -11,6 +11,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;
@@ -83,6 +84,18 @@ public class RestfulWebService {
         stringEntity.setContentType(new BasicHeader(CONTENT_TYPE, "application/json"));
         httpPut.setEntity(stringEntity);
         HttpResponse response = httpClient.execute(httpPut);
+
+
+        // TODO: proceed on this
+    }
+
+    public void post(JsonObject jsonObject) throws IOException {
+        HttpClient httpClient = httpClientProvider.get();
+        HttpPost httpPost = new HttpPost(endpoint);
+        StringEntity stringEntity = new StringEntity(jsonObject.toString());
+        stringEntity.setContentType(new BasicHeader(CONTENT_TYPE, "application/json"));
+        httpPost.setEntity(stringEntity);
+        HttpResponse response = httpClient.execute(httpPost);
 
 
         // TODO: proceed on this
