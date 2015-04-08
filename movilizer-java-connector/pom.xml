@@ -9,11 +9,11 @@
     <parent>
         <groupId>com.movilizer</groupId>
         <artifactId>movilizer-java-connector-parent</artifactId>
-        <version>3.0.5</version>
+        <version>3.0.7</version>
     </parent>
 
     <artifactId>movilizer-java-connector</artifactId>
-    <version>3.0.5</version>
+    <version>3.0.7</version>
     <name>Movilizer Java Connector</name>
 
     <dependencies>
@@ -65,7 +65,7 @@
         <dependency>
             <groupId>com.movilizer</groupId>
             <artifactId>movilizer-web-service</artifactId>
-            <version>3.0.5</version>
+            <version>3.0.7</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>

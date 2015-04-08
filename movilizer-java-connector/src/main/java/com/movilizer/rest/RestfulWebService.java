@@ -9,7 +9,9 @@ import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
@@ -77,28 +79,38 @@ public class RestfulWebService {
         return get(offset, limit).getAsJsonArray();
     }
 
-    public void put(JsonObject jsonObject) throws IOException {
+    public void put(JsonElement jsonElement) throws IOException {
         HttpClient httpClient = httpClientProvider.get();
         HttpPut httpPut = new HttpPut(endpoint);
-        StringEntity stringEntity = new StringEntity(jsonObject.toString());
+        StringEntity stringEntity = new StringEntity(jsonElement.toString());
         stringEntity.setContentType(new BasicHeader(CONTENT_TYPE, "application/json"));
         httpPut.setEntity(stringEntity);
         HttpResponse response = httpClient.execute(httpPut);
 
 
-        // TODO: proceed on this
+        checkResponse(response);
     }
 
-    public void post(JsonObject jsonObject) throws IOException {
+    public void post(JsonElement jsonElement) throws IOException {
         HttpClient httpClient = httpClientProvider.get();
         HttpPost httpPost = new HttpPost(endpoint);
-        StringEntity stringEntity = new StringEntity(jsonObject.toString());
+        StringEntity stringEntity = new StringEntity(jsonElement.toString());
         stringEntity.setContentType(new BasicHeader(CONTENT_TYPE, "application/json"));
         httpPost.setEntity(stringEntity);
         HttpResponse response = httpClient.execute(httpPost);
 
+        checkResponse(response);
 
-        // TODO: proceed on this
+    }
+
+    private void checkResponse(HttpResponse response) throws HttpResponseException {
+        StatusLine statusLine = response.getStatusLine();
+
+        if (statusLine.getStatusCode() >= 300) {
+            throw new HttpResponseException(
+                    statusLine.getStatusCode(),
+                    statusLine.getReasonPhrase());
+        }
     }
 
     public Provider<Reader> asReaderProvider() {
