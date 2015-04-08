@@ -65,7 +65,7 @@
         <dependency>
             <groupId>com.movilizer</groupId>
             <artifactId>movilizer-web-service</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.2</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
