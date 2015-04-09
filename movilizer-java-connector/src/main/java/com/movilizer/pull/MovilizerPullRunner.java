@@ -8,6 +8,7 @@ import com.movilitas.movilizer.v12.*;
 import com.movilizer.acknowledgement.IMovilizerAcknowledgementCall;
 import com.movilizer.connector.MovilizerCallResult;
 import com.movilizer.masterdata.IMasterdataAcknowledgementProcessor;
+import com.movilizer.masterdata.MasterDataResponseObserver;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
 
@@ -28,8 +29,9 @@ public class MovilizerPullRunner implements IMovilizerPullRunner {
     protected final IMovilizerPullCall pullCall;
     protected final IMovilizerAcknowledgementCall acknowledgementCall;
     protected final Set<IReplyMoveletProcessor> replyProcessors;
-    private final IMasterdataAcknowledgementProcessor masterdataAcknowledgementProcessor;
     protected final Set<IMovilizerResponseObserver> responseObservers;
+
+    protected final IMovilizerResponseObserver masterDataResponseObserver;
 
 
     @Inject
@@ -40,124 +42,13 @@ public class MovilizerPullRunner implements IMovilizerPullRunner {
         this.pullCall = pullCall;
         this.acknowledgementCall = acknowledgementCall;
         this.replyProcessors = nullToEmptySet(replyProcessors);
-        this.masterdataAcknowledgementProcessor = masterdataAcknowledgementProcessor;
+        this.masterDataResponseObserver = new MasterDataResponseObserver(masterdataAcknowledgementProcessor);
         this.responseObservers = nullToEmptySet(responseObservers);
     }
 
 
-    public boolean processMasterdataAcknowledgements(MovilizerResponse movilizerResponse) {
-        List<MovilizerMasterdataAck> masterdataAcks = movilizerResponse.getMasterdataAck();
-        List<MovilizerMasterdataDeleted> masterdataDels = movilizerResponse.getMasterdataDeleted();
 
-
-        List<MovilizerMasterdataError> masterdataErrors = movilizerResponse.getMasterdataError();
-
-        if(masterdataAcks.isEmpty() && masterdataErrors.isEmpty() && masterdataDels.isEmpty()) {
-            return true;
-        }
-
-        Set<String> unknownPools = new HashSet<String>();
-        boolean success = processMasterdataAcksAndDeletes(masterdataAcks, masterdataDels, unknownPools);
-
-        success &= processMasterdataErrors(masterdataErrors, unknownPools);
-
-        if (!unknownPools.isEmpty()) {
-            for (String unknownPool : unknownPools) {
-                logger.error("Unknown pool: [" + unknownPool + "]. No Masterdata Acknowledgement Processor registered.");
-            }
-        }
-        return submitMasterdataAcknowledgements() && success;
-    }
-
-    private boolean processMasterdataErrors(List<MovilizerMasterdataError> movilizerMasterdataErrors, Set<String> unknownPools) {
-        if(masterdataAcknowledgementProcessor == null) {
-            return false;
-        }
-        boolean success = true;
-        for (MovilizerMasterdataError error : movilizerMasterdataErrors) {
-            String pool = error.getPool();
-            if (!canAcknowledge(pool)) {
-                unknownPools.add(pool);
-            } else {
-                try {
-                    masterdataAcknowledgementProcessor.processMasterdataError(error);
-                } catch (CannotProcessMasterdataAcknowledgementException e) {
-                    logger.error(e);
-                    success = false;
-                }
-            }
-        }
-        return success;
-    }
-
-    private boolean processMasterdataAcksAndDeletes(List<MovilizerMasterdataAck> masterdataAcks, List<MovilizerMasterdataDeleted> masterdataDels, Set<String> unknownPools) {
-
-        if(masterdataAcknowledgementProcessor == null) {
-            return false;
-        }
-
-        boolean success = processAcknowledgements(masterdataAcks, unknownPools);
-        success &= processMasterdataDeletes(masterdataDels, unknownPools);
-        return success;
-    }
-
-    private boolean processMasterdataDeletes(List<MovilizerMasterdataDeleted> masterdataDels, Set<String> unknownPools) {
-        boolean success = true;
-        for (MovilizerMasterdataDeleted delete : masterdataDels) {
-            String pool = delete.getPool();
-            if (!canAcknowledge(pool)) {
-                unknownPools.add(pool);
-                continue;
-            }
-
-            try {
-                masterdataAcknowledgementProcessor.processMasterdataDeletion(delete);
-            } catch (CannotProcessMasterdataDeletionException e) {
-                logger.error(e);
-                success = false;
-            }
-        }
-        return success;
-    }
-
-    private boolean processAcknowledgements(List<MovilizerMasterdataAck> masterdataAcks, Set<String> unknownPools) {
-        boolean success = true;
-        for (MovilizerMasterdataAck masterdataAck : masterdataAcks) {
-            String pool = masterdataAck.getPool();
-            if (!canAcknowledge(pool)) {
-                unknownPools.add(pool);
-                continue;
-            }
-
-
-            try {
-                masterdataAcknowledgementProcessor.processMasterdataAcknowledgement(masterdataAck);
-            } catch (CannotProcessMasterdataAcknowledgementException e) {
-                logger.error(e);
-                success = false;
-            }
-        }
-        return success;
-    }
-
-    private boolean submitMasterdataAcknowledgements() {
-        try {
-            if(null == masterdataAcknowledgementProcessor) {
-                return false;
-            }
-            masterdataAcknowledgementProcessor.submit();
-        } catch (CannotSubmitMasterdataAcknowledgementsException e) {
-            logger.error(e);
-            return false;
-        }
-        return true;
-    }
-
-    private boolean canAcknowledge(String pool) {
-        return masterdataAcknowledgementProcessor != null && masterdataAcknowledgementProcessor.getTargetPools().contains(pool);
-    }
-
-    protected boolean processReplyMovelets(MovilizerResponse response) {
+      protected boolean processReplyMovelets(MovilizerResponse response) {
         logResponse(response);
 
         Map<IReplyMoveletProcessor, List<ReplyMovelet>> map = getProcessorToReplyMoveletListMap(replyProcessors, response.getReplyMovelet());
@@ -225,6 +116,15 @@ public class MovilizerPullRunner implements IMovilizerPullRunner {
             onSuccessfulProcessing(response);
         }
         return success;
+    }
+
+    private boolean processMasterdataAcknowledgements(MovilizerResponse response) {
+        try {
+            masterDataResponseObserver.onResponseAvailable(response);
+            return true;
+        } catch (KeepItOnTheCloudException e) {
+            return false;
+        }
     }
 
     private boolean invokeResponseObservers(MovilizerResponse response) {

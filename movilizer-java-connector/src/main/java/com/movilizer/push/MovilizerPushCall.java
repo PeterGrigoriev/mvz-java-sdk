@@ -178,7 +178,4 @@ public class MovilizerPushCall extends MovilizerCall implements IMovilizerPushCa
 
         return assignment;
     }
-
-
-
 }

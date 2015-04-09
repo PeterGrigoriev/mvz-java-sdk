@@ -81,6 +81,18 @@ public class CollectionUtils {
         return res;
     }
 
+    public static List<Integer> toIntegers(Iterable<String> strings, List<String> failedToConvert) {
+        List<Integer> res = new ArrayList<Integer>();
+        for (String string : strings) {
+            try {
+                res.add(Integer.parseInt(string));
+            } catch (NumberFormatException e) {
+                failedToConvert.add(string);
+            }
+        }
+        return res;
+    }
+
     public static <TSource, TResult> Map<TResult, List<TSource>> collectValuesMap(Iterable<TSource> sources, Function<TSource,TResult> function) {
         Map<TResult, List<TSource>> resultMap = new HashMap<TResult, List<TSource>>();
         for (TSource source : sources) {
