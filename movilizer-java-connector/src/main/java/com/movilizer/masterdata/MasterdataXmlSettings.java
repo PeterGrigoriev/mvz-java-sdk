@@ -84,4 +84,26 @@ public class MasterdataXmlSettings implements IMasterdataXmlSetting {
     public int getNumberOfLoops() {
         return numberOfLoops;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MasterdataXmlSettings)) return false;
+
+        MasterdataXmlSettings that = (MasterdataXmlSettings) o;
+
+        if (!pool.equals(that.pool)) return false;
+        if (!subscriber.equals(that.subscriber)) return false;
+        if (targetPool != null ? !targetPool.equals(that.targetPool) : that.targetPool != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = pool.hashCode();
+        result = 31 * result + (targetPool != null ? targetPool.hashCode() : 0);
+        result = 31 * result + subscriber.hashCode();
+        return result;
+    }
 }

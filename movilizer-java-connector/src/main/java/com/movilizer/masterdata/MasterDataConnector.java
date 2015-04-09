@@ -22,6 +22,7 @@ import java.util.Set;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.movilizer.util.collection.CollectionUtils.toIntegers;
+import static java.text.MessageFormat.format;
 
 /**
  * @author Peter.Grigoriev@movilizer.com
@@ -59,7 +60,10 @@ public class MasterDataConnector implements IMasterDataConnector {
         int numberOfLoops = setting.getNumberOfLoops();
         for (int i = 0; i < numberOfLoops; i++) {
             try {
-                run(setting, createSynchronousCall());
+                boolean anyUpdatesSent = run(setting, createSynchronousCall());
+                if (!anyUpdatesSent) {
+                    break;
+                }
             } catch (Exception e) {
                 logger.error("Failed to run for pool [" + setting.getPool() + "]", e);
             }
@@ -70,9 +74,14 @@ public class MasterDataConnector implements IMasterDataConnector {
         return new MovilizerSynchronousPushCall(masterdataCloudSystem, proxyInfo, requestSender, null, null);
     }
 
-    private void run(IMasterdataXmlSetting setting, MovilizerSynchronousPushCall call) throws SQLException, IOException, XMLStreamException {
-        logger.debug("Running for pool [" + setting.getPool() + "]");
+    private boolean run(IMasterdataXmlSetting setting, MovilizerSynchronousPushCall call) throws SQLException, IOException, XMLStreamException {
+        String pool = setting.getPool();
+        logger.debug(format("Running for pool [{0}]", pool));
         IMasterdataReaderResult result = masterdataSource.read(setting);
+        if(null == result) {
+            logger.debug(format("No master data updates for pool [{0}]", pool));
+            return false;
+        }
         handleReadErrors(setting, result);
         MovilizerMasterdataPoolUpdate masterdataPoolUpdate = result.getMasterdataPoolUpdate();
         call.addMasterdataPoolUpdate(masterdataPoolUpdate);
@@ -80,7 +89,7 @@ public class MasterDataConnector implements IMasterDataConnector {
 
         if(!callResult.isSuccess()) {
             logger.error("Movilizer cloud call failed with error [" + callResult.getError() + "]");
-            return;
+            return false;
         }
 
         IMasterdataAcknowledgementProcessor acknowledgementProcessor = new MasterdataAcknowledgementProcessor(masterdataSettings, masterdataSource);
@@ -91,9 +100,10 @@ public class MasterDataConnector implements IMasterDataConnector {
             responseObserver.onResponseAvailable(response);
         } catch (KeepItOnTheCloudException e) {
             logger.error("Could not process cloud response. The response package will not be acknowledged.");
-            return;
+            return false;
         }
         acknowledge(response);
+        return true;
     }
 
     private void acknowledge(MovilizerResponse response) {
