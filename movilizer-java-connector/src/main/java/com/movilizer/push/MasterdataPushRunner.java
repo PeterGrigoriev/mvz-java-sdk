@@ -105,7 +105,7 @@ public class MasterdataPushRunner {
         return eventIds.size();
     }
 
-    private List<Integer> collectEventIds(MovilizerMasterdataPoolUpdate poolUpdate) {
+    public static List<Integer> collectEventIds(MovilizerMasterdataPoolUpdate poolUpdate) {
         List<Integer> res = new ArrayList<Integer>();
         for (MovilizerMasterdataDelete delete : poolUpdate.getDelete()) {
             res.add(parseInt(removePrefix(delete.getMasterdataAckKey(), REFERENCE_PREFIX)));

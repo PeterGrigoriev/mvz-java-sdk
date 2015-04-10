@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Set;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.movilizer.push.MasterdataPushRunner.collectEventIds;
 import static com.movilizer.util.collection.CollectionUtils.toIntegers;
 import static java.text.MessageFormat.format;
 
@@ -84,13 +85,20 @@ public class MasterDataConnector implements IMasterDataConnector {
         }
         handleReadErrors(setting, result);
         MovilizerMasterdataPoolUpdate masterdataPoolUpdate = result.getMasterdataPoolUpdate();
+        List<Integer> eventIds = collectEventIds(masterdataPoolUpdate);
+
+        // TODO: better name of this status is "sending"..
+        masterdataSource.acknowledge(setting, eventIds, AcknowledgementStatus.SENT);
+
         call.addMasterdataPoolUpdate(masterdataPoolUpdate);
         MovilizerCallResult callResult = call.synchronousSend();
 
         if(!callResult.isSuccess()) {
             logger.error("Movilizer cloud call failed with error [" + callResult.getError() + "]");
+            masterdataSource.acknowledge(setting, eventIds, AcknowledgementStatus.RESEND);
             return false;
         }
+
 
         IMasterdataAcknowledgementProcessor acknowledgementProcessor = new MasterdataAcknowledgementProcessor(masterdataSettings, masterdataSource);
         MasterDataResponseObserver responseObserver = new MasterDataResponseObserver(acknowledgementProcessor);
