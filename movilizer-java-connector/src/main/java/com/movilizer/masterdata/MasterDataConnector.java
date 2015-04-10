@@ -87,6 +87,13 @@ public class MasterDataConnector implements IMasterDataConnector {
         MovilizerMasterdataPoolUpdate masterdataPoolUpdate = result.getMasterdataPoolUpdate();
         List<Integer> eventIds = collectEventIds(masterdataPoolUpdate);
 
+        if(eventIds == null || eventIds.isEmpty()) {
+            logger.debug("No master data updates could be sent to the cloud.");
+            // all events read might have been erroneous (missing required field, etc.)
+            // there might be others in the queue waiting, thus returning true
+            return true;
+        }
+
         // TODO: better name of this status is "sending"..
         masterdataSource.acknowledge(setting, eventIds, AcknowledgementStatus.SENT);
 
