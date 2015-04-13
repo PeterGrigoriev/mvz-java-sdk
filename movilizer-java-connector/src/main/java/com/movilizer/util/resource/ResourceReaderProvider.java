@@ -35,7 +35,11 @@ public class ResourceReaderProvider implements Provider<Reader> {
     }
 
 
-    public static Provider<Reader> newTestResourceReaderProvider(String path) {
+    public static Provider<Reader> newResourceReaderProvider(String path) {
         return new ResourceReaderProvider(path);
+    }
+
+    public static Reader newResourceReader(String path) {
+        return newResourceReaderProvider(path).get();
     }
 }

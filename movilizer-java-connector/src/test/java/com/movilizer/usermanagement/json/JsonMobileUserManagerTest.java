@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 import java.util.List;
 
-import static com.movilizer.util.resource.ResourceReaderProvider.newTestResourceReaderProvider;
+import static com.movilizer.util.resource.ResourceReaderProvider.newResourceReaderProvider;
 
 /**
  * @author Peter.Grigoriev@gmail.com.
@@ -17,7 +17,7 @@ public class JsonMobileUserManagerTest extends TestCase {
 
     @Override
     public void setUp() throws Exception {
-        userManager = new JsonMobileUserManager(newTestResourceReaderProvider("/mobile-users.json"));
+        userManager = new JsonMobileUserManager(newResourceReaderProvider("/mobile-users.json"));
     }
 
     public void testGetMobileUsers() throws Exception {

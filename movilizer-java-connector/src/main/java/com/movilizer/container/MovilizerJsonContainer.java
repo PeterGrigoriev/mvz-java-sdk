@@ -14,6 +14,12 @@ import static com.movilizer.util.json.JsonUtils.toJsonObject;
 
 /**
  * @author Peter.Grigoriev@gmail.com.
+ *
+ * This class is used to consume HTML5 (cordova) movelet results.
+ * In JavaScript we store the result of the mobile app in a global variable using
+ * movilizer.writeGlobalVariable("result", JSON.stringify(resultObject)).
+ * Then, in MEL we use writeContainer("someName", jsonString) to send the result to the cloud.
+ * Thus, MovilizerJsonContainer expects the one and only value in the container, which is a result of JSON.stringify()
  */
 public class MovilizerJsonContainer implements IMovilizerJsonContainer {
     private final String key;

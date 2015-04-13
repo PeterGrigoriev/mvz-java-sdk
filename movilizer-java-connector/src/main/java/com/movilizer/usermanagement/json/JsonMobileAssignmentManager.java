@@ -20,15 +20,15 @@ import static com.movilizer.util.json.JsonUtils.parseJsonArray;
  * @author Peter.Grigoriev@gmail.com.
  */
 public class JsonMobileAssignmentManager implements IMobileAssignmentManager {
-    private final Provider<Reader> readerProvider;
+    private final Provider<Reader> assignmentEventsReaderProvider;
 
-    public JsonMobileAssignmentManager(Provider<Reader> readerProvider) {
-        this.readerProvider = readerProvider;
+    public JsonMobileAssignmentManager(Provider<Reader> assignmentEventsReaderProvider) {
+        this.assignmentEventsReaderProvider = assignmentEventsReaderProvider;
     }
 
     @Override
     public List<IMobileAssignmentEvent> getAssignmentEvents(IMovilizerProject project) throws MobileAssignmentException {
-        List<JsonElement> jsonElements = parseJsonArray(readerProvider.get());
+        List<JsonElement> jsonElements = parseJsonArray(assignmentEventsReaderProvider.get());
         List<IMobileAssignmentEvent> assignmentEvents = newArrayList();
         for (JsonElement jsonElement : jsonElements) {
             assignmentEvents.add(JsonMobileAssignmentEvent.fromJsonObject(jsonElement));

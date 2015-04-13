@@ -16,7 +16,7 @@ import static java.util.Arrays.asList;
  */
 public class MovilizerCallResult {
 
-    public MovilizerCallResult(MovilizerResponse response, String error) {
+    private MovilizerCallResult(MovilizerResponse response, String error) {
         this.error = error;
         this.response = response;
     }

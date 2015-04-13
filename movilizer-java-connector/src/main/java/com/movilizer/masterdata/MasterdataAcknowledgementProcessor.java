@@ -157,6 +157,10 @@ public class MasterdataAcknowledgementProcessor implements IMasterdataAcknowledg
     }
 
     private void validateMasterdataAcknowledgement(MovilizerMasterdataAck masterdataAck, IMasterdataXmlSetting setting) throws CannotProcessMasterdataAcknowledgementException {
+        if(isIgnoredAcknowledgementKey(masterdataAck.getMasterdataAckKey())) {
+            return;
+        }
+
         String pool = masterdataAck.getPool();
         if (pool == null) {
             failValidation(masterdataAck, "Cannot process masterdata acknowledgement, pool is null. ");
@@ -204,6 +208,10 @@ public class MasterdataAcknowledgementProcessor implements IMasterdataAcknowledg
 
 
     private void processMasterdataAcknowledgement(MovilizerMasterdataAck acknowledgement, IMasterdataXmlSetting setting) {
+        if(isIgnored(acknowledgement)) {
+            logger.trace("Ignoring acknowledgement with key: "+ acknowledgement.getMasterdataAckKey());
+            return;
+        }
         String masterdataAckKey = getAcknowledgementKey(acknowledgement, setting);
 
         String pool = setting.getPool();
@@ -213,6 +221,14 @@ public class MasterdataAcknowledgementProcessor implements IMasterdataAcknowledg
             acknowledgedKeysBySourcePool.put(pool, keys);
         }
         keys.add(parseInt(masterdataAckKey));
+    }
+
+    private boolean isIgnored(MovilizerMasterdataAck acknowledgement) {
+        return isIgnoredAcknowledgementKey(acknowledgement.getMasterdataAckKey());
+    }
+
+    public static boolean isIgnoredAcknowledgementKey(String acknowledgementKey) {
+        return acknowledgementKey != null && acknowledgementKey.startsWith("IGNOR");
     }
 
 

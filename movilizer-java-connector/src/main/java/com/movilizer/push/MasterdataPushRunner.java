@@ -22,6 +22,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.movilizer.masterdata.MasterdataAcknowledgementProcessor.isIgnoredAcknowledgementKey;
 import static com.movilizer.masterdata.MasterdataReader.REFERENCE_PREFIX;
 import static com.movilizer.util.collection.CollectionUtils.toIntegers;
 import static com.movilizer.util.string.StringUtils.removePrefix;
@@ -111,7 +112,12 @@ public class MasterdataPushRunner {
             res.add(parseInt(removePrefix(delete.getMasterdataAckKey(), REFERENCE_PREFIX)));
         }
         for (MovilizerMasterdataReference reference : poolUpdate.getReference()) {
-            res.add(parseInt(removePrefix(reference.getMasterdataAckKey(), REFERENCE_PREFIX)));
+
+            String masterdataAckKey = reference.getMasterdataAckKey();
+            if(isIgnoredAcknowledgementKey(masterdataAckKey)) {
+                continue;
+            }
+            res.add(parseInt(removePrefix(masterdataAckKey, REFERENCE_PREFIX)));
         }
         for (MovilizerMasterdataUpdate update : poolUpdate.getUpdate()) {
             res.add(parseInt(update.getMasterdataAckKey()));

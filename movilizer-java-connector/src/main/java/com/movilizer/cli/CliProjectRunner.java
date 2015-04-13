@@ -36,11 +36,12 @@ public class CliProjectRunner {
         if(commandLine.hasOption(CliOptions.PULL)) {
             projectRunner.runPull();
         }
-        if(commandLine.hasOption(CliOptions.INIT) || commandLine.hasOption(CliOptions.ASSIGN) || commandLine.hasOption(CliOptions.PUSH))
-        projectRunner.runPush();
+        if(commandLine.hasOption(CliOptions.INIT) || commandLine.hasOption(CliOptions.ASSIGN) || commandLine.hasOption(CliOptions.PUSH)) {
+            projectRunner.runPush();
+        }
     }
 
-    private static Options getOptions() {
+    public static Options getOptions() {
         Options options = new Options();
         options.addOption(CliOptions.INIT, false, "Initialize the app");
         options.addOption(CliOptions.ASSIGN, true, "Send the app to a user");

@@ -10,7 +10,7 @@ import junit.framework.TestCase;
 import java.util.Collection;
 import java.util.List;
 
-import static com.movilizer.util.resource.ResourceReaderProvider.newTestResourceReaderProvider;
+import static com.movilizer.util.resource.ResourceReaderProvider.newResourceReaderProvider;
 
 /**
  * @author Peter.Grigoriev@gmail.com.
@@ -21,7 +21,7 @@ public class JsonMobileAssignmentManagerTest extends TestCase {
 
     @Override
     public void setUp() throws Exception {
-        assignmentManager = new JsonMobileAssignmentManager(newTestResourceReaderProvider("/mobile-assignment-events.json"));
+        assignmentManager = new JsonMobileAssignmentManager(newResourceReaderProvider("/mobile-assignment-events.json"));
     }
 
 

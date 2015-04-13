@@ -3,7 +3,7 @@ package com.movilizer.usermanagement.json;
 import com.movilizer.projectmanagement.IMobileProjectSettings;
 import junit.framework.TestCase;
 
-import static com.movilizer.util.resource.ResourceReaderProvider.newTestResourceReaderProvider;
+import static com.movilizer.util.resource.ResourceReaderProvider.newResourceReaderProvider;
 
 /**
  * @author Peter.Grigoriev@gmail.com.
@@ -14,7 +14,7 @@ public class JsonMobileProjectManagerTest extends TestCase {
 
     @Override
     public void setUp() throws Exception {
-        projectManager = new JsonMobileProjectManager(newTestResourceReaderProvider("/mobile-projects.json"), null);
+        projectManager = new JsonMobileProjectManager(newResourceReaderProvider("/mobile-projects.json"), null);
     }
 
     public void testGetMobileProjectSettings() throws Exception {

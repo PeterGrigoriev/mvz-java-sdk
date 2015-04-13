@@ -122,9 +122,17 @@ public class MasterdataFieldNames implements IMasterdataFieldNames {
         this(group, objectId, description, null, null, null);
     }
 
+    public MasterdataFieldNames jsonStyle() {
+        MasterdataFieldNames fieldNames = new MasterdataFieldNames(group, objectId, description, filter1, filter2, filter3);
+        fieldNames.setEventId("eventId");
+        fieldNames.setEventType("eventType");
+        return fieldNames;
+    }
+
     public MasterdataFieldNames(String group, String objectId, String description, String filter1, String filter2, String filter3) {
         this(group, objectId, description, filter1, filter2, filter3, null, null, null);
     }
+
 
     public MasterdataFieldNames(String group, String objectId, String description, String filter1, String filter2, String filter3, String filter4, String filter5, String filter6) {
         this.group = group;
