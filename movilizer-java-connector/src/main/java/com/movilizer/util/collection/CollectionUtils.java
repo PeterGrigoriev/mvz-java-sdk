@@ -197,4 +197,16 @@ public class CollectionUtils {
         }
         return set;
     }
+
+    public static <T> void skip(Iterator<T> iterator, int numberOfRecords) {
+        int i = 0;
+        while (iterator.hasNext()) {
+            i++;
+            if(i > numberOfRecords) {
+                return;
+            }
+            iterator.next();
+        }
+
+    }
 }

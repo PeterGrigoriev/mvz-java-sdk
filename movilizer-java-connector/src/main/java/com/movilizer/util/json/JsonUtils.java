@@ -2,13 +2,16 @@ package com.movilizer.util.json;
 
 import com.google.gson.*;
 import com.google.inject.Provider;
+import com.movilizer.masterdata.IllegalMasterdataFormatException;
 
 import java.io.Reader;
+import java.util.IllegalFormatException;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Maps.filterValues;
 import static com.google.common.collect.Maps.newHashMap;
 
 /**
@@ -45,13 +48,13 @@ public class JsonUtils {
     }
 
     public static List<JsonElement> parseJsonArray(Reader reader) {
-        if(reader == null) {
+        if (reader == null) {
             return newArrayList();
         }
 
         JsonParser parser = new JsonParser();
         JsonElement parsed = parser.parse(reader);
-        if(parsed.equals(JsonNull.INSTANCE)) {
+        if (parsed.equals(JsonNull.INSTANCE)) {
             return newArrayList();
         }
         JsonArray jsonArray = parsed.getAsJsonArray();
@@ -59,7 +62,7 @@ public class JsonUtils {
     }
 
     public static List<JsonElement> parseJsonArray(Provider<Reader> readerProvider) {
-        if(readerProvider == null) {
+        if (readerProvider == null) {
             return newArrayList();
         }
         return parseJsonArray(readerProvider.get());
@@ -96,5 +99,31 @@ public class JsonUtils {
 
     public static JsonElement parseJsonElement(String value) {
         return new JsonParser().parse(value);
+    }
+
+    public static JsonObject fromNamesAndValues(List<String> fieldNames, List<String> values) throws IllegalArgumentException {
+        if (fieldNames == null || values == null) {
+            throw new IllegalArgumentException("null is not allowed here");
+        }
+        if (fieldNames.size() != values.size()) {
+            throw new IllegalArgumentException("fieldNames.size() != values.size()");
+        }
+        JsonObject object = new JsonObject();
+        for (int i = 0; i < fieldNames.size(); i++) {
+            object.addProperty(fieldNames.get(i), values.get(i));
+        }
+        return object;
+    }
+
+    public static JsonObject fromMap(Map<String, String> map) {
+        JsonObject object = new JsonObject();
+        for (String key : map.keySet()) {
+            object.addProperty(toJsonKey(key), map.get(key));
+        }
+        return object;
+    }
+
+    private static String toJsonKey(String key) {
+        return key.replace(" ", "_");
     }
 }

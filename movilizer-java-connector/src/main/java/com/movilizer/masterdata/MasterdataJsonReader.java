@@ -27,6 +27,12 @@ public class MasterdataJsonReader extends MasterdataReader implements IMasterdat
         }
     }
 
+    @Override
+    public IMasterdataReaderResult readArray(JsonArray array, IMasterdataXmlSetting settings) throws IOException, XMLStreamException {
+        List<IParsedMasterdataEvent> elements = convertMasterdataEvents(array, settings);
+        return toReaderResult(settings, elements);
+    }
+
     public List<IParsedMasterdataEvent> readMasterdataEvents(JsonReader reader, IMasterdataXmlSetting settings) throws IOException {
         List<IParsedMasterdataEvent> events = newArrayList();
 
@@ -35,6 +41,15 @@ public class MasterdataJsonReader extends MasterdataReader implements IMasterdat
             events.add(readEvent(reader, settings));
         }
         reader.endArray();
+        return events;
+    }
+
+    public List<IParsedMasterdataEvent> convertMasterdataEvents(JsonArray array, IMasterdataXmlSetting settings) throws IOException {
+        List<IParsedMasterdataEvent> events = newArrayList();
+
+        for (JsonElement jsonElement : array) {
+            events.add(toMasterdataEvent(jsonElement.getAsJsonObject(), settings));
+        }
         return events;
     }
 

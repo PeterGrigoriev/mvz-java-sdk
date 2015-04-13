@@ -1,5 +1,6 @@
 package com.movilizer.masterdata;
 
+import com.google.gson.JsonArray;
 import com.movilitas.movilizer.v12.*;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
@@ -117,7 +118,12 @@ public abstract class MasterdataReader implements IMasterdataReader {
     @Override
     public IMasterdataReaderResult read(Reader reader, IMasterdataXmlSetting settings) throws IOException, XMLStreamException {
         List<IParsedMasterdataEvent> elements = parse(reader, settings);
+        return toReaderResult(settings, elements);
+    }
 
+
+
+    protected IMasterdataReaderResult toReaderResult(IMasterdataXmlSetting settings, List<IParsedMasterdataEvent> elements) {
         // maps object id to the corresponding update or delete
         List<IMasterdataChange> changes = newArrayList();
         List<String> errorEventIds = new ArrayList<String>();
