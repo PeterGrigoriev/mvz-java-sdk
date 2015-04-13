@@ -1,7 +1,6 @@
 package com.movilizer.module;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.Provider;
 import com.google.inject.binder.LinkedBindingBuilder;
 import com.google.inject.multibindings.Multibinder;
 import com.google.inject.util.Providers;

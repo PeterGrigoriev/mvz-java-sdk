@@ -1,7 +1,6 @@
 package com.movilizer.usermanagement.json;
 
 import com.google.gson.JsonObject;
-import com.movilizer.connector.IMoveletKeyWithExtension;
 
 import java.util.Date;
 

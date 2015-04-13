@@ -1,11 +1,7 @@
 package com.movilizer.masterdata.excel;
 
-import com.google.common.base.Function;
 import com.google.gson.JsonObject;
-import com.movilizer.masterdata.IMasterdataXmlSetting;
 import com.movilizer.push.EventType;
-
-import javax.annotation.Nullable;
 
 /**
  * @author Peter.Grigoriev@movilizer.com

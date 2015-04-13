@@ -2,7 +2,6 @@ package com.movilizer.rest;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.inject.Provider;
 import com.movilizer.util.logger.ComponentLogger;

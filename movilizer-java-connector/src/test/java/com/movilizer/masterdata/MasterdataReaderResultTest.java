@@ -2,11 +2,9 @@ package com.movilizer.masterdata;
 
 import com.movilitas.movilizer.v12.MovilizerMasterdataPoolUpdate;
 import com.movilitas.movilizer.v12.MovilizerMasterdataReference;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;

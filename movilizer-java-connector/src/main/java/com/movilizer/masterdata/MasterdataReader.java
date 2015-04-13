@@ -1,6 +1,5 @@
 package com.movilizer.masterdata;
 
-import com.google.gson.JsonArray;
 import com.movilitas.movilizer.v12.*;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;

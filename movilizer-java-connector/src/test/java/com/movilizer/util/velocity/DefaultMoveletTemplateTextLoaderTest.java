@@ -1,6 +1,5 @@
 package com.movilizer.util.velocity;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.LineNumberReader;

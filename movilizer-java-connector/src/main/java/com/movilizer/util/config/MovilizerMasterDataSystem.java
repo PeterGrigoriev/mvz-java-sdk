@@ -1,19 +1,13 @@
 package com.movilizer.util.config;
 
-import com.movilizer.masterdata.IMasterdataFieldNames;
-import com.movilizer.masterdata.IMasterdataXmlSetting;
-import com.movilizer.masterdata.MasterdataFieldNames;
-import com.movilizer.util.collection.CollectionUtils;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.HierarchicalConfiguration;
-import org.apache.commons.configuration.SubnodeConfiguration;
 import org.apache.commons.configuration.XMLConfiguration;
 
 import java.io.StringReader;
 import java.util.List;
 import java.util.Set;
 
-import static com.google.common.collect.Sets.newHashSet;
 import static com.movilizer.util.collection.CollectionUtils.toStringSet;
 
 /**

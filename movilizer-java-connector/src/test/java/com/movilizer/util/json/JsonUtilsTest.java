@@ -1,6 +1,5 @@
 package com.movilizer.util.json;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.movilizer.util.json.JsonUtils;
@@ -9,7 +8,6 @@ import org.testng.annotations.Test;
 
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.List;
 import java.util.Map;
 
 import static com.movilizer.util.json.JsonUtils.parseJsonArray;

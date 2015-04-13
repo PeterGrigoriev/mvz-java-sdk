@@ -3,7 +3,6 @@ package com.movilizer.projectmanagement;
 import com.google.inject.ImplementedBy;
 import com.movilizer.connector.IMoveletKeyWithExtension;
 import com.movilizer.connector.IMovilizerCloudSystem;
-import com.movilizer.push.MovilizerPushCall;
 import com.movilizer.usermanagement.IMovilizerUser;
 import com.movilizer.usermanagement.MobileUserException;
 

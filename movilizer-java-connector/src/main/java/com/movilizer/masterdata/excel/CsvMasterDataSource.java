@@ -4,13 +4,11 @@ import com.google.gson.JsonArray;
 import com.movilizer.masterdata.*;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
-import com.movilizer.util.resource.ResourceReaderProvider;
 
 import javax.xml.stream.XMLStreamException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.sql.SQLException;
 import java.util.Collection;
 

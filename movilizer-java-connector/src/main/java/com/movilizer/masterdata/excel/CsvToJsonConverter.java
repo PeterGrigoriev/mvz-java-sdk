@@ -12,10 +12,8 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static com.movilizer.util.collection.CollectionUtils.skip;
 
 /**

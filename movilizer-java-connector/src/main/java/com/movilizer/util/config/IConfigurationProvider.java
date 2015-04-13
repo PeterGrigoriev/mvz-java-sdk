@@ -1,6 +1,5 @@
 package com.movilizer.util.config;
 
-import org.apache.commons.configuration.CombinedConfiguration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.HierarchicalConfiguration;
 

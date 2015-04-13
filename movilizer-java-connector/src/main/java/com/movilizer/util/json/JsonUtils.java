@@ -2,16 +2,13 @@ package com.movilizer.util.json;
 
 import com.google.gson.*;
 import com.google.inject.Provider;
-import com.movilizer.masterdata.IllegalMasterdataFormatException;
 
 import java.io.Reader;
-import java.util.IllegalFormatException;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Maps.filterValues;
 import static com.google.common.collect.Maps.newHashMap;
 
 /**

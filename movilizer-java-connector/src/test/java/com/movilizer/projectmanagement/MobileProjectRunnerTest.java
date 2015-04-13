@@ -21,10 +21,8 @@ import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MobileProjectRunnerTest {

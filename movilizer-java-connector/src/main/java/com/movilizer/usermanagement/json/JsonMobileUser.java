@@ -6,7 +6,6 @@ import com.movilizer.usermanagement.IMovilizerUser;
 import com.movilizer.usermanagement.MovilizerUserInvitationMethod;
 import com.movilizer.usermanagement.MovilizerUserStatus;
 
-import java.text.MessageFormat;
 import java.util.Map;
 import java.util.Set;
 

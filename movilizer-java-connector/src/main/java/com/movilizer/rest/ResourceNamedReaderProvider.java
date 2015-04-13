@@ -3,7 +3,6 @@ package com.movilizer.rest;
 import com.google.inject.Provider;
 import com.movilizer.util.resource.ResourceReaderProvider;
 
-import java.io.InputStreamReader;
 import java.io.Reader;
 
 /**

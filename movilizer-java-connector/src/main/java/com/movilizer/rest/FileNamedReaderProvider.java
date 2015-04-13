@@ -3,7 +3,6 @@ package com.movilizer.rest;
 import com.google.inject.Provider;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.Reader;
 
 /**

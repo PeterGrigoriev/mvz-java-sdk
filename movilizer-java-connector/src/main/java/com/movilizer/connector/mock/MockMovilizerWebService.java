@@ -4,13 +4,10 @@ import com.movilitas.movilizer.v12.MovilizerRequest;
 import com.movilitas.movilizer.v12.MovilizerResponse;
 import com.movilitas.movilizer.v12.MovilizerWebServiceV12;
 
-import javax.jws.WebParam;
 import javax.xml.ws.Binding;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.EndpointReference;
-import javax.xml.ws.handler.Handler;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
