@@ -27,6 +27,7 @@ public class MasterdataJsonReader extends MasterdataReader implements IMasterdat
         }
     }
 
+
     @Override
     public IMasterdataReaderResult readArray(JsonArray array, IMasterdataXmlSetting settings) throws IOException, XMLStreamException {
         List<IParsedMasterdataEvent> elements = convertMasterdataEvents(array, settings);

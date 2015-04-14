@@ -27,7 +27,5 @@ public class JsonMasterDataSource implements IMasterdataSource {
 
     @Override
     public void acknowledge(IMasterdataXmlSetting setting, Collection<Integer> eventIds, AcknowledgementStatus status) throws SQLException {
-        // TODO: implement
-        System.err.println("Not implemented: acknowledge");
     }
 }

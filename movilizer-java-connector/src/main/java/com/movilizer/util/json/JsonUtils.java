@@ -1,5 +1,6 @@
 package com.movilizer.util.json;
 
+import com.google.common.base.Predicate;
 import com.google.gson.*;
 import com.google.inject.Provider;
 
@@ -122,5 +123,41 @@ public class JsonUtils {
 
     private static String toJsonKey(String key) {
         return key.replace(" ", "_");
+    }
+
+    public static Predicate<JsonElement> ACCEPT_ALL = new Predicate<JsonElement>() {
+        @Override
+        public boolean apply(JsonElement jsonElement) {
+            return true;
+        }
+    };
+
+    public static JsonArray filter(JsonArray array, Predicate<JsonElement> filter) {
+        JsonArray result = new JsonArray();
+
+        for (JsonElement jsonElement : array) {
+            if(filter.apply(jsonElement)) {
+                result.add(jsonElement);
+            }
+        }
+        return result;
+    }
+
+    public static Predicate<JsonElement> isJsonObjectAnd(final Predicate<JsonObject> filter) {
+        return new Predicate<JsonElement>() {
+            @Override
+            public boolean apply(JsonElement element) {
+                return element.isJsonObject() && filter.apply(element.getAsJsonObject());
+            }
+        };
+    }
+
+    public static Predicate<JsonObject> fieldEquals(final String fieldName, final String value) {
+        return new Predicate<JsonObject>() {
+            @Override
+            public boolean apply(JsonObject jsonObject) {
+                return jsonObject.get(fieldName).getAsString().equals(value);
+            }
+        };
     }
 }
