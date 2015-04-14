@@ -9,6 +9,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.Date;
 import java.util.List;
 
+import static com.movilizer.util.datetime.DateTimeUtils.asDate;
 import static com.movilizer.util.json.JsonUtils.toJsonObject;
 
 
@@ -41,8 +42,9 @@ public class MovilizerJsonContainer implements IMovilizerJsonContainer {
         String deviceAddress = container.getDeviceAddress();
         String key = container.getKey();
         String moveletKey = container.getMoveletKey();
+
         XMLGregorianCalendar creationTimestamp = container.getCreationTimestamp();
-        Date creationDate = new Date(creationTimestamp.getMillisecond());
+        Date creationDate = asDate(creationTimestamp);
 
         MovilizerGenericDataContainer data = container.getData();
         if(data == null) {

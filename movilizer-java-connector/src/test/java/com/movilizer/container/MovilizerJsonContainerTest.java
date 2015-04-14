@@ -3,6 +3,7 @@ package com.movilizer.container;
 import com.movilitas.movilizer.v12.MovilizerGenericDataContainer;
 import com.movilitas.movilizer.v12.MovilizerGenericDataContainerEntry;
 import com.movilitas.movilizer.v12.MovilizerGenericUploadDataContainer;
+import com.movilizer.util.datetime.DateTimeUtils;
 import com.movilizer.util.json.JsonUtils;
 import org.testng.annotations.Test;
 
@@ -25,8 +26,7 @@ public class MovilizerJsonContainerTest {
         MovilizerGenericUploadDataContainer dataContainer = createContainer();
         IMovilizerJsonContainer container = MovilizerJsonContainer.fromUploadDataContainer(dataContainer);
 
-        // TODO: fix the dates!
-//        assertEquals(container.getCreationDate(), DateTimeUtils.asDate(TIMESTAMP));
+        assertEquals(container.getCreationDate(), DateTimeUtils.asDate(TIMESTAMP));
         assertEquals(container.getDeviceAddress(), DEVICE_ADDRESS);
         assertEquals(container.getMoveletKey(), MOVELET_KEY);
         assertEquals(container.getKey(), CONTAINER_KEY);
