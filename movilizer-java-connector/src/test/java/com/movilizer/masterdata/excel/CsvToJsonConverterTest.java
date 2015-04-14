@@ -1,7 +1,7 @@
 package com.movilizer.masterdata.excel;
 
 import com.google.gson.JsonArray;
-import com.movilizer.util.resource.ResourceReaderProvider;
+import com.movilizer.masterdata.csv.CsvToJsonConverter;
 import org.testng.annotations.Test;
 
 import java.io.Reader;

@@ -1,5 +1,9 @@
-package com.movilizer.masterdata;
+package com.movilizer.masterdata.json;
 
+import com.movilizer.masterdata.AcknowledgementStatus;
+import com.movilizer.masterdata.IMasterdataReaderResult;
+import com.movilizer.masterdata.IMasterdataSource;
+import com.movilizer.masterdata.IMasterdataXmlSetting;
 import com.movilizer.rest.INamedReaderProvider;
 
 import javax.xml.stream.XMLStreamException;

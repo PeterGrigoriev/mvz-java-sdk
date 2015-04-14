@@ -1,7 +1,11 @@
 package com.movilizer.rest;
 
 import com.google.inject.Provider;
-import com.movilizer.masterdata.*;
+import com.movilizer.masterdata.AcknowledgementStatus;
+import com.movilizer.masterdata.IMasterdataReaderResult;
+import com.movilizer.masterdata.IMasterdataSource;
+import com.movilizer.masterdata.IMasterdataXmlSetting;
+import com.movilizer.masterdata.json.JsonMasterDataSource;
 import org.apache.http.client.HttpClient;
 
 import javax.xml.stream.XMLStreamException;

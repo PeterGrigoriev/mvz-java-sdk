@@ -57,6 +57,18 @@ public class MasterDataConnector implements IMasterDataConnector {
         }
     }
 
+    @Override
+    public void cleanAllPools() {
+        for (IMasterdataXmlSetting setting : masterdataSettings) {
+            cleanPool(setting.getPool());
+        }
+    }
+
+    @Override
+    public void cleanPool(String pool) {
+        new MasterdataDeletePool(createSynchronousCall()).delete(pool);
+    }
+
     public void run(IMasterdataXmlSetting setting) {
         int numberOfLoops = setting.getNumberOfLoops();
         for (int i = 0; i < numberOfLoops; i++) {

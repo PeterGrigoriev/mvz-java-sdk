@@ -1,7 +1,10 @@
-package com.movilizer.masterdata.excel;
+package com.movilizer.masterdata.json;
 
 import com.google.gson.JsonObject;
 import com.movilizer.push.EventType;
+import com.movilizer.util.functional.Operation2;
+
+import static com.movilizer.masterdata.json.JsonDefaultFieldNames.*;
 
 /**
  * @author Peter.Grigoriev@movilizer.com
@@ -17,10 +20,10 @@ public class AddEventIdAndType implements Operation2<JsonObject, Integer> {
     }
 
     public void apply(JsonObject jsonObject, Integer rowNumber) {
-        jsonObject.addProperty("eventId", rowNumber);
-        jsonObject.addProperty("eventType", eventType.toString());
+        jsonObject.addProperty(EVENT_ID, rowNumber);
+        jsonObject.addProperty(EVENT_TYPE, eventType.toString());
         if(!jsonObject.has(idFieldName)) {
-            jsonObject.addProperty("id", rowNumber);
+            jsonObject.addProperty(OBJECT_ID, rowNumber);
         }
     }
 }

@@ -1,8 +1,9 @@
-package com.movilizer.masterdata;
+package com.movilizer.masterdata.json;
 
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import com.google.inject.Singleton;
+import com.movilizer.masterdata.*;
 import com.movilizer.util.json.JsonUtils;
 
 import javax.xml.stream.XMLStreamException;
@@ -11,12 +12,14 @@ import java.io.Reader;
 import java.util.*;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.movilizer.masterdata.json.JsonDefaultFieldNames.OBJECT_FIELDS;
 
 /**
  * @author Peter.Grigoriev@movilizer.com
  */
 @Singleton
 public class MasterdataJsonReader extends MasterdataReader implements IMasterdataJsonReader {
+
     @Override
     public List<IParsedMasterdataEvent> parse(Reader reader, IMasterdataXmlSetting settings) throws XMLStreamException, IOException {
         JsonReader jsonReader = new JsonReader(reader);
@@ -66,8 +69,8 @@ public class MasterdataJsonReader extends MasterdataReader implements IMasterdat
 
     private Map<String, String> getFieldMap(JsonObject jsonObject) {
         Map<String, String> primitiveProperties = JsonUtils.collectPrimitiveProperties(jsonObject);
-        if(jsonObject.has("fields")) {
-            primitiveProperties.putAll(getFieldMap(jsonObject.getAsJsonObject("fields")));
+        if(jsonObject.has(OBJECT_FIELDS)) {
+            primitiveProperties.putAll(getFieldMap(jsonObject.getAsJsonObject(OBJECT_FIELDS)));
         }
         return primitiveProperties;
     }

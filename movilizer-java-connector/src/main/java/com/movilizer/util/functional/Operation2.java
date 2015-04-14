@@ -1,4 +1,4 @@
-package com.movilizer.masterdata.excel;
+package com.movilizer.util.functional;
 
 /**
  * @author Peter.Grigoriev@movilizer.com

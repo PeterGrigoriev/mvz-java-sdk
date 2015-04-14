@@ -3,16 +3,18 @@ package com.movilizer.container;
 import com.movilitas.movilizer.v12.MovilizerGenericDataContainer;
 import com.movilitas.movilizer.v12.MovilizerGenericDataContainerEntry;
 import com.movilitas.movilizer.v12.MovilizerGenericUploadDataContainer;
-import com.movilizer.util.datetime.DateTimeUtils;
 import com.movilizer.util.json.JsonUtils;
-import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
 import org.testng.annotations.Test;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import static com.movilizer.util.datetime.DateTimeUtils.asXmlGregorianCalendar;
+import static com.movilizer.util.datetime.Dates.now;
 import static org.testng.Assert.assertEquals;
 
 public class MovilizerJsonContainerTest {
 
-    public static final XMLGregorianCalendarImpl TIMESTAMP = new XMLGregorianCalendarImpl();
+    public static final XMLGregorianCalendar TIMESTAMP = asXmlGregorianCalendar(now());
     public static final String DEVICE_ADDRESS = "@a.b.com";
     public static final String CONTAINER_KEY = "someKey";
     public static final String MOVELET_KEY = "TestMovelet";

@@ -2,6 +2,7 @@ package com.movilizer.masterdata.excel;
 
 import com.google.gson.JsonArray;
 import com.movilizer.masterdata.*;
+import com.movilizer.masterdata.json.MasterdataJsonReader;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
 
@@ -31,8 +32,17 @@ public class ExcelMasterDataSource implements IMasterdataSource {
 
     @Override
     public IMasterdataReaderResult read(IMasterdataXmlSetting setting) throws SQLException, XMLStreamException, IOException {
+        String pool = setting.getPool();
+        logger.debug("Reading data for pool [" + pool + "]");
         JsonArray jsonArray = excelToJsonConverter.convert(inputStream, setting.getFieldNames().getObjectId());
-        return jsonReader.readArray(jsonArray, setting);
+
+        IMasterdataReaderResult readResult = jsonReader.readArray(jsonArray, setting);
+        if(null == readResult) {
+            logger.debug("No results read for pool [" + pool + "]");
+            return null;
+        }
+        logger.debug("There were [" + readResult.getMasterdataPoolUpdate().getUpdate().size() + "] updates for pool [" + pool + "]");
+        return readResult;
     }
 
     @Override

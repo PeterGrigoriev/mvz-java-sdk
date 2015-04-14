@@ -1,9 +1,10 @@
-package com.movilizer.masterdata.excel;
+package com.movilizer.masterdata.operation;
 
 import com.movilitas.movilizer.v12.MovilizerMasterdataPoolUpdate;
 import com.movilitas.movilizer.v12.MovilizerMasterdataReference;
 import com.movilitas.movilizer.v12.MovilizerMasterdataUpdate;
 import com.movilizer.masterdata.IMasterdataXmlSetting;
+import com.movilizer.util.functional.Operation2;
 
 import java.util.List;
 

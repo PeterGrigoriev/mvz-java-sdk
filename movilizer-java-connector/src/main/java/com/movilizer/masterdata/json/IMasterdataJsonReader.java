@@ -1,7 +1,10 @@
-package com.movilizer.masterdata;
+package com.movilizer.masterdata.json;
 
 import com.google.gson.JsonArray;
 import com.google.inject.ImplementedBy;
+import com.movilizer.masterdata.IMasterdataReader;
+import com.movilizer.masterdata.IMasterdataReaderResult;
+import com.movilizer.masterdata.IMasterdataXmlSetting;
 
 import javax.xml.stream.XMLStreamException;
 import java.io.IOException;

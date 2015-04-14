@@ -8,4 +8,6 @@ import com.google.inject.ImplementedBy;
 @ImplementedBy(MasterDataConnector.class)
 public interface IMasterDataConnector {
     void run();
+    void cleanPool(String pool);
+    void cleanAllPools();
 }

@@ -1,8 +1,10 @@
-package com.movilizer.masterdata.excel;
+package com.movilizer.masterdata.csv;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.movilizer.masterdata.json.AddEventIdAndType;
 import com.movilizer.push.EventType;
+import com.movilizer.util.functional.Operation2;
 import com.movilizer.util.json.JsonUtils;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
@@ -12,7 +14,6 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Iterator;
-import java.util.Map;
 
 import static com.movilizer.util.collection.CollectionUtils.skip;
 
@@ -28,6 +29,7 @@ public class CsvToJsonConverter {
     }
 
     public JsonArray convert(Reader csvReader, int offset, int limit, Operation2<JsonObject, Integer> processRow) throws IOException {
+        logger.debug("Converting CSV reader. Offset is [" + offset + "], limit is [" + limit + "]");
 
         CSVFormat csvFormat = CSVFormat.newFormat(';').withHeader();
         Iterator<CSVRecord> records = csvFormat.parse(csvReader).iterator();
@@ -50,8 +52,7 @@ public class CsvToJsonConverter {
     }
 
     private JsonObject convert(CSVRecord record) {
-        Map<String, String> map = record.toMap();
-        return JsonUtils.fromMap(map);
+        return JsonUtils.fromMap(record.toMap());
     }
 
 
