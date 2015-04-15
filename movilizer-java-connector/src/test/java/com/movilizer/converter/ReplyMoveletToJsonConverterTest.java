@@ -28,7 +28,7 @@ public class ReplyMoveletToJsonConverterTest {
 
         replyMovelet = fromResource("/reports/rt-reply-movelet.xml", MovilizerReplyMovelet.class);
         converter = new ReplyMoveletToJsonConverter();
-        expectedJsonObject = fromResource("/reports/rt-reply-movelet.json");
+        expectedJsonObject = fromResource("/reports/rt-reply-movelet-result.json");
     }
 
     @Test
