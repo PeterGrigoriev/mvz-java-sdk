@@ -1,0 +1,24 @@
+{
+  "team": 2298,
+  "employeeNumber": "B46706",
+  "user": "KH5021",
+  "title": "Ma remonte terrain",
+  "category": 4,
+  "description": "Ma description",
+  "peopleInvolved": [3],
+  "circumstance": 2,
+  "causes": [
+    4,
+    5
+  ],
+
+  "risks": [
+    1,
+    2,
+    3
+  ],
+  "issueResolved": true,
+  "actionDescription": "Mon action",
+  "photos": null
+}
+

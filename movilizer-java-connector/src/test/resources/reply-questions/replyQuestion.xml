@@ -1,0 +1,7 @@
+<replyQuestion xmlns="http://movilitas.com/movilizer/v12"
+               questionKey="Q5" previousQuestionKey="Q4" nextQuestionKey="Q6"
+               creationTimestamp="2015-04-15T08:19:12.625Z" questionCountNormalized="6" questionCountAbsolute="14">
+    <replyAnswer answerKey="peopleInvolved:array[int]:clientKey" attributeType="0" position="1" clientKey="3">
+        <value>3</value>
+    </replyAnswer>
+</replyQuestion>

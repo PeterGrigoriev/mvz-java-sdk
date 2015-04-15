@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<MovilizerReplyMovelet xmlns="http://movilitas.com/movilizer/v12" moveletKey="RT" moveletKeyExtension="" moveletVersion="0" count="1" participantKey="0" deviceAddress="@audrey.sobgouzebaze@external.grdf.fr" creationTimestamp="2015-04-15T08:19:31.173Z" syncTimestamp="2015-04-15T08:19:33.993Z" timedif="0" replyUploadPriority="0">
+    <replyQuestion questionKey="Q_epsilon" previousQuestionKey="NONE" nextQuestionKey="Q_AgencyAndNature" creationTimestamp="2015-04-15T08:18:44.032Z" questionCountNormalized="1" questionCountAbsolute="1">
+        <replyAnswer answerKey="employeeNumber:string" attributeType="0" position="0">
+            <value>B46706</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user:string" attributeType="0" position="0">
+            <value>KH5021</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q_AgencyAndNature" previousQuestionKey="Q_epsilon" nextQuestionKey="Q2" creationTimestamp="2015-04-15T08:18:59.133Z" questionCountNormalized="2" questionCountAbsolute="6">
+        <replyAnswer answerKey="team:int" attributeType="6" position="1">
+            <value>2298</value>
+        </replyAnswer>
+        <replyAnswer answerKey="category:int" attributeType="6" position="2">
+            <value>4</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q2" previousQuestionKey="Q_AgencyAndNature" nextQuestionKey="Q3" creationTimestamp="2015-04-15T08:19:01.789Z" questionCountNormalized="3" questionCountAbsolute="7">
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="11857">
+            <value>BERTOSSI</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="15724">
+            <value>CAHOREAU</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="11413">
+            <value>BENNET</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="20917">
+            <value>BESSON</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="302">
+            <value>Capentor</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="16644">
+            <value>DELACOU</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="24415">
+            <value>AARAB</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="20705">
+            <value>BERNAT-BRUNET</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="20152">
+            <value>AARAB</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="301">
+            <value>Doe</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="303">
+            <value>Jackson</value>
+        </replyAnswer>
+        <replyAnswer answerKey="user" attributeType="8" position="0" clientKey="20153">
+            <value>AAOUINA TASSA</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q3" previousQuestionKey="Q2" nextQuestionKey="Q4" creationTimestamp="2015-04-15T08:19:07.321Z" questionCountNormalized="4" questionCountAbsolute="8">
+        <replyAnswer answerKey="title:string" attributeType="0" position="5">
+            <value>Ma remonte terrain</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q4" previousQuestionKey="Q3" nextQuestionKey="Q5" creationTimestamp="2015-04-15T08:19:07.323Z" questionCountNormalized="5" questionCountAbsolute="9">
+        <replyAnswer answerKey="description:string" attributeType="0" position="6">
+            <value>Ma description</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q5" previousQuestionKey="Q4" nextQuestionKey="Q6" creationTimestamp="2015-04-15T08:19:12.625Z" questionCountNormalized="6" questionCountAbsolute="14">
+        <replyAnswer answerKey="peopleInvolved:array[int]:clientKey" attributeType="0" position="1" clientKey="3">
+            <value>3</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q6" previousQuestionKey="Q5" nextQuestionKey="Q6a" creationTimestamp="2015-04-15T08:19:12.626Z" questionCountNormalized="7" questionCountAbsolute="15">
+        <replyAnswer answerKey="circumstance:int:clientKey" attributeType="6" position="3">
+            <value>2</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q6a" previousQuestionKey="Q6" nextQuestionKey="Q7" creationTimestamp="2015-04-15T08:19:14.452Z" questionCountNormalized="8" questionCountAbsolute="16">
+        <replyAnswer answerKey="causes:array[int]:clientKey" attributeType="8" position="2" clientKey="4">
+            <value>Méthode de travail</value>
+        </replyAnswer>
+        <replyAnswer answerKey="causes:array[int]:clientKey" attributeType="8" position="2" clientKey="5">
+            <value>Contexte / Milieu</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q7" previousQuestionKey="Q6a" nextQuestionKey="Q8" creationTimestamp="2015-04-15T08:19:17.037Z" questionCountNormalized="9" questionCountAbsolute="17">
+        <replyAnswer answerKey="risks:array[int]:clientKey" attributeType="8" position="2" clientKey="1">
+            <value>1.1 - Glissade, faux-mouvement, heurt</value>
+        </replyAnswer>
+        <replyAnswer answerKey="risks:array[int]:clientKey" attributeType="8" position="2" clientKey="2">
+            <value>1.2 - Autres risques d'accident de plain pied (préciser)</value>
+        </replyAnswer>
+        <replyAnswer answerKey="risks:array[int]:clientKey" attributeType="8" position="2" clientKey="3">
+            <value>2.1 - Travaux en hauteur</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q8" previousQuestionKey="Q7" nextQuestionKey="Q9" creationTimestamp="2015-04-15T08:19:19.891Z" questionCountNormalized="10" questionCountAbsolute="18">
+        <replyAnswer answerKey="issueResolved:boolean" attributeType="0" position="1">
+            <value>Oui</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q9" previousQuestionKey="Q8" nextQuestionKey="Q13" creationTimestamp="2015-04-15T08:19:26.278Z" questionCountNormalized="11" questionCountAbsolute="19">
+        <replyAnswer answerKey="actionDescription:string" attributeType="0" position="0">
+            <value>Mon action</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q13" previousQuestionKey="Q9" nextQuestionKey="Q14" creationTimestamp="2015-04-15T08:19:30.280Z" questionCountNormalized="12" questionCountAbsolute="20">
+        <replyAnswer answerKey="photos:binary" attributeType="0" position="0">
+            <value/>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q14" previousQuestionKey="Q13" nextQuestionKey="Q_END" creationTimestamp="2015-04-15T08:19:30.284Z" questionCountNormalized="13" questionCountAbsolute="21">
+        <replyAnswer answerKey="Q14A1" attributeType="0" position="1">
+            <value>Validate this picture</value>
+        </replyAnswer>
+    </replyQuestion>
+    <replyQuestion questionKey="Q_END" previousQuestionKey="Q14" nextQuestionKey="END" creationTimestamp="2015-04-15T08:19:31.163Z" questionCountNormalized="14" questionCountAbsolute="22">
+        <replyAnswer answerKey="Q4A1" attributeType="0" position="1">
+            <value>Veuillez vérifier que les informations entrées lors de votre détection soient correctes avant de la valider. Merci.</value>
+        </replyAnswer>
+    </replyQuestion>
+</MovilizerReplyMovelet>
