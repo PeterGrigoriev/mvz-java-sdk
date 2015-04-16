@@ -209,4 +209,15 @@ public class CollectionUtils {
         }
 
     }
+
+
+    public static String[] cdr(String[] strings) {
+        if(null == strings) {
+            return null;
+        }
+        if(strings.length == 0) {
+            return strings;
+        }
+        return Arrays.copyOfRange(strings, 1, strings.length);
+    }
 }

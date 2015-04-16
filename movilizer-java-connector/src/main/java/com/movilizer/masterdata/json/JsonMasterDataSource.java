@@ -31,5 +31,7 @@ public class JsonMasterDataSource implements IMasterdataSource {
 
     @Override
     public void acknowledge(IMasterdataXmlSetting setting, Collection<Integer> eventIds, AcknowledgementStatus status) throws SQLException {
+
     }
 }
+

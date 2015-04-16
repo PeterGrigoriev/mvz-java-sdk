@@ -7,7 +7,7 @@
     <groupId>com.movilizer</groupId>
     <artifactId>movilizer-java-connector-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3.1.0</version>
+    <version>3.1.1</version>
     <name>MJC Parent Project</name>
     
     <modules>

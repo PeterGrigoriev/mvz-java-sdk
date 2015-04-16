@@ -3,14 +3,20 @@ package com.movilizer.util.json;
 import com.google.common.base.Predicate;
 import com.google.gson.*;
 import com.google.inject.Provider;
+import com.movilizer.util.collection.CollectionUtils;
+import sun.awt.SunHints;
 
 import java.io.Reader;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
+import static com.movilizer.util.collection.CollectionUtils.cdr;
+import static org.apache.commons.lang.StringUtils.endsWith;
+import static org.apache.commons.lang.StringUtils.split;
 
 /**
  * @author Peter.Grigoriev@movilizer.com
@@ -136,7 +142,7 @@ public class JsonUtils {
         JsonArray result = new JsonArray();
 
         for (JsonElement jsonElement : array) {
-            if(filter.apply(jsonElement)) {
+            if (filter.apply(jsonElement)) {
                 result.add(jsonElement);
             }
         }
@@ -160,4 +166,37 @@ public class JsonUtils {
             }
         };
     }
+
+    public static String getStringValue(JsonObject jsonObject, String... propertyChain) {
+        JsonElement element = get(jsonObject, propertyChain);
+        if(element == null) {
+            return null;
+        }
+        if(element.equals(JsonNull.INSTANCE)) {
+            return null;
+        }
+        if(element.isJsonPrimitive()) {
+            JsonPrimitive primitive = element.getAsJsonPrimitive();
+            if(primitive.isString()) {
+                return primitive.getAsString();
+            }
+        }
+        return element.toString();
+    }
+
+    public static JsonElement get(JsonObject jsonObject, String... propertyChain) {
+        if (propertyChain == null || propertyChain.length == 0) {
+            return jsonObject;
+        }
+
+        JsonElement element = jsonObject.get(propertyChain[0]);
+
+        if(propertyChain.length == 1) {
+            return element;
+        }
+
+        return get(element.getAsJsonObject(), cdr(propertyChain));
+
+    }
+
 }

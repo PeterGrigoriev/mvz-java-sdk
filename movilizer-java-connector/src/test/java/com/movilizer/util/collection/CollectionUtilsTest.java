@@ -65,4 +65,12 @@ public class CollectionUtilsTest {
 
         assertEquals(CollectionUtils.toStringSet(list), set);
     }
+
+    @Test
+    public void testCdr() throws Exception {
+        String[] abc = new String[] {"a", "b", "c"};
+        String[] bc = new String[] {"b", "c"};
+        assertEquals(asList(CollectionUtils.cdr(abc)),asList(bc));
+
+    }
 }

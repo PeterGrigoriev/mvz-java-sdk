@@ -2,7 +2,11 @@
   {
     "id": 111,
     "email": "ivan.rebroff@gmail.com",
-    "employeeNumber": 111
+    "employeeNumber": 111,
+    "team": {
+      "id":22,
+      "name": "dream team"
+    }
 
   },
   {"id": 124}

@@ -17,12 +17,15 @@ public class RestfulWebServiceBundle implements INamedReaderProvider {
         for (Map.Entry<String, String> entry : nameToEndPoint.entrySet()) {
             final String name = entry.getKey();
             final String endpoint = entry.getValue();
-            nameToWebService.put(name, new RestfulWebService(endpoint, httpClientProvider));
+            RestfulWebService webService = new RestfulWebService(endpoint, httpClientProvider);
+            nameToWebService.put(name, webService);
+            nameToWebService.put(name + ".json", webService);
         }
     }
 
     @Override
     public Provider<Reader> get(String name) {
-        return nameToWebService.get(name).asReaderProvider();
+        RestfulWebService webService = nameToWebService.get(name);
+        return webService.asReaderProvider();
     }
 }

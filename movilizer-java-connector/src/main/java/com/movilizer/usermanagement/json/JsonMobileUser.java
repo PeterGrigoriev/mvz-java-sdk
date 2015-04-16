@@ -10,8 +10,10 @@ import java.util.Map;
 import java.util.Set;
 
 import static com.google.common.collect.Sets.newHashSet;
+import static com.movilizer.util.json.JsonUtils.getStringValue;
 import static com.movilizer.util.string.StringUtils.emailToDeviceAddress;
 import static java.text.MessageFormat.format;
+import static org.apache.commons.lang.StringUtils.split;
 
 /**
  * @author Peter.Grigoriev@gmail.com.
@@ -79,9 +81,10 @@ public class JsonMobileUser implements IMovilizerUser {
 
     @Override
     public String get(String fieldName) {
-        JsonElement jsonElement = jsonObject.get(fieldName);
-        return jsonElement.getAsString();
+        return getStringValue(jsonObject, split(fieldName, "."));
     }
+
+
 
     @Override
     public Set<String> getFieldNames() {
