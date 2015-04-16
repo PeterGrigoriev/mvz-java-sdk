@@ -3,6 +3,7 @@ package com.movilizer.reply.converter;
 
 import org.apache.commons.lang.StringUtils;
 
+import static com.movilizer.reply.converter.AnswerType.BINARY;
 import static com.movilizer.reply.converter.AnswerType.VOID;
 
 /**
@@ -45,7 +46,7 @@ public class AnswerKey {
 
         String key = split[0];
         AnswerType type = AnswerType.fromString(split[1]);
-        AnswerSource source = AnswerSource.VALUE;
+        AnswerSource source = type == BINARY ? AnswerSource.DATA : AnswerSource.VALUE;
         if(split.length > 2) {
             source = AnswerSource.fromString(split[2]);
         }

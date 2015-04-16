@@ -6,7 +6,6 @@ import com.google.gson.JsonNull;
 import com.google.gson.JsonPrimitive;
 import com.movilitas.movilizer.v12.MovilizerReplyAnswer;
 import com.movilitas.movilizer.v12.MovilizerReplyQuestion;
-import com.movilizer.util.encoding.EncodingUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -15,6 +14,7 @@ import java.util.Set;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.movilizer.reply.converter.BooleanHelper.toBoolean;
+import static com.movilizer.util.encoding.EncodingUtils.byteArrayToBase64;
 import static org.apache.commons.lang.math.NumberUtils.toInt;
 
 /**
@@ -73,6 +73,15 @@ public class Answer {
         return answers.get(0).getValue();
     }
 
+    public String getBinaryValue() {
+        MovilizerReplyAnswer movilizerReplyAnswer = answers.get(0);
+        return getBinaryValue(movilizerReplyAnswer);
+    }
+
+    private String getBinaryValue(MovilizerReplyAnswer movilizerReplyAnswer) {
+        return byteArrayToBase64(movilizerReplyAnswer.getData());
+    }
+
     public int getIntValue() {
         return toInt(getStringValue(), 0);
     }
@@ -87,12 +96,18 @@ public class Answer {
                 return new JsonPrimitive(getIntValue());
             case STRING:
                 return new JsonPrimitive(getStringValue());
+            case BINARY:
+                return new JsonPrimitive(getBinaryValue());
             case BOOLEAN:
                 return new JsonPrimitive(getBooleanValue());
+
             case ARRAY_STRING:
                 return toJsonStringArray(getStringArrayValue());
             case ARRAY_INT:
                 return toJsonIntArray(getIntArrayValue());
+
+            case ARRAY_BINARY:
+                return toJsonStringArray(getBinaryArrayValue());
         }
         return JsonNull.INSTANCE;
     }
@@ -130,6 +145,15 @@ public class Answer {
         return list;
     }
 
+
+    public List<String> getBinaryArrayValue() {
+        List<String> list = newArrayList();
+        for (MovilizerReplyAnswer answer : answers) {
+            list.add(getBinaryValue(answer));
+        }
+        return list;
+    }
+
     public Integer getIntValue(MovilizerReplyAnswer answer) {
         return toInt(getStringValue(answer), 0);
     }
@@ -141,7 +165,7 @@ public class Answer {
             return answer.getClientKey();
         }
         if (source == AnswerSource.DATA) {
-            return EncodingUtils.byteArrayToBase64(answer.getData());
+            return getBinaryValue(answer);
         }
         return answer.getValue();
     }

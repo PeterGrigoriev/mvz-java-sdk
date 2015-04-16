@@ -11,6 +11,7 @@ import java.util.Map;
 
 
 import static com.movilizer.util.resource.ResourceUtils.fromResource;
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.fail;
 
@@ -44,7 +45,8 @@ public class ReplyMoveletToJsonConverterTest {
             }
             JsonElement expected = expectedJsonObject.get(key);
             if(!actual.equals(expected)) {
-                fail("Values do not match for key [" + key + "]");
+                System.out.println("Values do not match for key [" + key + "]");
+                assertEquals(actual, expected);
             }
         }
     }
