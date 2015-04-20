@@ -12,7 +12,6 @@ import java.util.List;
  * @author Peter.Grigoriev@movilizer.com
  */
 public interface IMobileAssignmentManager extends IEventAcknowledger {
-
     List<IMobileAssignmentEvent> getAssignmentEvents(IMovilizerProject project) throws MobileAssignmentException;
     int[] getAssignmentEventIds(IMovilizerProject project, Collection<String> deviceAddresses, EventType eventType, EventAcknowledgementStatus acknowledgementStatus);
 }
