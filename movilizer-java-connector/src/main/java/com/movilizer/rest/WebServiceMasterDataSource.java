@@ -6,6 +6,7 @@ import com.movilizer.masterdata.IMasterdataReaderResult;
 import com.movilizer.masterdata.IMasterdataSource;
 import com.movilizer.masterdata.IMasterdataXmlSetting;
 import com.movilizer.masterdata.json.JsonMasterDataSource;
+import com.movilizer.push.EventAcknowledgementStatus;
 import org.apache.http.client.HttpClient;
 
 import javax.xml.stream.XMLStreamException;
@@ -13,6 +14,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Map;
+
+import static com.movilizer.push.EventAcknowledgementStatus.OK;
 
 /**
  * @author Peter.Grigoriev@movilizer.com
@@ -35,12 +38,21 @@ public class WebServiceMasterDataSource implements IMasterdataSource {
     @Override
     public void acknowledge(IMasterdataXmlSetting setting, Collection<Integer> eventIds, AcknowledgementStatus status) throws SQLException {
         String acknowledgementEndpoint = getAcknowledgementEndpoint(setting);
-        WebServiceEventAcknowledger acknowledger = new WebServiceEventAcknowledger(acknowledgementEndpoint, httpClientProvider);
+        WebServiceEventAcknowledger acknowledger = new WebServiceEventAcknowledger(acknowledgementEndpoint, httpClientProvider) {
+            @Override
+            protected String getBackendName(EventAcknowledgementStatus acknowledgementStatus) {
+                return getBackendNameForStatus(acknowledgementStatus);
+            }
+        };
         try {
             acknowledger.acknowledge(eventIds, status.toEventAcknowledgementStatus());
         } catch (Exception e) {
             throw new SQLException("Acknowledgement with Web Service failed", e);
         }
+    }
+
+    protected String getBackendNameForStatus(EventAcknowledgementStatus status) {
+        return status.name();
     }
 
     public String getAcknowledgementEndpoint(IMasterdataXmlSetting setting) {

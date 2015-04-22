@@ -8,6 +8,7 @@ import org.apache.http.client.HttpClient;
 
 import java.util.Collection;
 
+import static com.movilizer.push.EventAcknowledgementStatus.OK;
 import static com.movilizer.util.json.JsonUtils.toJsonArray;
 
 /**
@@ -29,9 +30,14 @@ public class WebServiceEventAcknowledger implements IEventAcknowledger {
 
     private JsonObject toJsonObject(Collection<Integer> eventIds, EventAcknowledgementStatus acknowledgementStatus) {
         JsonObject object = new JsonObject();
-        object.addProperty("status", acknowledgementStatus.name());
+
+        object.addProperty("status",  getBackendName(acknowledgementStatus));
         object.add("eventIds", toJsonArray(eventIds));
         return object;
 
+    }
+
+    protected String getBackendName(EventAcknowledgementStatus acknowledgementStatus) {
+        return acknowledgementStatus.name();
     }
 }
