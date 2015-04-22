@@ -7,10 +7,7 @@ import com.movilizer.util.collection.CollectionUtils;
 import sun.awt.SunHints;
 
 import java.io.Reader;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
@@ -81,7 +78,14 @@ public class JsonUtils {
     }
 
     public static <T> T toJavaObject(JsonObject jsonObject, Class<T> tClass) {
+        if(isNull(jsonObject)) {
+            return null;
+        }
         return new Gson().fromJson(jsonObject, tClass);
+    }
+
+    private static boolean isNull(JsonElement jsonElement) {
+        return jsonElement == null || JsonNull.INSTANCE.equals(jsonElement);
     }
 
     public static <T> List<T> parseJsonArray(Reader reader, Class<T> tClass) {
@@ -199,4 +203,11 @@ public class JsonUtils {
 
     }
 
+    public static JsonArray toJsonArray(Iterable<? extends Number> numbers) {
+        JsonArray array = new JsonArray();
+        for (Number number : numbers) {
+            array.add(new JsonPrimitive(number));
+        }
+        return array;
+    }
 }

@@ -36,10 +36,7 @@ public class CliMobileProjectManager implements IMobileProjectManager {
         return asList((IMobileProjectEvent)event);
     }
 
-    @Override
-    public void acknowledgeProjectEvents(int[] eventIds, EventAcknowledgementStatus acknowledgementStatus) throws MobileProjectException {
-        System.out.println("Acknowledged [" + eventIds.length +  "] events with status [" + acknowledgementStatus + "]");
-    }
+
 
     @Override
     public IMobileProjectSettings getMobileProjectSettings(String name, int version) {

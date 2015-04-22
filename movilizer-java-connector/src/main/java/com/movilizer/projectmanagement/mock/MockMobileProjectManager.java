@@ -1,7 +1,6 @@
 package com.movilizer.projectmanagement.mock;
 
 import com.google.common.base.Predicate;
-import com.google.common.primitives.Ints;
 import com.movilizer.connector.IMovilizerCloudSystem;
 import com.movilizer.eventmanagement.EventMap;
 import com.movilizer.projectmanagement.*;
@@ -59,10 +58,6 @@ public class MockMobileProjectManager implements IMobileProjectManager {
 
     }
 
-    @Override
-    public void acknowledgeProjectEvents(int[] eventIds, EventAcknowledgementStatus acknowledgementStatus) throws MobileProjectException {
-        eventMap.acknowledge(Ints.asList(eventIds), acknowledgementStatus);
-    }
 
 
 

@@ -18,11 +18,13 @@ import java.util.Map;
  * @author Peter.Grigoriev@movilizer.com
  */
 public class WebServiceMasterDataSource implements IMasterdataSource {
-    private final Provider<HttpClient> httpClientProvider;
+    private final Map<String, String> pollToGetAcknowledgeEndPoint;
+    protected final Provider<HttpClient> httpClientProvider;
 
-    public WebServiceMasterDataSource(Map<String, String> pollToGetEndPoint, Provider<HttpClient> httpClientProvider) {
-        this.httpClientProvider = httpClientProvider;
+    public WebServiceMasterDataSource(Map<String, String> pollToGetEndPoint, Map<String, String> pollToAcknowledgeEndPoint,  Provider<HttpClient> httpClientProvider) {
         this.pollToGetEndPoint = pollToGetEndPoint;
+        this.pollToGetAcknowledgeEndPoint = pollToAcknowledgeEndPoint;
+        this.httpClientProvider = httpClientProvider;
     }
 
     @Override
@@ -32,7 +34,17 @@ public class WebServiceMasterDataSource implements IMasterdataSource {
 
     @Override
     public void acknowledge(IMasterdataXmlSetting setting, Collection<Integer> eventIds, AcknowledgementStatus status) throws SQLException {
-        getJsonMasterDataSource().acknowledge(setting, eventIds, status);
+        String acknowledgementEndpoint = getAcknowledgementEndpoint(setting);
+        WebServiceEventAcknowledger acknowledger = new WebServiceEventAcknowledger(acknowledgementEndpoint, httpClientProvider);
+        try {
+            acknowledger.acknowledge(eventIds, status.toEventAcknowledgementStatus());
+        } catch (Exception e) {
+            throw new SQLException("Acknowledgement with Web Service failed", e);
+        }
+    }
+
+    public String getAcknowledgementEndpoint(IMasterdataXmlSetting setting) {
+        return pollToGetAcknowledgeEndPoint.get(setting.getPool());
     }
 
     public JsonMasterDataSource getJsonMasterDataSource() {

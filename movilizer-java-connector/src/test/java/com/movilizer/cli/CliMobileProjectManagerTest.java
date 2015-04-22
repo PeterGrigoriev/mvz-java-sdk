@@ -10,11 +10,8 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertNull;
+import static org.testng.Assert.*;
 
 public class CliMobileProjectManagerTest extends CliManagerTest {
 
@@ -45,10 +42,6 @@ public class CliMobileProjectManagerTest extends CliManagerTest {
         assertEquals(0, mobileProjectEvents.size());
     }
 
-    @Test
-    public void testAcknowledgeProjectEvents() throws Exception {
-        projectManager.acknowledgeProjectEvents(new int[]{1, 2}, EventAcknowledgementStatus.ACKNOWLEDGED);
-    }
 
     @Test
     public void testGetMobileProjectSettings() throws Exception {

@@ -26,7 +26,7 @@ public class CliMobileAssignmentManager implements IMobileAssignmentManager {
     }
 
     @Override
-    public List<IMobileAssignmentEvent> getAssignmentEvents(IMovilizerProject project) throws MobileAssignmentException {
+    public List<IMobileAssignmentEvent> getAssignmentEvents(IMobileProjectDescription project) throws MobileAssignmentException {
         if(!commandLine.hasOption(CliOptions.ASSIGN)) {
             return asList();
         }
@@ -42,7 +42,7 @@ public class CliMobileAssignmentManager implements IMobileAssignmentManager {
     }
 
     @Override
-    public int[] getAssignmentEventIds(IMovilizerProject project, Collection<String> deviceAddresses, EventType eventType, EventAcknowledgementStatus acknowledgementStatus) {
+    public int[] getAssignmentEventIds(IMobileProjectDescription project, Collection<String> deviceAddresses, EventType eventType, EventAcknowledgementStatus acknowledgementStatus) {
         return new int[0];
     }
 

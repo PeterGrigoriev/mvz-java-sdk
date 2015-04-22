@@ -5,7 +5,7 @@ import com.movilizer.assignmentmanagement.IMobileAssignmentEvent;
 import com.movilizer.assignmentmanagement.IMobileAssignmentManager;
 import com.movilizer.assignmentmanagement.MobileAssignmentException;
 import com.movilizer.eventmanagement.EventMap;
-import com.movilizer.projectmanagement.IMovilizerProject;
+import com.movilizer.projectmanagement.IMobileProjectDescription;
 import com.movilizer.push.EventAcknowledgementStatus;
 import com.movilizer.push.EventType;
 
@@ -24,12 +24,12 @@ public class MockMobileAssignmentManager implements IMobileAssignmentManager {
 
     // Project parameter not used for the mock implementation
     @Override
-    public List<IMobileAssignmentEvent> getAssignmentEvents(IMovilizerProject project) throws MobileAssignmentException {
+    public List<IMobileAssignmentEvent> getAssignmentEvents(IMobileProjectDescription project) throws MobileAssignmentException {
         return eventMap.getNewEvents();
     }
 
     @Override
-    public int[] getAssignmentEventIds(IMovilizerProject project,
+    public int[] getAssignmentEventIds(IMobileProjectDescription project,
                                        Collection<String> deviceAddresses,
                                        final EventType eventType,
                                        EventAcknowledgementStatus acknowledgementStatus) {

@@ -11,8 +11,6 @@ import java.util.List;
 public interface IMobileProjectManager extends IEventAcknowledger {
     List<IMobileProjectEvent> getMobileProjectEvents(String projectName, int version) throws MobileProjectException;
 
-    void acknowledgeProjectEvents(int[] eventIds, EventAcknowledgementStatus acknowledgementStatus) throws MobileProjectException;
-
     IMobileProjectSettings getMobileProjectSettings(String name, int version);
 
     Integer getProjectEventId(IMobileProjectDescription project, MobileProjectEventType eventType, EventAcknowledgementStatus acknowledgementStatus);

@@ -33,10 +33,7 @@ public class JsonMobileProjectManager implements IMobileProjectManager {
         return newArrayList();
     }
 
-    @Override
-    public void acknowledgeProjectEvents(int[] eventIds, EventAcknowledgementStatus acknowledgementStatus) throws MobileProjectException {
 
-    }
 
     @Override
     public IMobileProjectSettings getMobileProjectSettings(final String name, final int version) {

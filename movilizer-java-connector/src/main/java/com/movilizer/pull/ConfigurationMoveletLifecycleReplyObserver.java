@@ -7,7 +7,6 @@ import com.movilizer.connector.IMoveletKeyWithExtension;
 import com.movilizer.projectmanagement.IMobileProjectManager;
 import com.movilizer.projectmanagement.IMovilizerProject;
 import com.movilizer.projectmanagement.MobileProjectEventType;
-import com.movilizer.projectmanagement.MobileProjectException;
 import com.movilizer.push.EventAcknowledgementStatus;
 import com.movilizer.push.EventType;
 import com.movilizer.util.logger.ComponentLogger;
@@ -123,9 +122,9 @@ public class ConfigurationMoveletLifecycleReplyObserver implements IMovilizerRes
             Integer eventId = getProjectEventId();
             if(null != eventId) {
                 try {
-                    projectManager.acknowledgeProjectEvents(new int[]{eventId}, ACKNOWLEDGED);
+                    projectManager.acknowledge(asList(eventId), ACKNOWLEDGED);
                     return;
-                } catch (MobileProjectException e) {
+                } catch (Exception e) {
                     logger.error("Error while trying to acknowledge project event", e);
                 }
             }
@@ -142,9 +141,9 @@ public class ConfigurationMoveletLifecycleReplyObserver implements IMovilizerRes
             Integer eventId = getProjectEventId();
             if(null != eventId) {
                 try {
-                    projectManager.acknowledgeProjectEvents(new int[]{eventId}, EventAcknowledgementStatus.ERROR);
+                    projectManager.acknowledge(asList(eventId), EventAcknowledgementStatus.ERROR);
                     return;
-                } catch (MobileProjectException e) {
+                } catch (Exception e) {
                     logger.error("Error while trying to acknowledge movelet error", e);
                 }
             }

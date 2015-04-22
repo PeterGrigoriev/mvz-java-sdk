@@ -5,6 +5,7 @@ import com.google.inject.Provider;
 import com.movilizer.assignmentmanagement.IMobileAssignmentEvent;
 import com.movilizer.assignmentmanagement.IMobileAssignmentManager;
 import com.movilizer.assignmentmanagement.MobileAssignmentException;
+import com.movilizer.projectmanagement.IMobileProjectDescription;
 import com.movilizer.projectmanagement.IMovilizerProject;
 import com.movilizer.push.EventAcknowledgementStatus;
 import com.movilizer.push.EventType;
@@ -27,7 +28,7 @@ public class JsonMobileAssignmentManager implements IMobileAssignmentManager {
     }
 
     @Override
-    public List<IMobileAssignmentEvent> getAssignmentEvents(IMovilizerProject project) throws MobileAssignmentException {
+    public List<IMobileAssignmentEvent> getAssignmentEvents(IMobileProjectDescription project) throws MobileAssignmentException {
         List<JsonElement> jsonElements = parseJsonArray(assignmentEventsReaderProvider.get());
         List<IMobileAssignmentEvent> assignmentEvents = newArrayList();
         for (JsonElement jsonElement : jsonElements) {
@@ -38,7 +39,7 @@ public class JsonMobileAssignmentManager implements IMobileAssignmentManager {
     }
 
     @Override
-    public int[] getAssignmentEventIds(IMovilizerProject project, Collection<String> deviceAddresses, EventType eventType, EventAcknowledgementStatus acknowledgementStatus) {
+    public int[] getAssignmentEventIds(IMobileProjectDescription project, Collection<String> deviceAddresses, EventType eventType, EventAcknowledgementStatus acknowledgementStatus) {
         return new int[0];
     }
 
