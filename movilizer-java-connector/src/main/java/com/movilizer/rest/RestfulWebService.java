@@ -14,6 +14,7 @@ import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;
 
@@ -23,6 +24,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 
 import static org.apache.http.protocol.HTTP.CONTENT_TYPE;
+import static org.apache.http.protocol.HTTP.UTF_8;
 
 /**
  * @author Peter.Grigoriev@movilizer.com
@@ -80,22 +82,24 @@ public class RestfulWebService {
 
     public void put(JsonElement jsonElement) throws IOException {
         HttpClient httpClient = httpClientProvider.get();
+
         HttpPut httpPut = new HttpPut(endpoint);
-        StringEntity stringEntity = new StringEntity(jsonElement.toString());
-        stringEntity.setContentType(new BasicHeader(CONTENT_TYPE, "application/json"));
-        httpPut.setEntity(stringEntity);
-        HttpResponse response = httpClient.execute(httpPut);
+
+        httpPut.setEntity(getStringEntity(jsonElement));HttpResponse response = httpClient.execute(httpPut);
 
 
         checkResponse(response);
     }
 
+    private StringEntity getStringEntity(JsonElement jsonElement) {
+        String body = jsonElement.toString();
+        return new StringEntity(body, ContentType.APPLICATION_JSON);
+    }
+
     public void post(JsonElement jsonElement) throws IOException {
         HttpClient httpClient = httpClientProvider.get();
         HttpPost httpPost = new HttpPost(endpoint);
-        StringEntity stringEntity = new StringEntity(jsonElement.toString());
-        stringEntity.setContentType(new BasicHeader(CONTENT_TYPE, "application/json"));
-        httpPost.setEntity(stringEntity);
+        httpPost.setEntity(getStringEntity(jsonElement));
         HttpResponse response = httpClient.execute(httpPost);
 
         checkResponse(response);

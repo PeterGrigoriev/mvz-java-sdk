@@ -4,6 +4,7 @@ import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
+import org.apache.http.HttpVersion;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.HttpClient;
@@ -18,6 +19,7 @@ import org.apache.http.impl.conn.PoolingClientConnectionManager;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -67,11 +69,14 @@ public class AllowAllHttpClientProvider implements Provider<HttpClient> {
 
         httpClient.getCredentialsProvider().setCredentials(AuthScope.ANY,
                 new UsernamePasswordCredentials(userName, password));
-        HttpParams httpParameter = new BasicHttpParams();
-        HttpConnectionParams.setConnectionTimeout(httpParameter, 3000);
-        HttpParams httpParameters = new BasicHttpParams();
-        HttpConnectionParams.setSoTimeout(httpParameters, 5000);
 
+
+        HttpParams params = new BasicHttpParams();
+        HttpConnectionParams.setConnectionTimeout(params, 3000);
+        HttpConnectionParams.setSoTimeout(params, 5000);
+        HttpProtocolParams.setContentCharset(params, "UTF-8");
+        HttpProtocolParams.setHttpElementCharset(params, "UTF-8");
+        httpClient.setParams(params);
         return httpClient;
     }
 }
