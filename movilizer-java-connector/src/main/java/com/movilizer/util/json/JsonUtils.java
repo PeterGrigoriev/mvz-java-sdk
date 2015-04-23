@@ -32,20 +32,32 @@ public class JsonUtils {
 
 
     /**
-     * @param jsonObject - object to collect top-level properties of
+     * @param jsonObject          - object to collect top-level properties of
+     * @param addNestedProperties if set to true, properties of nested objects will also be collected (higher-level win)
      * @return map of top-level (primitive) properties
      */
-    public static Map<String, String> collectPrimitiveProperties(JsonObject jsonObject) {
-        Set<Map.Entry<String, JsonElement>> entries = jsonObject.entrySet();
+    public static Map<String, String> collectPrimitiveProperties(JsonObject jsonObject, boolean addNestedProperties) {
         Map<String, String> stringMap = newHashMap();
+        collectPrimitiveProperties(jsonObject, stringMap, addNestedProperties);
+        return stringMap;
+    }
+
+    public static void collectPrimitiveProperties(JsonObject jsonObject, Map<String, String> stringMap, boolean addNestedProperties) {
+        Set<Map.Entry<String, JsonElement>> entries = jsonObject.entrySet();
         for (Map.Entry<String, JsonElement> entry : entries) {
             String key = entry.getKey();
             JsonElement value = entry.getValue();
             if (value.isJsonPrimitive()) {
+                if (stringMap.containsKey(key)) {
+                    continue;
+                }
                 stringMap.put(key, value.getAsString());
+            } else {
+                if(addNestedProperties && value.isJsonObject()) {
+                    collectPrimitiveProperties(value.getAsJsonObject(), stringMap, true);
+                }
             }
         }
-        return stringMap;
     }
 
     public static List<JsonElement> parseJsonArray(Reader reader) {
@@ -78,7 +90,7 @@ public class JsonUtils {
     }
 
     public static <T> T toJavaObject(JsonObject jsonObject, Class<T> tClass) {
-        if(isNull(jsonObject)) {
+        if (isNull(jsonObject)) {
             return null;
         }
         return new Gson().fromJson(jsonObject, tClass);
@@ -173,15 +185,15 @@ public class JsonUtils {
 
     public static String getStringValue(JsonObject jsonObject, String... propertyChain) {
         JsonElement element = get(jsonObject, propertyChain);
-        if(element == null) {
+        if (element == null) {
             return null;
         }
-        if(element.equals(JsonNull.INSTANCE)) {
+        if (element.equals(JsonNull.INSTANCE)) {
             return null;
         }
-        if(element.isJsonPrimitive()) {
+        if (element.isJsonPrimitive()) {
             JsonPrimitive primitive = element.getAsJsonPrimitive();
-            if(primitive.isString()) {
+            if (primitive.isString()) {
                 return primitive.getAsString();
             }
         }
@@ -195,7 +207,7 @@ public class JsonUtils {
 
         JsonElement element = jsonObject.get(propertyChain[0]);
 
-        if(propertyChain.length == 1) {
+        if (propertyChain.length == 1) {
             return element;
         }
 
