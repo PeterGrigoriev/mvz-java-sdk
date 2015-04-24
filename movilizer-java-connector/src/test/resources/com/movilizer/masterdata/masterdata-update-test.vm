@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<MovilizerMasterdataPoolUpdate xmlns="http://movilitas.com/movilizer/v11" pool="$context.myPool">
+<MovilizerMasterdataPoolUpdate xmlns="http://movilitas.com/movilizer/v12" pool="$context.myPool">
     <update masterdataAckKey="$context.acknowledgementKey" key="$context.objectKey">
         <description>$context.myField</description>
     </update>

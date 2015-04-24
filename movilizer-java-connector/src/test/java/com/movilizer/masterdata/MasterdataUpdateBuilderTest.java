@@ -16,14 +16,11 @@ public class MasterdataUpdateBuilderTest {
     public void setUp() throws Exception {
         masterdataUpdateBuilder = new MasterdataUpdateBuilder(new ResourceXmlTemplateRepository("Test", getClass()));
         infoProvider = new MyMasterdataUpdateInfoProvider();
-
-
-
     }
 
     @Test
     public void testBuild() throws Exception {
-        MovilizerMasterdataPoolUpdate update = masterdataUpdateBuilder.build(infoProvider, "masterdata-update-test.vm");
+        MovilizerMasterdataPoolUpdate update = masterdataUpdateBuilder.build(infoProvider, "/com/movilizer/masterdata/masterdata-update-test.vm");
         Assert.assertEquals(update.getPool(), infoProvider.getMyPool());
         Assert.assertEquals(update.getUpdate().size(), 1);
         Assert.assertEquals(update.getUpdate().get(0).getDescription(), infoProvider.getMyField());
