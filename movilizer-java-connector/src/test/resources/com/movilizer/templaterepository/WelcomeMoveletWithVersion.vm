@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 #* @vtlvariable name="context" type="com.movilizer.moveletbuilder.IMoveletDataProvider" *#
-<MovilizerMovelet xmlns="http://movilitas.com/movilizer/v11"
+<MovilizerMovelet xmlns="http://movilitas.com/movilizer/v12"
                   moveletKey="TestMovelet"
                   moveletKeyExtension="${context.MoveletKeyExtension}"
                   namespace="${context.Namespace}"
-                  name="Merci"
                   icon="14"
                   moveletType="SINGLE"
                   initialQuestionKey="Q1"
@@ -14,4 +13,6 @@
             <text>Hello and welcome to Movilizer. Press OK to continue</text>
         </answer>
     </question>
+    <name>Merci</name>
+
 </MovilizerMovelet>

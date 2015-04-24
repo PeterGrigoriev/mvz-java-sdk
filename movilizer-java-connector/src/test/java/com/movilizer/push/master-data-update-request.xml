@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<MovilizerRequest xmlns:ns2="http://movilitas.com/movilizer/v11" synchronousResponse="false" responseSize="0"
+<MovilizerRequest xmlns:ns2="http://movilitas.com/movilizer/v12" synchronousResponse="false" responseSize="0"
                   numResponses="0" useAutoAcknowledge="false" systemPassword="UM0BjIpbTQ7odkYySKC7l28u19aO4"
                   systemId="502810010">
     <ns2:masterdataPoolUpdate pool="poolOne">

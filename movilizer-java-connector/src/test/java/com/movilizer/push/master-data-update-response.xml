@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<MovilizerResponse xmlns:ns2="http://movilitas.com/movilizer/v11" currentServerTime="2014-11-23T13:51:15.204Z"
+<MovilizerResponse xmlns:ns2="http://movilitas.com/movilizer/v12" currentServerTime="2014-11-23T13:51:15.204Z"
                    systemId="502810010">
     <ns2:masterdataAck isReference="false" masterdataAckKey="ackOne" timestamp="2014-11-23T13:51:15.167Z"
                        group="groupTwo" key="1" pool="poolOne"/>
