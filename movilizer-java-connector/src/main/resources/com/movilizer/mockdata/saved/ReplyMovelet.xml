@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <MovilizerReplyMovelet moveletKey="TEST_MOVELET_KEY" count="0" creationTimestamp=""
-                       xmlns="http://movilitas.com/movilizer/v11">
+                       xmlns="http://movilitas.com/movilizer/v12">
     <replyQuestion questionKey="Q_Hidden"
                    previousQuestionKey="NONE"
                    nextQuestionKey="Q_InterventionDetails"
