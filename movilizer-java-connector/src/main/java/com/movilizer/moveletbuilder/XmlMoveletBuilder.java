@@ -9,13 +9,13 @@ import com.movilizer.util.logger.ILogger;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 
 /**
  * @author Peter.Grigoriev@movilizer.com
  */
 public class XmlMoveletBuilder implements IMoveletBuilder {
-    public static final ILogger logger = ComponentLogger.getInstance("Movilizer.XmlMoveletBuilder");
+    private static final ILogger logger = ComponentLogger.getInstance("Movilizer.XmlMoveletBuilder");
     private final String moveletXml;
 
     public XmlMoveletBuilder(String moveletXml) {
@@ -31,7 +31,7 @@ public class XmlMoveletBuilder implements IMoveletBuilder {
 
             MovilizerJaxbUnmarshaller unmarshaller = MovilizerJaxbUnmarshaller.getInstance();
             MovilizerMovelet value = unmarshaller.unmarshall(declaredType, moveletXml);
-            return asList(value);
+            return singletonList(value);
 
         } catch (Throwable e) {
             logger.error(e);
