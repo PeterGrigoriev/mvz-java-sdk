@@ -76,6 +76,7 @@ public class TemplateMoveletBuilder implements IMoveletBuilder {
         addDefaultValidTillDate(movelet);
         addMissingQuestionKeys(movelet);
         addMissingNextQuestionKeys(movelet);
+        addMissingAnswerKeys(movelet);
         addMissingInitialQuestionKey(movelet);
     }
 
@@ -98,7 +99,6 @@ public class TemplateMoveletBuilder implements IMoveletBuilder {
                 String initialQuestionKey = questions.get(0).getKey();
                 logger.debug("Automatically setting initial question key to [" + initialQuestionKey + "]");
                 movelet.setInitialQuestionKey(initialQuestionKey);
-
             }
         }
     }
@@ -120,6 +120,32 @@ public class TemplateMoveletBuilder implements IMoveletBuilder {
                 logger.debug("Automatically setting the next question key [" + nextQuestionKey + "] for answer " + answer.getKey());
                 answer.setNextQuestionKey(nextQuestionKey);
             }
+        }
+    }
+
+    public static void addMissingAnswerKeys(MovilizerMovelet movelet) {
+        List<MovilizerQuestion> questions = movelet.getQuestion();
+
+        for (int i = 0; i < questions.size(); i++) {
+            MovilizerQuestion question = questions.get(i);
+            String questionKey = question.getKey();
+            if(isNullOrEmpty(questionKey)) {
+                questionKey = "Q" + (i + 1);
+            }
+            List<MovilizerAnswer> answers = question.getAnswer();
+            for (int answerPosition = 0; answerPosition < answers.size(); answerPosition++) {
+                MovilizerAnswer answer = answers.get(answerPosition);
+                addMissingAnswerKey(answer, questionKey, answerPosition);
+            }
+        }
+    }
+
+    private static void addMissingAnswerKey(MovilizerAnswer answer, String questionKey, int answerPosition) {
+        if(isNullOrEmpty(answer.getKey())) {
+            String key = "_" + questionKey + "_A_" + answerPosition;
+            logger.debug("Automatically setting answer key [" + key + "]");
+
+            answer.setKey(key);
         }
     }
 
