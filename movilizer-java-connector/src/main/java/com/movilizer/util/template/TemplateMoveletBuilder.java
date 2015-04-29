@@ -74,16 +74,29 @@ public class TemplateMoveletBuilder implements IMoveletBuilder {
 
     private void postProcessMovelet(MovilizerMovelet movelet) {
         addDefaultValidTillDate(movelet);
+        addMissingQuestionKeys(movelet);
         addMissingNextQuestionKeys(movelet);
         addMissingInitialQuestionKey(movelet);
     }
 
+    public void addMissingQuestionKeys(MovilizerMovelet movelet) {
+        List<MovilizerQuestion> questions = movelet.getQuestion();
+        for (int i = 0; i < questions.size(); i++) {
+            MovilizerQuestion question = questions.get(i);
+            if (isNullOrEmpty(question.getKey())) {
+                String key = "Q" + (i + 1);
+                logger.debug("Automatically setting missing question key [" + key + "]");
+                question.setKey(key);
+            }
+        }
+    }
+
     public void addMissingInitialQuestionKey(MovilizerMovelet movelet) {
-        if(isNullOrEmpty(movelet.getInitialQuestionKey())) {
+        if (isNullOrEmpty(movelet.getInitialQuestionKey())) {
             List<MovilizerQuestion> questions = movelet.getQuestion();
-            if(!questions.isEmpty()) {
+            if (!questions.isEmpty()) {
                 String initialQuestionKey = questions.get(0).getKey();
-                logger.debug("Setting initial question key to [" + initialQuestionKey + "]");
+                logger.debug("Automatically setting initial question key to [" + initialQuestionKey + "]");
                 movelet.setInitialQuestionKey(initialQuestionKey);
 
             }
@@ -103,7 +116,7 @@ public class TemplateMoveletBuilder implements IMoveletBuilder {
 
     public static void setMissingNextQuestionKey(List<MovilizerAnswer> answers, String nextQuestionKey) {
         for (MovilizerAnswer answer : answers) {
-            if(isNullOrEmpty(answer.getNextQuestionKey())) {
+            if (isNullOrEmpty(answer.getNextQuestionKey())) {
                 logger.debug("Automatically setting the next question key [" + nextQuestionKey + "] for answer " + answer.getKey());
                 answer.setNextQuestionKey(nextQuestionKey);
             }
@@ -117,8 +130,8 @@ public class TemplateMoveletBuilder implements IMoveletBuilder {
 
     @Override
     public void onRequestAction(RequestEvent action) {
-        if(moveletDataProvider instanceof IMoveletPushListener) {
-            ((IMoveletPushListener)moveletDataProvider).onRequestAction(action);
+        if (moveletDataProvider instanceof IMoveletPushListener) {
+            ((IMoveletPushListener) moveletDataProvider).onRequestAction(action);
         }
     }
 }
