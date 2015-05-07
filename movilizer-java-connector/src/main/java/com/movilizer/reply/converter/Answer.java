@@ -70,7 +70,7 @@ public class Answer {
     }
 
     public String getStringValue() {
-        return answers.get(0).getValue();
+        return getStringValue(answers.get(0));
     }
 
     public String getBinaryValue() {
