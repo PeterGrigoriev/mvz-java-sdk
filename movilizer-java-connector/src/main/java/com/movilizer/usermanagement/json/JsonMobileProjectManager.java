@@ -4,17 +4,14 @@ import com.google.gson.JsonElement;
 import com.google.inject.Provider;
 import com.movilizer.projectmanagement.*;
 import com.movilizer.push.EventAcknowledgementStatus;
-import com.movilizer.usermanagement.IMobileUserEvent;
-import com.movilizer.usermanagement.IMobileUserManager;
-import com.movilizer.usermanagement.IMovilizerUser;
-import com.movilizer.usermanagement.MobileUserException;
-import com.movilizer.util.json.JsonUtils;
 
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.movilizer.usermanagement.json.JsonMobileProjectEvent.createJsonMobileProjectEvent;
 import static com.movilizer.util.json.JsonUtils.parseJsonArray;
 
 /**
@@ -29,7 +26,12 @@ public class JsonMobileProjectManager implements IMobileProjectManager {
 
     @Override
     public List<IMobileProjectEvent> getMobileProjectEvents(String projectName, int version) throws MobileProjectException {
-        return newArrayList();
+        ArrayList<IMobileProjectEvent> mobileProjectEvents = newArrayList();
+        List<JsonElement> jsonElements = parseJsonArray(readerProvider.get());
+        for (JsonElement jsonElement : jsonElements) {
+            mobileProjectEvents.add(createJsonMobileProjectEvent(jsonElement));
+        }
+        return mobileProjectEvents;
     }
 
     @Override
@@ -42,7 +44,7 @@ public class JsonMobileProjectManager implements IMobileProjectManager {
         List<IMobileProjectSettings> settings = getProjectSettings();
 
         for (IMobileProjectSettings setting : settings) {
-            if(setting.getVersion() == version && setting.getName().equals(name)) {
+            if (setting.getVersion() == version && setting.getName().equals(name)) {
                 return setting;
             }
         }
