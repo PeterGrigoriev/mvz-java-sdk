@@ -70,7 +70,7 @@
         </replyAnswer>
     </replyQuestion>
     <replyQuestion questionKey="Q6" previousQuestionKey="Q5" nextQuestionKey="Q6a" creationTimestamp="2015-04-15T08:19:12.626Z" questionCountNormalized="7" questionCountAbsolute="15">
-        <replyAnswer answerKey="circumstance:int:clientKey" attributeType="6" position="3">
+        <replyAnswer answerKey="circumstance:int" attributeType="6" position="3">
             <value>2</value>
         </replyAnswer>
     </replyQuestion>
@@ -94,7 +94,7 @@
         </replyAnswer>
     </replyQuestion>
     <replyQuestion questionKey="Q8" previousQuestionKey="Q7" nextQuestionKey="Q9" creationTimestamp="2015-04-15T08:19:19.891Z" questionCountNormalized="10" questionCountAbsolute="18">
-        <replyAnswer answerKey="issueResolved:boolean" attributeType="0" position="1">
+        <replyAnswer answerKey="issueResolved:int:clientKey" attributeType="0" position="1" clientKey="1">
             <value>Oui</value>
         </replyAnswer>
     </replyQuestion>

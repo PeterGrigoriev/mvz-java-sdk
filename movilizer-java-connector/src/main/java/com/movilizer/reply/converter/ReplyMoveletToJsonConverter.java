@@ -37,9 +37,6 @@ public class ReplyMoveletToJsonConverter implements Function<MovilizerReplyMovel
         for (String answerKey : answerKeys) {
             Answer answer = answers.get(answerKey);
             if(answer.getType() != AnswerType.VOID) {
-                if(answer.getType() == AnswerType.BINARY) {
-                    System.out.println("binary");
-                }
                 jsonObject.add(answer.getKey(), answer.toJsonElement());
             }
         }

@@ -96,7 +96,7 @@ public class JsonUtils {
         return new Gson().fromJson(jsonObject, tClass);
     }
 
-    private static boolean isNull(JsonElement jsonElement) {
+    public static boolean isNull(JsonElement jsonElement) {
         return jsonElement == null || JsonNull.INSTANCE.equals(jsonElement);
     }
 
