@@ -31,12 +31,12 @@ import java.util.Set;
 import static com.movilizer.util.collection.CollectionUtils.take;
 import static com.movilizer.util.dbc.Ensure.ensureNotNull;
 import static java.lang.String.format;
+import static org.apache.commons.lang.BooleanUtils.toBoolean;
 
 /**
  * @author Peter.Grigoriev@movilizer.com
  */
 public class MobileProjectRunner implements IMobileProjectRunner {
-
     private static final ILogger logger = ComponentLogger.getInstance("MobileProjectRunner");
     public static final String CANNOT_LOAD_PROJECT_MESSAGE = "Could not load mobile project implementation. Please check " +
             "that the corresponding JAR file exists and is not corrupt. " +
@@ -115,12 +115,23 @@ public class MobileProjectRunner implements IMobileProjectRunner {
                 mobileProject.getTemplateRepository());
         List<IMobileProjectEvent> projectEvents = projectManager.getMobileProjectEvents(mobileProject.getName(), mobileProject.getVersion());
 
-        if (!projectEvents.isEmpty()) {
-            // if there are project events, we only process them
+        boolean thereAreProjectEvents = !projectEvents.isEmpty();
+
+        if (thereAreProjectEvents) {
             onProjectEventsPushCall(pushCall, mobileProject, projectEvents);
-        } else {
+        }
+
+        if (!thereAreProjectEvents || isRegularPushAllowedOnProjectEvents(mobileProject)) {
             onRegularPushCall(mobileProject, pushCall);
         }
+    }
+
+    private boolean isRegularPushAllowedOnProjectEvents(IMovilizerProject mobileProject) {
+        return getBooleanSetting(mobileProject, "movilizer.push.allow-regular-push-on-project-events");
+    }
+
+    private boolean getBooleanSetting(IMovilizerProject mobileProject, String setting) {
+        return toBoolean(getConfig(mobileProject).getString(setting));
     }
 
     // TODO: pack it into ProjectSettings as well
