@@ -22,6 +22,7 @@ import com.movilizer.util.config.IMovilizerConfig;
 import com.movilizer.util.config.MovilizerConfig;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
+import com.movilizer.util.template.ITemplateRepository;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -108,22 +109,25 @@ public class MobileProjectRunner implements IMobileProjectRunner {
     }
 
     private void runPush(IMovilizerProject mobileProject) throws Exception {
-        IMovilizerPushCall pushCall = new MovilizerPushCall(getCloudSystem(mobileProject),
-                getProxyInfo(mobileProject),
-                requestSender,
-                new MovilizerDocumentUploader(),
-                mobileProject.getTemplateRepository());
         List<IMobileProjectEvent> projectEvents = projectManager.getMobileProjectEvents(mobileProject.getName(), mobileProject.getVersion());
 
         boolean thereAreProjectEvents = !projectEvents.isEmpty();
 
         if (thereAreProjectEvents) {
-            onProjectEventsPushCall(pushCall, mobileProject, projectEvents);
+            onProjectEventsPushCall(mobileProject, projectEvents);
         }
 
         if (!thereAreProjectEvents || isRegularPushAllowedOnProjectEvents(mobileProject)) {
-            onRegularPushCall(mobileProject, pushCall);
+            onRegularPushCall(mobileProject);
         }
+    }
+
+    private IMovilizerPushCall getMovilizerPushCall(IMovilizerProject mobileProject) {
+        IMovilizerCloudSystem cloudSystem = getCloudSystem(mobileProject);
+        IProxyInfo proxyInfo = getProxyInfo(mobileProject);
+        MovilizerDocumentUploader documentUploader = new MovilizerDocumentUploader();
+        ITemplateRepository templateRepository = mobileProject.getTemplateRepository();
+        return new MovilizerPushCall(cloudSystem, proxyInfo, requestSender, documentUploader, templateRepository);
     }
 
     private boolean isRegularPushAllowedOnProjectEvents(IMovilizerProject mobileProject) {
@@ -144,7 +148,8 @@ public class MobileProjectRunner implements IMobileProjectRunner {
         return MovilizerConfig.getInstance(mobileProject.getClass());
     }
 
-    private void onRegularPushCall(IMovilizerProject mobileProject, IMovilizerPushCall pushCall) throws Exception {
+    private void onRegularPushCall(IMovilizerProject mobileProject) throws Exception {
+        IMovilizerPushCall pushCall = getMovilizerPushCall(mobileProject);
         IMovilizerPushCallListener assignmentPushCallListener = addAssignmentEvents(mobileProject, pushCall);
 
         IMovilizerPushCallListener projectSpecificPushCallListener = mobileProject.onPushCallAvailable(pushCall);
@@ -201,7 +206,8 @@ public class MobileProjectRunner implements IMobileProjectRunner {
         return assignmentEvents;
     }
 
-    private void onProjectEventsPushCall(IMovilizerPushCall pushCall, IMovilizerProject mobileProject, List<IMobileProjectEvent> projectEvents) throws Exception {
+    private void onProjectEventsPushCall(IMovilizerProject mobileProject, List<IMobileProjectEvent> projectEvents) throws Exception {
+        IMovilizerPushCall pushCall = getMovilizerPushCall(mobileProject);
         EventAcknowledgingPushCallListener listener = new EventAcknowledgingPushCallListener(projectManager);
         for (IMobileProjectEvent projectEvent : projectEvents) {
             listener.addId(projectEvent.getId());
@@ -212,7 +218,8 @@ public class MobileProjectRunner implements IMobileProjectRunner {
             }
         }
 
-        if (pushCall.send()) {
+        boolean success = pushCall.send();
+        if (success) {
             listener.onSuccess();
         } else {
             listener.onFailure();
