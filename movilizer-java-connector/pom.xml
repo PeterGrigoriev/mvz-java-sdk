@@ -4,16 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mjc.version>4.1.0</mjc.version>
     </properties>
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.movilizer</groupId>
         <artifactId>movilizer-java-connector-parent</artifactId>
-        <version>3.1.8</version>
+        <version>${mjc.version}</version>
     </parent>
 
     <artifactId>movilizer-java-connector</artifactId>
-    <version>3.1.8</version>
+    <version>${mjc.version}</version>
     <name>Movilizer Java Connector</name>
 
     <dependencies>
@@ -65,7 +66,7 @@
         <dependency>
             <groupId>com.movilizer</groupId>
             <artifactId>movilizer-web-service</artifactId>
-            <version>3.1.8</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>

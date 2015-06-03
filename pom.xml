@@ -4,10 +4,14 @@
         http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <mjc.version>4.1.0</mjc.version>
+    </properties>
+
     <groupId>com.movilizer</groupId>
     <artifactId>movilizer-java-connector-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3.1.8</version>
+    <version>${mjc.version}</version>
     <name>MJC Parent Project</name>
     
     <modules>
