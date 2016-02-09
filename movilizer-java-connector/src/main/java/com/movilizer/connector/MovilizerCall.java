@@ -1,6 +1,6 @@
 package com.movilizer.connector;
 
-import com.movilitas.movilizer.v12.MovilizerRequest;
+import com.movilitas.movilizer.v14.MovilizerRequest;
 
 import javax.annotation.Nullable;
 

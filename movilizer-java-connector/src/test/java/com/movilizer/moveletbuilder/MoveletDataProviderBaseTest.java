@@ -1,6 +1,6 @@
 package com.movilizer.moveletbuilder;
 
-import junit.framework.Assert;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Date;

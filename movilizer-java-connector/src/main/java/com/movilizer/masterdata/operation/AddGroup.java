@@ -1,8 +1,8 @@
 package com.movilizer.masterdata.operation;
 
-import com.movilitas.movilizer.v12.MovilizerMasterdataPoolUpdate;
-import com.movilitas.movilizer.v12.MovilizerMasterdataReference;
-import com.movilitas.movilizer.v12.MovilizerMasterdataUpdate;
+import com.movilitas.movilizer.v14.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v14.MovilizerMasterdataReference;
+import com.movilitas.movilizer.v14.MovilizerMasterdataUpdate;
 import com.movilizer.masterdata.IMasterdataXmlSetting;
 import com.movilizer.util.functional.Operation2;
 

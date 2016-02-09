@@ -2,8 +2,8 @@ package com.movilizer.connector;
 
 import org.testng.annotations.Test;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertFalse;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 
 public class MovilizerCloudSystemTest {
 

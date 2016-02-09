@@ -1,6 +1,6 @@
 package com.movilizer.masterdata;
 
-import com.movilitas.movilizer.v12.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v14.MovilizerMasterdataPoolUpdate;
 
 import java.util.List;
 

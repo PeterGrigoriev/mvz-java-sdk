@@ -1,10 +1,10 @@
 package com.movilizer.masterdata;
 
 import com.google.inject.Inject;
-import com.movilitas.movilizer.v12.MovilizerMasterdataAck;
-import com.movilitas.movilizer.v12.MovilizerMasterdataDeleted;
-import com.movilitas.movilizer.v12.MovilizerMasterdataError;
-import com.movilitas.movilizer.v12.MovilizerResponse;
+import com.movilitas.movilizer.v14.MovilizerMasterdataAck;
+import com.movilitas.movilizer.v14.MovilizerMasterdataDeleted;
+import com.movilitas.movilizer.v14.MovilizerMasterdataError;
+import com.movilitas.movilizer.v14.MovilizerResponse;
 import com.movilizer.pull.*;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;

@@ -1,8 +1,8 @@
 package com.movilizer.connector;
 
 import com.google.common.base.Function;
-import com.movilitas.movilizer.v12.MovilizerMoveletDelete;
-import com.movilitas.movilizer.v12.MovilizerRequest;
+import com.movilitas.movilizer.v14.MovilizerMoveletDelete;
+import com.movilitas.movilizer.v14.MovilizerRequest;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.movilizer.connector;
 
 import com.google.inject.ImplementedBy;
-import com.movilitas.movilizer.v12.MovilizerRequest;
+import com.movilitas.movilizer.v14.MovilizerRequest;
 
 /**
  * @author Peter.Grigoriev@movilizer.com

@@ -1,6 +1,6 @@
 package com.movilizer.util.datetime;
 
-import com.movilitas.movilizer.v12.MovilizerMovelet;
+import com.movilitas.movilizer.v14.MovilizerMovelet;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

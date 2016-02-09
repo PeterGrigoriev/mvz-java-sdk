@@ -6,8 +6,8 @@ import com.movilizer.util.movelet.SimpleMoveletDataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertSame;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertSame;
 
 /**
  * @author Peter.Grigoriev@movilizer.com

@@ -1,6 +1,6 @@
 package com.movilizer.mockdata.saved;
 
-import com.movilitas.movilizer.v12.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertFalse;

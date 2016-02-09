@@ -1,7 +1,7 @@
 package com.movilizer.connector.mock;
 
-import com.movilitas.movilizer.v12.MovilizerRequest;
-import com.movilitas.movilizer.v12.MovilizerResponse;
+import com.movilitas.movilizer.v14.MovilizerRequest;
+import com.movilitas.movilizer.v14.MovilizerResponse;
 import com.movilizer.connector.IMovilizerCloudSystem;
 import com.movilizer.connector.IMovilizerRequestSender;
 import com.movilizer.connector.IProxyInfo;

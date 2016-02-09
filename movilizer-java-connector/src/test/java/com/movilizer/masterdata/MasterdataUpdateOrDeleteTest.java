@@ -1,7 +1,7 @@
 package com.movilizer.masterdata;
 
-import com.movilitas.movilizer.v12.MovilizerMasterdataDelete;
-import com.movilitas.movilizer.v12.MovilizerMasterdataUpdate;
+import com.movilitas.movilizer.v14.MovilizerMasterdataDelete;
+import com.movilitas.movilizer.v14.MovilizerMasterdataUpdate;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;

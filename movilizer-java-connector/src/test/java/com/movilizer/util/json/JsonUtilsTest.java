@@ -2,7 +2,7 @@ package com.movilizer.util.json;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import junit.framework.Assert;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.Reader;

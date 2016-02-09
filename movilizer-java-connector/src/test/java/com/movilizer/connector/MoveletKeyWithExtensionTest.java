@@ -1,6 +1,6 @@
 package com.movilizer.connector;
 
-import com.movilitas.movilizer.v12.MovilizerMoveletDelete;
+import com.movilitas.movilizer.v14.MovilizerMoveletDelete;
 import org.testng.annotations.Test;
 
 import java.util.List;

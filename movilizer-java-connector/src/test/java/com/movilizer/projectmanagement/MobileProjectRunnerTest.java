@@ -20,9 +20,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static junit.framework.Assert.assertNotNull;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertNotNull;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MobileProjectRunnerTest {

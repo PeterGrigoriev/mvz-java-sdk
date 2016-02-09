@@ -4,7 +4,7 @@ package com.movilizer.pull;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.movilitas.movilizer.v12.*;
+import com.movilitas.movilizer.v14.*;
 import com.movilizer.acknowledgement.IMovilizerAcknowledgementCall;
 import com.movilizer.connector.MovilizerCallResult;
 import com.movilizer.masterdata.IMasterdataAcknowledgementProcessor;

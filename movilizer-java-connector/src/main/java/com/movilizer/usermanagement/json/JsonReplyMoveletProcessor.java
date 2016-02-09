@@ -1,8 +1,8 @@
 package com.movilizer.usermanagement.json;
 
 import com.google.gson.JsonObject;
-import com.movilitas.movilizer.v12.MovilizerReplyAnswer;
-import com.movilitas.movilizer.v12.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v14.MovilizerReplyAnswer;
+import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
 import com.movilizer.pull.CannotProcessReplyMoveletException;
 import com.movilizer.pull.IReplyMoveletProcessor;
 import com.movilizer.util.movelet.reply.IReplyAnswerMap;

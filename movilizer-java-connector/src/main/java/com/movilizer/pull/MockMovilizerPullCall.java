@@ -1,7 +1,7 @@
 package com.movilizer.pull;
 
-import com.movilitas.movilizer.v12.MovilizerReplyMovelet;
-import com.movilitas.movilizer.v12.MovilizerResponse;
+import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v14.MovilizerResponse;
 import com.movilizer.connector.MovilizerCallResult;
 
 import java.util.ArrayList;

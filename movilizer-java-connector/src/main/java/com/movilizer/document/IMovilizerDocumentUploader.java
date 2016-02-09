@@ -1,7 +1,7 @@
 package com.movilizer.document;
 
 import com.google.inject.ImplementedBy;
-import com.movilitas.movilizer.v12.MovilizerRequest;
+import com.movilitas.movilizer.v14.MovilizerRequest;
 
 import java.io.File;
 import java.io.IOException;

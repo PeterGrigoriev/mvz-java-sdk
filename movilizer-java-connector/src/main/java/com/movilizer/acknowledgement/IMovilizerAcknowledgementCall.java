@@ -1,7 +1,7 @@
 package com.movilizer.acknowledgement;
 
 import com.google.inject.ImplementedBy;
-import com.movilitas.movilizer.v12.MovilizerResponse;
+import com.movilitas.movilizer.v14.MovilizerResponse;
 
 /**
  * @author Peter.Grigoriev@movilizer.com

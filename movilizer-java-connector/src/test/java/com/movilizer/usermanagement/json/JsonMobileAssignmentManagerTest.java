@@ -5,21 +5,22 @@ import com.movilizer.projectmanagement.MovilizerProjectBase;
 import com.movilizer.push.IMovilizerPushCall;
 import com.movilizer.push.IMovilizerPushCallListener;
 import com.movilizer.usermanagement.IMovilizerUser;
-import junit.framework.TestCase;
+import org.testng.annotations.BeforeTest;
 
 import java.util.Collection;
 import java.util.List;
 
 import static com.movilizer.util.resource.ResourceReaderProvider.newResourceReaderProvider;
+import static org.testng.Assert.assertEquals;
 
 /**
  * @author Peter.Grigoriev@gmail.com.
  */
-public class JsonMobileAssignmentManagerTest extends TestCase {
+public class JsonMobileAssignmentManagerTest {
 
     private JsonMobileAssignmentManager assignmentManager;
 
-    @Override
+    @BeforeTest
     public void setUp() throws Exception {
         assignmentManager = new JsonMobileAssignmentManager(newResourceReaderProvider("/mobile-assignment-events.json"));
     }

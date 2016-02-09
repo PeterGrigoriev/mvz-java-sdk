@@ -3,7 +3,7 @@ package com.movilizer.module;
 import com.google.inject.Guice;
 import com.google.inject.Key;
 import com.google.inject.TypeLiteral;
-import com.movilitas.movilizer.v12.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
 import com.movilizer.pull.CannotProcessReplyMoveletException;
 import com.movilizer.pull.IMovilizerPullCall;
 import com.movilizer.pull.IReplyMoveletProcessor;

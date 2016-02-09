@@ -2,7 +2,7 @@ package com.movilizer.converter;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.movilitas.movilizer.v12.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
 import com.movilizer.reply.converter.ReplyMoveletToJsonConverter;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

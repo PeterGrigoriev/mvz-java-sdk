@@ -2,7 +2,7 @@ package com.movilizer.push;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.movilitas.movilizer.v12.MovilizerRequest;
+import com.movilitas.movilizer.v14.MovilizerRequest;
 import com.movilizer.connector.IMovilizerCloudSystem;
 import com.movilizer.jaxb.MovilizerJaxbUnmarshaller;
 import com.movilizer.util.template.ITemplateRepository;
