@@ -29,8 +29,8 @@
                             <sourceRoot>${basedir}/src/main/java</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/wsdl/MovilizerV12Wsdl11.wsdl</wsdl>
-                                    <wsdlLocation>classpath:wsdl/MovilizerV12Wsdl11.wsdl</wsdlLocation>
+                                    <wsdl>${basedir}/src/main/resources/wsdl/MovilizerV14Wsdl11.wsdl</wsdl>
+                                    <wsdlLocation>classpath:wsdl/MovilizerV14Wsdl11.wsdl</wsdlLocation>
                                 </wsdlOption>
                             </wsdlOptions>
                         </configuration>
