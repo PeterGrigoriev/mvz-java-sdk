@@ -1,7 +1,7 @@
 package com.movilizer.projectmanagement;
 
 import com.movilizer.connector.MovilizerCloudSystem;
-import junit.framework.Assert;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
