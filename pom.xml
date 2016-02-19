@@ -1,20 +1,20 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-        http://maven.apache.org/maven-v4_0_0.xsd">
-
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.movilizer</groupId>
-    <artifactId>movilizer-java-sdk</artifactId>
-    <version>5.0.0</version>
+    <artifactId>movilizer-java-sdk-pom</artifactId>
+    <version>5.0.1</version>
     <packaging>pom</packaging>
-    <name>Movilizer Java SDK</name>
-
     <modules>
         <module>movilizer-web-service</module>
         <module>movilizer-java-connector</module>
     </modules>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <build>
         <pluginManagement>
@@ -22,6 +22,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.5.1</version>
                     <configuration>
                         <source>1.8</source>
                         <target>1.8</target>
@@ -30,5 +31,7 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <name>Movilizer SDK for Java</name>
 
 </project>

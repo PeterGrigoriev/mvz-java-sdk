@@ -1,25 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.movilizer</groupId>
-        <artifactId>movilizer-java-sdk</artifactId>
-        <version>5.0.0</version>
+        <artifactId>movilizer-java-sdk-pom</artifactId>
+        <version>5.0.1</version>
     </parent>
 
-    <modelVersion>4.0.0</modelVersion>
-
     <artifactId>movilizer-java-connector</artifactId>
-    <version>5.0.0</version>
-    <name>Movilizer Java Connector</name>
-
     <dependencies>
         <dependency>
             <groupId>com.movilizer</groupId>
             <artifactId>movilizer-web-service</artifactId>
-            <version>5.0.0</version>
+            <version>5.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.velocity</groupId>
@@ -155,5 +151,7 @@
             </resource>
         </resources>
     </build>
+
+    <name>Movilizer SDK for Java - Core</name>
 
 </project>
