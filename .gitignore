@@ -1,14 +1,7 @@
 ## ImtelliJ IDEA project formats
-.idea/
-*.ipr
-*.iml
-*.iws
+.idea
+**/*.iml
 
-## Additional for IntelliJ
-out/
+**/log
 
-## Compiler output
-target/
-
-## Test execution
-log/
+**/target

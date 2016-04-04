@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.movilizer</groupId>
-    <artifactId>movilizer-java-sdk-pom</artifactId>
+    <artifactId>mvz-java-sdk-pom</artifactId>
     <version>${movilizer.version}</version>
     <packaging>pom</packaging>
     <modules>
-        <module>movilizer-java-sdk-web-service</module>
-        <module>movilizer-java-sdk-core</module>
+        <module>mvz-java-sdk-ws</module>
+        <module>mvz-java-sdk-core</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,6 +33,6 @@
         </pluginManagement>
     </build>
 
-    <name>Movilizer SDK for Java</name>
+    <name>MVZ SDK for Java</name>
 
 </project>

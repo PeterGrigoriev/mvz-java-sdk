@@ -6,15 +6,15 @@
 
     <parent>
         <groupId>com.movilizer</groupId>
-        <artifactId>movilizer-java-sdk-pom</artifactId>
+        <artifactId>mvz-java-sdk-pom</artifactId>
         <version>${movilizer.version}</version>
     </parent>
 
-    <artifactId>movilizer-java-sdk-core</artifactId>
+    <artifactId>mvz-java-sdk-core</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.movilizer</groupId>
-            <artifactId>movilizer-java-sdk-web-service</artifactId>
+            <artifactId>mvz-java-sdk-ws</artifactId>
             <version>${movilizer.version}</version>
         </dependency>
         <dependency>
@@ -152,6 +152,6 @@
         </resources>
     </build>
 
-    <name>Movilizer SDK for Java - Core</name>
+    <name>MVZ SDK for Java - Core</name>
 
 </project>

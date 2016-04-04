@@ -6,11 +6,11 @@
 
     <parent>
         <groupId>com.movilizer</groupId>
-        <artifactId>movilizer-java-sdk-pom</artifactId>
+        <artifactId>mvz-java-sdk-pom</artifactId>
         <version>${movilizer.version}</version>
     </parent>
 
-    <artifactId>movilizer-java-sdk-web-service</artifactId>
+    <artifactId>mvz-java-sdk-ws</artifactId>
 
     <build>
         <plugins>
@@ -40,6 +40,6 @@
         </plugins>
     </build>
 
-    <name>Movilizer SDK for Java - Web Service</name>
+    <name>MVZ SDK for Java - Web Service</name>
 
 </project>
