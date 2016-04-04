@@ -1,1 +1,1 @@
-# movilizer-java-connector
+# MVZ SDK for Java
