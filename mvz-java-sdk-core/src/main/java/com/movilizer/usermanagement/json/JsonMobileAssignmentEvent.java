@@ -10,12 +10,8 @@ import com.movilizer.projectmanagement.MobileProjectDescription;
 import com.movilizer.usermanagement.IMovilizerUser;
 import com.movilizer.util.json.JsonUtils;
 
-/**
- * @author Peter.Grigoriev@gmail.com.
- */
 public class JsonMobileAssignmentEvent implements IMobileAssignmentEvent {
     private JsonObject jsonObject;
-
 
     private JsonMobileAssignmentEvent(JsonObject jsonObject) {
         this.jsonObject = jsonObject;
@@ -27,19 +23,16 @@ public class JsonMobileAssignmentEvent implements IMobileAssignmentEvent {
 
     @Override
     public MobileAssignmentEventType getType() {
-        JsonElement eventType = jsonObject.get("eventType");
-        return MobileAssignmentEventType.fromString(eventType.getAsString());
+        return MobileAssignmentEventType.fromString(jsonObject.get("type").getAsString());
     }
 
     @Override
     public IMovilizerUser getUser() {
-        return JsonMobileUser.fromJsonObject(getAssignment().getAsJsonObject("user"));
+        return JsonMobileUser.fromJsonObject(jsonObject.getAsJsonObject("user"));
     }
 
     private JsonObject getAssignment() {
-        JsonObject assignment = jsonObject.getAsJsonObject("assignment");
-
-        return assignment;
+        return jsonObject.getAsJsonObject("assignment");
     }
 
     @Override
@@ -52,7 +45,7 @@ public class JsonMobileAssignmentEvent implements IMobileAssignmentEvent {
     }
 
     public static JsonObject toJsonObject(JsonElement element) {
-        if(JsonNull.INSTANCE.equals(element)) {
+        if (JsonNull.INSTANCE.equals(element)) {
             return null;
         }
         return element.getAsJsonObject();

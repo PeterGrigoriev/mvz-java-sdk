@@ -10,11 +10,10 @@ import java.util.Collection;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.movilizer.projectmanagement.MobileProjectEventType.convertToMobileProjectEventType;
+import static com.movilizer.usermanagement.json.JsonMobileProjectSettings.fromJsonObject;
 import static com.movilizer.util.json.JsonUtils.parseJsonArray;
 
-/**
- * @author Peter.Grigoriev@gmail.com.
- */
 public class JsonMobileProjectManager implements IMobileProjectManager {
     private final Provider<Reader> projectDataReaderProvider;
     private final Provider<Reader> projectEventsReaderProvider;
@@ -30,21 +29,24 @@ public class JsonMobileProjectManager implements IMobileProjectManager {
 
     @Override
     public List<IMobileProjectEvent> getMobileProjectEvents(String projectName, int version) throws MobileProjectException {
-        return newArrayList();
+        Reader reader = projectDataReaderProvider.get();
+        List<JsonElement> jsonElements = parseJsonArray(reader);
+        JsonElement jsonElement = jsonElements.get(0);
+        MobileProjectEvent mobileProjectEvent = new MobileProjectEvent();
+        mobileProjectEvent.setProject(fromJsonObject(jsonElement));
+        mobileProjectEvent.setType(convertToMobileProjectEventType("init"));
+        return newArrayList(mobileProjectEvent);
     }
-
-
 
     @Override
     public IMobileProjectSettings getMobileProjectSettings(final String name, final int version) {
         List<IMobileProjectSettings> settings = getProjectSettings();
 
         for (IMobileProjectSettings setting : settings) {
-            if(setting.getVersion() == version && setting.getName().equals(name)) {
+            if (setting.getVersion() == version && setting.getName().equals(name)) {
                 return setting;
             }
         }
-
         return null;
     }
 
@@ -52,7 +54,7 @@ public class JsonMobileProjectManager implements IMobileProjectManager {
         List<JsonElement> jsonElements = parseJsonArray(projectDataReaderProvider.get());
         List<IMobileProjectSettings> settingsList = newArrayList();
         for (JsonElement jsonElement : jsonElements) {
-            settingsList.add(JsonMobileProjectSettings.fromJsonObject(jsonElement));
+            settingsList.add(fromJsonObject(jsonElement));
         }
 
         return settingsList;

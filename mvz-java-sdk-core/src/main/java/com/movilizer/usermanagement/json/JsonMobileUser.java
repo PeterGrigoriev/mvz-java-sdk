@@ -15,12 +15,8 @@ import static com.movilizer.util.string.StringUtils.emailToDeviceAddress;
 import static java.text.MessageFormat.format;
 import static org.apache.commons.lang.StringUtils.split;
 
-/**
- * @author Peter.Grigoriev@gmail.com.
- */
 public class JsonMobileUser implements IMovilizerUser {
     private JsonObject jsonObject;
-
 
     private JsonMobileUser(JsonObject jsonObject) {
         this.jsonObject = jsonObject;
@@ -40,22 +36,20 @@ public class JsonMobileUser implements IMovilizerUser {
         return null;
     }
 
-    // TODO: get back to jsonObject.get("employeeNumber")
     @Override
     public int getEmployeeNumber() {
-        return jsonObject.get("id").getAsInt();
+        return jsonObject.get("employeeNumber").getAsInt();
     }
 
     @Override
     public String getName() {
         JsonElement name = jsonObject.get("name");
-        if(name != null) {
+        if (name != null) {
             return name.getAsString();
         }
 
         String firstName = jsonObject.get("firstName").getAsString();
         String lastName = jsonObject.get("lastName").getAsString();
-
         return format("{0} {1}", firstName, lastName);
     }
 
@@ -85,13 +79,12 @@ public class JsonMobileUser implements IMovilizerUser {
     }
 
 
-
     @Override
     public Set<String> getFieldNames() {
-        Set<String> res = newHashSet();
+        Set<String> fieldNames = newHashSet();
         for (Map.Entry<String, JsonElement> elementEntry : jsonObject.entrySet()) {
-            res.add(elementEntry.getKey());
+            fieldNames.add(elementEntry.getKey());
         }
-        return res;
+        return fieldNames;
     }
 }
