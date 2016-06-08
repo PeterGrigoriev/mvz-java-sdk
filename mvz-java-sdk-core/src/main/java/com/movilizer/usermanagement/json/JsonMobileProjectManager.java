@@ -35,7 +35,7 @@ public class JsonMobileProjectManager implements IMobileProjectManager {
         MobileProjectEvent mobileProjectEvent = new MobileProjectEvent();
         mobileProjectEvent.setProject(fromJsonObject(jsonElement));
         mobileProjectEvent.setType(convertToMobileProjectEventType("init"));
-        return newArrayList(mobileProjectEvent);
+        return newArrayList((IMobileProjectEvent) mobileProjectEvent);
     }
 
     @Override
