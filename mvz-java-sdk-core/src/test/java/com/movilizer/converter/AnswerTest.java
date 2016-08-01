@@ -2,6 +2,7 @@ package com.movilizer.converter;
 
 import com.google.gson.JsonArray;
 import com.movilitas.movilizer.v14.MovilizerReplyQuestion;
+import com.movilizer.jaxb.MovilizerJaxbMarshaller;
 import com.movilizer.reply.converter.Answer;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
