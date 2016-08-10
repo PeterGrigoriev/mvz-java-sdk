@@ -3,7 +3,7 @@ package com.movilizer.masterdata;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
-import com.movilitas.movilizer.v14.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v15.MovilizerMasterdataPoolUpdate;
 import com.movilizer.jaxb.MovilizerJaxbUnmarshaller;
 import com.movilizer.util.template.ITemplateRepository;
 import com.movilizer.util.template.IXmlTemplate;
