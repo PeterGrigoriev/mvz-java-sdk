@@ -1,8 +1,8 @@
 package com.movilizer.util.movelet.reply;
 
-import com.movilitas.movilizer.v14.MovilizerReplyAnswer;
-import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
-import com.movilitas.movilizer.v14.MovilizerReplyQuestion;
+import com.movilitas.movilizer.v15.MovilizerReplyAnswer;
+import com.movilitas.movilizer.v15.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v15.MovilizerReplyQuestion;
 
 import java.util.HashMap;
 import java.util.List;

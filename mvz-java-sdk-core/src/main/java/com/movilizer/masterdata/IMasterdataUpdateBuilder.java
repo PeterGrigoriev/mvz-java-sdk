@@ -1,7 +1,7 @@
 package com.movilizer.masterdata;
 
 import com.google.inject.ImplementedBy;
-import com.movilitas.movilizer.v14.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v15.MovilizerMasterdataPoolUpdate;
 
 /**
  * @author Peter.Grigoriev@movilizer.com

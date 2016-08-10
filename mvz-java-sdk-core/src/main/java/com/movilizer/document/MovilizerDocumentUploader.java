@@ -2,10 +2,10 @@ package com.movilizer.document;
 
 import com.google.common.io.Files;
 import com.google.inject.Singleton;
-import com.movilitas.movilizer.v14.MovilizerDocumentDelete;
-import com.movilitas.movilizer.v14.MovilizerDocumentPoolUpdate;
-import com.movilitas.movilizer.v14.MovilizerDocumentUpdate;
-import com.movilitas.movilizer.v14.MovilizerRequest;
+import com.movilitas.movilizer.v15.MovilizerDocumentDelete;
+import com.movilitas.movilizer.v15.MovilizerDocumentPoolUpdate;
+import com.movilitas.movilizer.v15.MovilizerDocumentUpdate;
+import com.movilitas.movilizer.v15.MovilizerRequest;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
 import org.apache.commons.io.IOUtils;

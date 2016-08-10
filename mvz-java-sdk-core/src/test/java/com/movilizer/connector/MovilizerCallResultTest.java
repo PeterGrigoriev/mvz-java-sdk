@@ -1,7 +1,7 @@
 package com.movilizer.connector;
 
-import com.movilitas.movilizer.v14.MovilizerResponse;
-import com.movilitas.movilizer.v14.MovilizerStatusMessage;
+import com.movilitas.movilizer.v15.MovilizerResponse;
+import com.movilitas.movilizer.v15.MovilizerStatusMessage;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;

@@ -1,6 +1,6 @@
 package com.movilizer.projectmanagement;
 
-import com.movilitas.movilizer.v14.MovilizerResponse;
+import com.movilitas.movilizer.v15.MovilizerResponse;
 import com.movilizer.pull.IMovilizerResponseObserver;
 import com.movilizer.pull.KeepItOnTheCloudException;
 

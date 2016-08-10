@@ -1,7 +1,7 @@
 package com.movilizer.usermanagement;
 
 import com.google.common.base.Predicate;
-import com.movilitas.movilizer.v14.MovilizerParticipant;
+import com.movilitas.movilizer.v15.MovilizerParticipant;
 import com.movilizer.util.string.StringUtils;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;

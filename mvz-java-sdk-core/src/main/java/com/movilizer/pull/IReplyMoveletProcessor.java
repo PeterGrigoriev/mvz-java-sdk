@@ -1,6 +1,6 @@
 package com.movilizer.pull;
 
-import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v15.MovilizerReplyMovelet;
 
 /**
  * @author Peter.Grigoriev@movilizer.com

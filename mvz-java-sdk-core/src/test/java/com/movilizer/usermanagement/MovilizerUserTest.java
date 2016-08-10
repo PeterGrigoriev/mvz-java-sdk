@@ -1,6 +1,6 @@
 package com.movilizer.usermanagement;
 
-import com.movilitas.movilizer.v14.MovilizerParticipant;
+import com.movilitas.movilizer.v15.MovilizerParticipant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

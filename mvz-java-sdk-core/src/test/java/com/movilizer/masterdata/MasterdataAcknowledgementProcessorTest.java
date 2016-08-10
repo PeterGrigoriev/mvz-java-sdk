@@ -1,8 +1,8 @@
 package com.movilizer.masterdata;
 
-import com.movilitas.movilizer.v14.MovilizerMasterdataAck;
-import com.movilitas.movilizer.v14.MovilizerMasterdataDeleted;
-import com.movilitas.movilizer.v14.MovilizerMasterdataError;
+import com.movilitas.movilizer.v15.MovilizerMasterdataAck;
+import com.movilitas.movilizer.v15.MovilizerMasterdataDeleted;
+import com.movilitas.movilizer.v15.MovilizerMasterdataError;
 import com.movilizer.pull.CannotProcessMasterdataAcknowledgementException;
 import com.movilizer.pull.CannotProcessMasterdataDeletionException;
 import org.testng.annotations.BeforeMethod;

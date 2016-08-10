@@ -1,7 +1,7 @@
 package com.movilizer.acknowledgement;
 
 import com.google.inject.Inject;
-import com.movilitas.movilizer.v14.MovilizerResponse;
+import com.movilitas.movilizer.v15.MovilizerResponse;
 import com.movilizer.connector.IMovilizerCloudSystem;
 import com.movilizer.connector.IMovilizerRequestSender;
 import com.movilizer.connector.IProxyInfo;

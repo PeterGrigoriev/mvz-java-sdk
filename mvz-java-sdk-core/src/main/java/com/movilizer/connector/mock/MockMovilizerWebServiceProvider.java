@@ -1,8 +1,8 @@
 package com.movilizer.connector.mock;
 
-import com.movilitas.movilizer.v14.MovilizerRequest;
-import com.movilitas.movilizer.v14.MovilizerResponse;
-import com.movilitas.movilizer.v14.MovilizerWebServiceV14;
+import com.movilitas.movilizer.v15.MovilizerRequest;
+import com.movilitas.movilizer.v15.MovilizerResponse;
+import com.movilitas.movilizer.v15.MovilizerWebServiceV15;
 import com.movilizer.connector.IMovilizerWebServiceProvider;
 
 /**
@@ -20,7 +20,7 @@ public class MockMovilizerWebServiceProvider implements IMovilizerWebServiceProv
     }
 
     @Override
-    public MovilizerWebServiceV14 get() {
+    public MovilizerWebServiceV15 get() {
         return service;
     }
 

@@ -4,19 +4,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.movilizer</groupId>
-        <artifactId>mvz-java-sdk-pom</artifactId>
-        <version>5.0.1</version>
-    </parent>
-
+    <groupId>com.movilizer</groupId>
     <artifactId>mvz-java-sdk-core</artifactId>
-    <version>5.0.1</version>
+    <version>5.0.2</version>
+
     <dependencies>
         <dependency>
             <groupId>com.movilizer</groupId>
             <artifactId>mvz-java-sdk-ws</artifactId>
-            <version>5.0.1</version>
+            <version>5.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.apache.velocity</groupId>

@@ -4,14 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.movilizer</groupId>
-        <artifactId>mvz-java-sdk-pom</artifactId>
-        <version>5.0.1</version>
-    </parent>
-
+    <groupId>com.movilizer</groupId>
     <artifactId>mvz-java-sdk-ws</artifactId>
-    <version>5.0.1</version>
+    <version>5.0.2</version>
 
     <build>
         <plugins>
@@ -37,8 +32,8 @@
                             <sourceRoot>${basedir}/src/main/java</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/wsdl/MovilizerV14Wsdl11.wsdl</wsdl>
-                                    <wsdlLocation>classpath:wsdl/MovilizerV14Wsdl11.wsdl</wsdlLocation>
+                                    <wsdl>${basedir}/src/main/resources/wsdl/MovilizerV15Wsdl11.wsdl</wsdl>
+                                    <wsdlLocation>classpath:wsdl/MovilizerV15Wsdl11.wsdl</wsdlLocation>
                                 </wsdlOption>
                             </wsdlOptions>
                         </configuration>

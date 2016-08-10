@@ -4,8 +4,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonPrimitive;
-import com.movilitas.movilizer.v14.MovilizerReplyAnswer;
-import com.movilitas.movilizer.v14.MovilizerReplyQuestion;
+import com.movilitas.movilizer.v15.MovilizerReplyAnswer;
+import com.movilitas.movilizer.v15.MovilizerReplyQuestion;
 
 import java.util.List;
 import java.util.Map;

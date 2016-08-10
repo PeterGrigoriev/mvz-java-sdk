@@ -1,7 +1,7 @@
 package com.movilizer.connector;
 
-import com.movilitas.movilizer.v14.MovilizerMovelet;
-import com.movilitas.movilizer.v14.MovilizerMoveletDelete;
+import com.movilitas.movilizer.v15.MovilizerMovelet;
+import com.movilitas.movilizer.v15.MovilizerMoveletDelete;
 
 import java.util.ArrayList;
 import java.util.List;

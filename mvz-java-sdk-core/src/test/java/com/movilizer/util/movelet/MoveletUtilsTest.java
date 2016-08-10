@@ -1,6 +1,6 @@
 package com.movilizer.util.movelet;
 
-import com.movilitas.movilizer.v14.MovilizerMovelet;
+import com.movilitas.movilizer.v15.MovilizerMovelet;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

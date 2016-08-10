@@ -1,8 +1,8 @@
 package com.movilizer.document;
 
-import com.movilitas.movilizer.v14.MovilizerDocumentPoolUpdate;
-import com.movilitas.movilizer.v14.MovilizerDocumentUpdate;
-import com.movilitas.movilizer.v14.MovilizerRequest;
+import com.movilitas.movilizer.v15.MovilizerDocumentPoolUpdate;
+import com.movilitas.movilizer.v15.MovilizerDocumentUpdate;
+import com.movilitas.movilizer.v15.MovilizerRequest;
 import org.apache.tools.ant.util.ReaderInputStream;
 import org.testng.annotations.Test;
 

@@ -1,6 +1,6 @@
 package com.movilizer.mockdata.saved;
 
-import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v15.MovilizerReplyMovelet;
 import com.movilizer.jaxb.MovilizerJaxbUnmarshaller;
 import org.apache.commons.io.IOUtils;
 import org.xml.sax.SAXException;

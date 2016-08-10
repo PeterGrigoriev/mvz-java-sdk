@@ -1,9 +1,9 @@
 package com.movilizer.masterdata;
 
-import com.movilitas.movilizer.v14.MovilizerMasterdataDelete;
-import com.movilitas.movilizer.v14.MovilizerMasterdataPoolUpdate;
-import com.movilitas.movilizer.v14.MovilizerMasterdataReference;
-import com.movilitas.movilizer.v14.MovilizerMasterdataUpdate;
+import com.movilitas.movilizer.v15.MovilizerMasterdataDelete;
+import com.movilitas.movilizer.v15.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v15.MovilizerMasterdataReference;
+import com.movilitas.movilizer.v15.MovilizerMasterdataUpdate;
 
 import java.util.List;
 

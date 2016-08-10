@@ -1,14 +1,14 @@
 package com.movilizer.connector;
 
-import com.movilitas.movilizer.v14.MovilizerWebServiceV14;
-import com.movilitas.movilizer.v14.MovilizerWebServiceV14Service;
+import com.movilitas.movilizer.v15.MovilizerWebServiceV15;
+import com.movilitas.movilizer.v15.MovilizerWebServiceV15Service;
 
 /**
  * @author Peter.Grigoriev@movilizer.com
  */
 public class MovilizerWebServiceProvider implements IMovilizerWebServiceProvider {
     @Override
-    public MovilizerWebServiceV14 get() {
-        return new MovilizerWebServiceV14Service().getMovilizerWebServiceV14Soap11();
+    public MovilizerWebServiceV15 get() {
+        return new MovilizerWebServiceV15Service().getMovilizerWebServiceV15Soap11();
     }
 }

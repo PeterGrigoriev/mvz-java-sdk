@@ -1,7 +1,7 @@
 package com.movilizer.pull;
 
 import com.google.inject.Singleton;
-import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v15.MovilizerReplyMovelet;
 import com.movilizer.jaxb.MovilizerJaxbMarshaller;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;

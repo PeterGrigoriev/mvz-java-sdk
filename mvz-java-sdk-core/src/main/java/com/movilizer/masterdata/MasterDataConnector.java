@@ -2,8 +2,8 @@ package com.movilizer.masterdata;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.movilitas.movilizer.v14.MovilizerMasterdataPoolUpdate;
-import com.movilitas.movilizer.v14.MovilizerResponse;
+import com.movilitas.movilizer.v15.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v15.MovilizerResponse;
 import com.movilizer.acknowledgement.MovilizerAcknowledgmentCall;
 import com.movilizer.connector.IMovilizerCloudSystem;
 import com.movilizer.connector.IMovilizerRequestSender;

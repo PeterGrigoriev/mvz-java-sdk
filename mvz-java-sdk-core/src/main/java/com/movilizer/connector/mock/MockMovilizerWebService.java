@@ -1,8 +1,8 @@
 package com.movilizer.connector.mock;
 
-import com.movilitas.movilizer.v14.MovilizerRequest;
-import com.movilitas.movilizer.v14.MovilizerResponse;
-import com.movilitas.movilizer.v14.MovilizerWebServiceV14;
+import com.movilitas.movilizer.v15.MovilizerRequest;
+import com.movilitas.movilizer.v15.MovilizerResponse;
+import com.movilitas.movilizer.v15.MovilizerWebServiceV15;
 
 import javax.xml.ws.Binding;
 import javax.xml.ws.BindingProvider;
@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * @author Peter.Grigoriev@movilizer.com
  */
-public class MockMovilizerWebService implements MovilizerWebServiceV14, BindingProvider {
+public class MockMovilizerWebService implements MovilizerWebServiceV15, BindingProvider {
     private final Map<String, Object> requestContext = new HashMap<String, Object>();
     private final Map<String, Object> responseContext = new HashMap<String, Object>();
     private MovilizerResponse movilizerResponse;

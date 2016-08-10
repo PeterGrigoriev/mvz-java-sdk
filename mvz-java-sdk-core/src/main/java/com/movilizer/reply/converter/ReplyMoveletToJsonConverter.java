@@ -2,8 +2,8 @@ package com.movilizer.reply.converter;
 
 import com.google.common.base.Function;
 import com.google.gson.JsonObject;
-import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
-import com.movilitas.movilizer.v14.MovilizerReplyQuestion;
+import com.movilitas.movilizer.v15.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v15.MovilizerReplyQuestion;
 
 import javax.annotation.Nullable;
 import java.util.List;

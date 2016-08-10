@@ -1,7 +1,7 @@
 package com.movilizer.acknowledgement;
 
-import com.movilitas.movilizer.v14.MovilizerRequest;
-import com.movilitas.movilizer.v14.MovilizerResponse;
+import com.movilitas.movilizer.v15.MovilizerRequest;
+import com.movilitas.movilizer.v15.MovilizerResponse;
 import com.movilizer.connector.mock.MockMovilizerRequestSender;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

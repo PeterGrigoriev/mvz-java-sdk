@@ -1,7 +1,7 @@
 package com.movilizer.pull;
 
-import com.movilitas.movilizer.v14.MovilizerReplyMovelet;
-import com.movilitas.movilizer.v14.MovilizerReplyQuestion;
+import com.movilitas.movilizer.v15.MovilizerReplyMovelet;
+import com.movilitas.movilizer.v15.MovilizerReplyQuestion;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.List;

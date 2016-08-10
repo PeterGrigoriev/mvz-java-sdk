@@ -5,7 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.inject.Provider;
-import com.movilitas.movilizer.v14.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v15.MovilizerMasterdataPoolUpdate;
 import com.movilizer.masterdata.AcknowledgementStatus;
 import com.movilizer.masterdata.IMasterdataReaderResult;
 import com.movilizer.masterdata.IMasterdataSource;

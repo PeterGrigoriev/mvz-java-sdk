@@ -3,10 +3,10 @@ package com.movilizer.push;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.movilitas.movilizer.v14.MovilizerMasterdataDelete;
-import com.movilitas.movilizer.v14.MovilizerMasterdataPoolUpdate;
-import com.movilitas.movilizer.v14.MovilizerMasterdataReference;
-import com.movilitas.movilizer.v14.MovilizerMasterdataUpdate;
+import com.movilitas.movilizer.v15.MovilizerMasterdataDelete;
+import com.movilitas.movilizer.v15.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v15.MovilizerMasterdataReference;
+import com.movilitas.movilizer.v15.MovilizerMasterdataUpdate;
 import com.movilizer.masterdata.AcknowledgementStatus;
 import com.movilizer.masterdata.IMasterdataReaderResult;
 import com.movilizer.masterdata.IMasterdataSource;

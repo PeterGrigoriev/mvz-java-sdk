@@ -1,9 +1,9 @@
 package com.movilizer.connector;
 
 import com.google.common.base.Function;
-import com.movilitas.movilizer.v14.MovilizerMovelet;
-import com.movilitas.movilizer.v14.MovilizerMoveletSet;
-import com.movilitas.movilizer.v14.MovilizerRequest;
+import com.movilitas.movilizer.v15.MovilizerMovelet;
+import com.movilitas.movilizer.v15.MovilizerMoveletSet;
+import com.movilitas.movilizer.v15.MovilizerRequest;
 import com.movilizer.usermanagement.IMovilizerUser;
 import com.movilizer.usermanagement.MovilizerUser;
 

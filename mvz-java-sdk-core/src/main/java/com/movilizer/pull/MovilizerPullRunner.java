@@ -4,7 +4,7 @@ package com.movilizer.pull;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.movilitas.movilizer.v14.*;
+import com.movilitas.movilizer.v15.*;
 import com.movilizer.acknowledgement.IMovilizerAcknowledgementCall;
 import com.movilizer.connector.MovilizerCallResult;
 import com.movilizer.masterdata.IMasterdataAcknowledgementProcessor;
@@ -159,7 +159,6 @@ public class MovilizerPullRunner implements IMovilizerPullRunner {
         logger.debug("Movilizer Masterdata Deleted:" + movilizerResponse.getMasterdataDeleted().size());
         logger.debug("Movilizer Masterdata Error:" + movilizerResponse.getMasterdataError().size());
         logger.debug("Movelet Acknowledgments:" + movilizerResponse.getMoveletAck().size());
-        logger.debug("Movelets Synced:" + movilizerResponse.getMoveletSynced().size());
         logger.debug("Movelets assignments deleted:" + movilizerResponse.getMoveletAssignmentDeleted().size());
         logger.debug("Participant Acknowledgments:" + movilizerResponse.getParticipantAck().size());
     }

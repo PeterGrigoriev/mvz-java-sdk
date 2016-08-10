@@ -2,9 +2,9 @@ package com.movilizer.connector;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.movilitas.movilizer.v14.MovilizerRequest;
-import com.movilitas.movilizer.v14.MovilizerResponse;
-import com.movilitas.movilizer.v14.MovilizerWebServiceV14;
+import com.movilitas.movilizer.v15.MovilizerRequest;
+import com.movilitas.movilizer.v15.MovilizerResponse;
+import com.movilitas.movilizer.v15.MovilizerWebServiceV15;
 import com.movilizer.util.config.IKeyStoreInfo;
 import com.movilizer.util.config.MovilizerConfig;
 import com.movilizer.util.logger.ComponentLogger;
@@ -39,7 +39,7 @@ public class MovilizerRequestSender implements IMovilizerRequestSender {
             applyProxy(proxyInfo);
         }
         try {
-            MovilizerWebServiceV14 port = webServiceProvider.get();
+            MovilizerWebServiceV15 port = webServiceProvider.get();
             BindingProvider bindingProvider = (BindingProvider) port;
             Map<String, Object> requestContext = bindingProvider.getRequestContext();
 

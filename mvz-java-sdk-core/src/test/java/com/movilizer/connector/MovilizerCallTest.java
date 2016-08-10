@@ -1,10 +1,10 @@
 package com.movilizer.connector;
 
 import com.google.common.base.Function;
-import com.movilitas.movilizer.v14.MovilizerMovelet;
-import com.movilitas.movilizer.v14.MovilizerMoveletSet;
-import com.movilitas.movilizer.v14.MovilizerParticipant;
-import com.movilitas.movilizer.v14.MovilizerRequest;
+import com.movilitas.movilizer.v15.MovilizerMovelet;
+import com.movilitas.movilizer.v15.MovilizerMoveletSet;
+import com.movilitas.movilizer.v15.MovilizerParticipant;
+import com.movilitas.movilizer.v15.MovilizerRequest;
 import com.movilizer.connector.mock.MockMovilizerRequestSender;
 import com.movilizer.document.MovilizerDocumentUploader;
 import com.movilizer.push.IMovilizerPushCall;

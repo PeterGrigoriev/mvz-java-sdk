@@ -1,6 +1,6 @@
 package com.movilizer.util.movelet.reply;
 
-import com.movilitas.movilizer.v14.MovilizerReplyAnswer;
+import com.movilitas.movilizer.v15.MovilizerReplyAnswer;
 
 import java.util.Date;
 import java.util.Map;

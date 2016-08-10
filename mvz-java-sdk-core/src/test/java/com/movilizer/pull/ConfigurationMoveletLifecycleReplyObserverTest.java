@@ -1,8 +1,8 @@
 package com.movilizer.pull;
 
-import com.movilitas.movilizer.v14.MovilizerMoveletSynced;
-import com.movilitas.movilizer.v14.MovilizerParticipantAck;
-import com.movilitas.movilizer.v14.MovilizerResponse;
+import com.movilitas.movilizer.v15.MovilizerSyncedMovelet;
+import com.movilitas.movilizer.v15.MovilizerParticipantAck;
+import com.movilitas.movilizer.v15.MovilizerResponse;
 import com.movilizer.assignmentmanagement.MobileAssignmentEvent;
 import com.movilizer.assignmentmanagement.MobileAssignmentEventType;
 import com.movilizer.assignmentmanagement.mock.MockMobileAssignmentManager;
@@ -47,35 +47,6 @@ public class ConfigurationMoveletLifecycleReplyObserverTest {
         );
     }
 
-    @Test
-    public void testOnResponseAvailableWithMoveletSynced() throws Exception {
-        MobileAssignmentEvent event = new MobileAssignmentEvent();
-        event.setId(345);
-        event.setType(MobileAssignmentEventType.ASSIGNED);
-        event.setProjectDescription(project);
-        event.setUser(user);
-
-
-
-        assignmentManager.addEvent(event);
-        assignmentManager.acknowledge(asList(event.getId()), EventAcknowledgementStatus.SENT);
-        assignmentManager.acknowledge(asList(event.getId()), EventAcknowledgementStatus.ACKNOWLEDGED);
-
-
-        MovilizerResponse response = new MovilizerResponse();
-        MovilizerMoveletSynced movilizerMoveletSynced = new MovilizerMoveletSynced();
-        movilizerMoveletSynced.setDeviceAddress(user.getDeviceAddress());
-        movilizerMoveletSynced.setMoveletKey(configurationMoveletKey.getMoveletKey());
-        movilizerMoveletSynced.setMoveletKeyExtension(configurationMoveletKey.getMoveletExtension());
-
-        response.getMoveletSynced().add(movilizerMoveletSynced);
-
-        replyObserver.onResponseAvailable(response);
-
-        EventAcknowledgementStatus status = assignmentManager.getStatus(event.getId());
-        assertEquals(status, EventAcknowledgementStatus.SYNCED);
-
-    }
 
     @Test
     public void testOnResponseAvailableWithParticipantAck() throws Exception {

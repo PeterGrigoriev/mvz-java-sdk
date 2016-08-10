@@ -1,7 +1,7 @@
 package com.movilizer.masterdata;
 
-import com.movilitas.movilizer.v14.MovilizerMasterdataPoolUpdate;
-import com.movilitas.movilizer.v14.MovilizerMasterdataReference;
+import com.movilitas.movilizer.v15.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v15.MovilizerMasterdataReference;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;

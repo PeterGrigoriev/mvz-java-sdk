@@ -1,6 +1,6 @@
 package com.movilizer.moveletbuilder;
 
-import com.movilitas.movilizer.v14.MovilizerMovelet;
+import com.movilitas.movilizer.v15.MovilizerMovelet;
 
 import java.util.ArrayList;
 import java.util.List;

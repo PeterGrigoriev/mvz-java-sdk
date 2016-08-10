@@ -2,9 +2,9 @@ package com.movilizer.push;
 
 import com.google.common.base.Function;
 import com.google.inject.ImplementedBy;
-import com.movilitas.movilizer.v14.MovilizerMasterdataPoolUpdate;
-import com.movilitas.movilizer.v14.MovilizerMovelet;
-import com.movilitas.movilizer.v14.MovilizerRequest;
+import com.movilitas.movilizer.v15.MovilizerMasterdataPoolUpdate;
+import com.movilitas.movilizer.v15.MovilizerMovelet;
+import com.movilitas.movilizer.v15.MovilizerRequest;
 import com.movilizer.connector.IMoveletKeyWithExtension;
 import com.movilizer.moveletbuilder.IMoveletDataProvider;
 import com.movilizer.usermanagement.IMovilizerUser;

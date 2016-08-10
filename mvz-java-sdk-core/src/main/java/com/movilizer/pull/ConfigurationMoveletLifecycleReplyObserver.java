@@ -1,7 +1,8 @@
 package com.movilizer.pull;
 
+
 import com.google.common.primitives.Ints;
-import com.movilitas.movilizer.v14.*;
+import com.movilitas.movilizer.v15.*;
 import com.movilizer.assignmentmanagement.IMobileAssignmentManager;
 import com.movilizer.connector.IMoveletKeyWithExtension;
 import com.movilizer.projectmanagement.IMobileProjectManager;
@@ -12,6 +13,7 @@ import com.movilizer.push.EventType;
 import com.movilizer.util.logger.ComponentLogger;
 import com.movilizer.util.logger.ILogger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.movilizer.push.EventAcknowledgementStatus.ACKNOWLEDGED;
@@ -41,30 +43,11 @@ public class ConfigurationMoveletLifecycleReplyObserver implements IMovilizerRes
     public void onResponseAvailable(MovilizerResponse response) throws KeepItOnTheCloudException {
         processMoveletAcknowledgements(response);
         processParticipantAcknowledgements(response);
-        processMoveletsSynced(response);
         processParticipantUnassignments(response);
         processMoveletErrors(response);
     }
 
 
-    private void processMoveletsSynced(MovilizerResponse response) {
-        List<MovilizerMoveletSynced> moveletsSynced = response.getMoveletSynced();
-        for (MovilizerMoveletSynced moveletSynced : moveletsSynced) {
-            if (!matches(moveletSynced.getMoveletKey(), moveletSynced.getMoveletKeyExtension(), keyWithExtension)) {
-                continue;
-            }
-
-            int[] eventIds = getSentOrAcknowledgedEvents(moveletSynced.getDeviceAddress());
-
-            if (null != eventIds && eventIds.length != 0) {
-                try {
-                    assignmentManager.acknowledge(Ints.asList(eventIds), SYNCED);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
 
     private int[] getSentOrAcknowledgedEvents(String deviceAddress) {
         int[] eventIds = assignmentManager.getAssignmentEventIds(project, asList(deviceAddress), EventType.CREATE, ACKNOWLEDGED);
