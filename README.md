@@ -1,1 +1,1 @@
-# MVZ SDK for Java
+Movilizer Java SDK
