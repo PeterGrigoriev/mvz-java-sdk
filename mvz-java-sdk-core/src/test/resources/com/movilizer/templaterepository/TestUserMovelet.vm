@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+#* @vtlvariable name="context" type="com.movilizer.demo.SampleDataProvider" *#
+<MovilizerMovelet xmlns="http://movilitas.com/movilizer/v15"
+                  moveletKey="TestMovelet"
+                  moveletKeyExtension="${context.userName}"
+                  namespace="${context.Namespace}"
+                  icon="14"
+                  moveletType="SINGLE"
+                  initialQuestionKey="Q1">
+    <question key="START" type="41">
+        <answer key="START" nextQuestionKey="INTERMOVELET"/>
+        <onEnterAssignment>
+            $global:moveletKeyToIdMap['first-web-app'] = $movelet:'first-web-app';
+            $global:moveletKeyToIdMap['second-web-app'] = $movelet:'second-web-app';
+            $global:moveletKeyToIdMap['third-web-app'] = $movelet:'third-web-app';
+            $global:selectedMoveletKey = 'third-web-app';
+        </onEnterAssignment>
+    </question>
+    <question key="INTERMOVELET" type="40" intermoveletType="1" intermoveletMoveletKey="">
+        <answer key="INTERMOVELET" attributeType="31" nextQuestionKey="FORK">
+            <text>Cannot load intermovelet</text>
+        </answer>
+        <onEnterAssignment>
+            selectedMoveletId = $global:moveletKeyToIdMap[$global:selectedMoveletKey];
+            showProgress(selectedMoveletId);
+            setAnswerValue($answer:'INTERMOVELET', selectedMoveletId);
+        </onEnterAssignment>
+    </question>
+    <question key="FORK" type="41">
+        <answer key="FORK" nextQuestionKey="START"/>
+        <restriction nextQuestionKey="INTERMOVELET">
+            <condition>true</condition>
+        </restriction>
+    </question>
+    <name>${context.userName}</name>
+</MovilizerMovelet>

@@ -1,0 +1,51 @@
+<config>
+    <movilizer>
+        <system>
+            <endpoint>https://demo.movilizer.com/MovilizerDistributionService/WebService/</endpoint>
+            <id>1</id>
+            <password>a</password>
+            <timeout>1800</timeout>
+        </system>
+
+        <master-data-system>
+            <endpoint>https://demo.movilizer.com/MovilizerDistributionService/WebService/</endpoint>
+            <id>1</id>
+            <password>a</password>
+            <timeout>1800</timeout>
+        </master-data-system>
+
+        <movelet>
+            <namespace>MJC</namespace>
+            <root-category>
+                <name>MJC</name>
+                <icon>12</icon>
+            </root-category>
+            <masterdata-system-id>12345</masterdata-system-id>
+        </movelet>
+        <pull>
+            <number-of-replies>100</number-of-replies>
+            <ignore-movelets>
+                <key>IgnoreMeOne</key>
+                <key>IgnoreMeTwo</key>
+            </ignore-movelets>
+        </pull>
+        <push>
+            <new-users-per-run>50</new-users-per-run>
+        </push>
+        <cordova>
+            <fullscreen>true</fullscreen>
+        </cordova>
+    </movilizer>
+    <db-connections>
+        <jdbc>
+            <url>jdbc:xxx:yyy:@//</url>
+            <user>uuu</user>
+            <password>ppp</password>
+        </jdbc>
+    </db-connections>
+
+    <proxy>
+        <host>proxy.cofely-fr.gdfsuez.net</host>
+        <port>8080</port>
+    </proxy>
+</config>
